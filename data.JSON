@@ -2,11 +2,13 @@
   "array": {
     "concat": {
       "explain": "El método concat() se usa para unir dos o más arrays. Este método no cambia los arrays existentes, sino que devuelve un nuevo array.",
-      "code": "const array1 = ['a', 'b', 'c'];\nconst array2 = ['d', 'e', 'f'];\nconst array3 = array1.concat(array2);\n\nconsole.log(array3);\n// Expected output: Array [\"a\", \"b\", \"c\", \"d\", \"e\", \"f\"]' "
+      "code": "const array1 = ['a', 'b', 'c'];\nconst array2 = ['d', 'e', 'f'];\nconst array3 = array1.concat(array2);\n\nconsole.log(array3);\n// Expected output: Array [\"a\", \"b\", \"c\", \"d\", \"e\", \"f\"]' ",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/concat"
     },
     "copywithin": {
       "explain": "El método copyWithin() transfiere una copia plana de una sección a otra dentro del mismo array ( o contexto similar ), sin modificar su propiedad length y lo devuelve.",
-      "code": "const array1 = ['a', 'b', 'c', 'd', 'e'];\n\n// Copy to index 0 the element at index 3\nconsole.log(array1.copyWithin(0, 3, 4));\n// Expected output: Array [\"d\", \"b\", \"c\", \"d\", \"e\"]\n\n// Copy to index 1 all elements from index 3 to the end\nconsole.log(array1.copyWithin(1, 3));\n// Expected output: Array [\"d\", \"d\", \"e\", \"d\", \"e\"] "
+      "code": "const array1 = ['a', 'b', 'c', 'd', 'e'];\n\n// Copy to index 0 the element at index 3\nconsole.log(array1.copyWithin(0, 3, 4));\n// Expected output: Array [\"d\", \"b\", \"c\", \"d\", \"e\"]\n\n// Copy to index 1 all elements from index 3 to the end\nconsole.log(array1.copyWithin(1, 3));\n// Expected output: Array [\"d\", \"d\", \"e\", \"d\", \"e\"] ",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/copyWithin"
     },
     "entries": {}
   }
