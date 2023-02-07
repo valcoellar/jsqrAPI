@@ -64,7 +64,17 @@ console.log(array1.fill(6));
 '''
             link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/fill'''
         }
-        filter:{}
+        filter:{
+            explain:'''El método filter() crea un nuevo array con todos los elementos que cumplan la condición implementada por la función dada.'''
+            code:'''const words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
+
+const result = words.filter(word => word.length > 6);
+
+console.log(result);
+// Expected output: Array ["exuberant", "destruction", "present"]
+'''
+            link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/filter'''
+        }
         find:{}
         findindex:{}
         flat:{}
