@@ -26,5 +26,31 @@ console.log(array1.copyWithin(1, 3));
         entries:{}
         every:{}
         fill:{}
+        filter:{}
+        find:{}
+        findindex:{}
+        flat:{}
+        flatmap:{}
+        foreach:{}
+        includes:{}
+        indexof:{}
+        join:{}
+        keys:{}
+        lastindexof:{}
+        map:{}
+        pop:{}
+        push:{}
+        reduce:{}
+        reduceright:{}
+        reverse:{}
+        shift:{}
+        slice:{}
+        some:{}
+        sort:{}
+        splice:{}
+        tolocalestring:{}
+        tostring:{}
+        unshift:{}
+        values:{}
     }
 }
