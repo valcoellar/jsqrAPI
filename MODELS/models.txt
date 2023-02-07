@@ -24,5 +24,7 @@ console.log(array1.copyWithin(1, 3));
         link: 'https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/copyWithin'
         }
         entries:{}
+        every:{}
+        fill:{}
     }
 }
