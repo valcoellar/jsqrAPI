@@ -75,7 +75,18 @@ console.log(result);
 '''
             link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/filter'''
         }
-        find:{}
+        find:{
+            explain:'''El método find() devuelve el valor del primer elemento del array que cumple la función de prueba proporcionada.'''
+            code:'''const array1 = [5, 12, 8, 130, 44];
+
+const found = array1.find(element => element > 10);
+
+console.log(found);
+// Expected output: 12
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/find'''
+            
+        }
         findindex:{}
         flat:{}
         flatmap:{}

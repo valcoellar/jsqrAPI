@@ -15,10 +15,26 @@
       "code": "const array1 = ['a', 'b', 'c'];\n\nconst iterator1 = array1.entries();\n\nconsole.log(iterator1.next().value);\n// Expected output: Array [0, \"a\"]\n\nconsole.log(iterator1.next().value);\n// Expected output: Array [1, \"b\"]",
       "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/entries"
     },
-    "every": {},
-    "fill": {},
-    "filter": {},
-    "find": {},
+    "every": {
+      "explain": "Determina si todos los elementos en el array satisfacen una condición.",
+      "code": "const isBelowThreshold = (currentValue) => currentValue < 40;\n\nconst array1 = [1, 30, 39, 29, 10, 13];\n\nconsole.log(array1.every(isBelowThreshold));\n// Expected output: true",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/every"
+    },
+    "fill": {
+      "explain": "El método fill() cambia todos los elementos en un arreglo por un valor estático, desde el índice start (por defecto 0) hasta el índice end (por defecto array.length). Devuelve el arreglo modificado.",
+      "code": "const array1 = [1, 2, 3, 4];\n\n// Fill with 0 from position 2 until position 4\nconsole.log(array1.fill(0, 2, 4));\n// Expected output: Array [1, 2, 0, 0]\n\n// Fill with 5 from position 1\nconsole.log(array1.fill(5, 1));\n// Expected output: Array [1, 5, 5, 5]\n\nconsole.log(array1.fill(6));\n// Expected output: Array [6, 6, 6, 6]",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/fill"
+    },
+    "filter": {
+      "explain": "El método filter() crea un nuevo array con todos los elementos que cumplan la condición implementada por la función dada.",
+      "code": "const words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];\n\nconst result = words.filter(word => word.length > 6);\n\nconsole.log(result);\n// Expected output: Array [\"exuberant\", \"destruction\", \"present\"]",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/filter"
+    },
+    "find": {
+      "explain": "El método find() devuelve el valor del primer elemento del array que cumple la función de prueba proporcionada.",
+      "code": "const array1 = [5, 12, 8, 130, 44];\n\nconst found = array1.find(element => element > 10);\n\nconsole.log(found);\n// Expected output: 12",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/find"
+    },
     "findindex": {},
     "flat": {},
     "flatmap": {},
