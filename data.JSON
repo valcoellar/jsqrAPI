@@ -10,7 +10,11 @@
       "code": "const array1 = ['a', 'b', 'c', 'd', 'e'];\n\n// Copy to index 0 the element at index 3\nconsole.log(array1.copyWithin(0, 3, 4));\n// Expected output: Array [\"d\", \"b\", \"c\", \"d\", \"e\"]\n\n// Copy to index 1 all elements from index 3 to the end\nconsole.log(array1.copyWithin(1, 3));\n// Expected output: Array [\"d\", \"d\", \"e\", \"d\", \"e\"] ",
       "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/copyWithin"
     },
-    "entries": {},
+    "entries": {
+      "explain": "El método entries() retorna un nuevo objeto Array Iterator que contiene los pares clave/valor para cada índice de la matriz.",
+      "code": "const array1 = ['a', 'b', 'c'];\n\nconst iterator1 = array1.entries();\n\nconsole.log(iterator1.next().value);\n// Expected output: Array [0, \"a\"]\n\nconsole.log(iterator1.next().value);\n// Expected output: Array [1, \"b\"]",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/entries"
+    },
     "every": {},
     "fill": {},
     "filter": {},

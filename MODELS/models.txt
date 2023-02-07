@@ -23,7 +23,20 @@ console.log(array1.copyWithin(1, 3));
 // Expected output: Array ["d", "d", "e", "d", "e"] ''',
         link: 'https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/copyWithin'
         }
-        entries:{}
+        entries:{
+            explain:'''El método entries() retorna un nuevo objeto Array Iterator que contiene los pares clave/valor para cada índice de la matriz.'''
+            code:'''const array1 = ['a', 'b', 'c'];
+
+const iterator1 = array1.entries();
+
+console.log(iterator1.next().value);
+// Expected output: Array [0, "a"]
+
+console.log(iterator1.next().value);
+// Expected output: Array [1, "b"]
+''' 
+            link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/entries'''
+        }
         every:{}
         fill:{}
         filter:{}
