@@ -100,9 +100,47 @@ console.log(array1.findIndex(isLargeNumber));
 '''
 link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex'''
         }
-        flat:{}
-        flatmap:{}
-        foreach:{}
+        flat:{
+            explain:'''El método flat() crea una nueva matriz con todos los elementos de sub-array concatenados recursivamente hasta la profundidad especificada.'''
+            code:'''var arr1 = [1, 2, [3, 4]];
+arr1.flat();
+// [1, 2, 3, 4]
+
+var arr2 = [1, 2, [3, 4, [5, 6]]];
+arr2.flat();
+// [1, 2, 3, 4, [5, 6]]
+
+var arr3 = [1, 2, [3, 4, [5, 6]]];
+arr3.flat(2);
+// [1, 2, 3, 4, 5, 6]
+'''
+    link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/flat'''
+    
+        }
+        flatmap:{
+            explain:'''El método flatMap() primero mapea cada elemento usando una función de mapeo, luego aplana el resultado en una nueva matriz. Es idéntico a un map seguido de un flatten (en-US)de profundidad 1, pero flatMap es a menudo útil y la fusión de ambos en un método es ligeramente más eficiente.'''
+            code:'''const arr1 = [1, 2, [3], [4, 5], 6, []];
+
+const flattened = arr1.flatMap(num => num);
+
+console.log(flattened);
+// Expected output: Array [1, 2, 3, 4, 5, 6]
+'''
+    link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/flatMap'''
+    
+        }
+        foreach:{
+            explain:'''El método forEach() ejecuta la función indicada una vez por cada elemento del array.'''
+            code:'''const array1 = ['a', 'b', 'c'];
+
+array1.forEach(element => console.log(element));
+
+// Expected output: "a"
+// Expected output: "b"
+// Expected output: "c"
+'''
+    link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach'''
+        }
         includes:{}
         indexof:{}
         join:{}
