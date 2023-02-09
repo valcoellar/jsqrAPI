@@ -442,5 +442,53 @@ console.log(iterator.next().value); // p
 '''
 link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/values'''
         }
+        
+    }
+    string:{
+        charat:{}
+        charcodeat:{}
+        concat:{}
+        endswith:{}
+        inlcudes:{}
+        indexof:{}
+        lastindexof:{}
+        localecompare:{}
+        match:{}
+        normalize:{}
+        padend:{}
+        padstart:{}
+        repeat:{}
+        replace:{}
+        search:{}
+        slice:{}
+        split:{}
+        startswith:{}
+        substr:{}
+        substring:{}
+        tolocalelowercase:{}
+        tolocaleuppercase:{}
+        tolowercase:{}
+        touppercase:{}
+        trim:{}
+    }
+    math:{
+        abs:{}
+        acos:{}
+        asin:{}
+        atan:{}
+        atan2:{}
+        ceil:{}
+        cos:{}
+        exp:{}
+        floor:{}
+        log:{}
+        max:{}
+        min:{}
+        pow:{}
+        random:{}
+        round:{}
+        sin:{}
+        sqrt:{}
+        tan:{}
     }
 }
