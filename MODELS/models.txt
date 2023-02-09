@@ -158,12 +158,95 @@ console.log(pets.includes('at'));
 '''
     link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/includes'''
         }
-        indexof:{}
-        join:{}
-        keys:{}
-        lastindexof:{}
-        map:{}
-        pop:{}
+        indexof:{
+            explain:'''El método indexOf() retorna el primer índice en el que se puede encontrar un elemento dado en el array, ó retorna -1 si el elemento no esta presente.'''
+            code:'''var indices = [];
+var array = ['a', 'b', 'a', 'c', 'a', 'd'];
+var element = 'a';
+var idx = array.indexOf(element);
+while (idx != -1) {
+  indices.push(idx);
+  idx = array.indexOf(element, idx + 1);
+}
+console.log(indices);
+// [0, 2, 4]
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf'''
+        }
+        join:{
+            explain:'''El método join() une todos los elementos de una matriz (o un objeto similar a una matriz) en una cadena y devuelve esta cadena.'''
+            code:'''var a = ['Viento', 'Lluvia', 'Fuego'];
+var miVar1 = a.join();      // asigna 'Viento,Lluvia,Fuego' a miVar1
+var miVar2 = a.join(', ');  // asigna 'Viento, Lluvia, Fuego' a miVar2
+var miVar3 = a.join(' + '); // asigna 'Viento + Lluvia + Fuego' a miVar3
+var miVar4 = a.join('');    // asigna 'VientoLluviaFuego' a miVar4
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/join'''
+        }
+        keys:{
+            explain:'''El método keys() devuelve un nuevo objeto Array Iterator que contiene las claves de índice con las que acceder a cada elemento en el array.
+
+'''
+        code:'''const array1 = ['a', 'b', 'c'];
+const iterator = array1.keys();
+
+for (const key of iterator) {
+  console.log(key);
+}
+
+// Expected output: 0
+// Expected output: 1
+// Expected output: 2
+'''
+    link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/keys'''
+        }
+        lastindexof:{
+            explain:'''El método lastIndexOf() devuelve el último índice en el que un cierto elemento puede encontrarse en el arreglo, ó -1 si el elemento no se encontrara. El arreglo es recorrido en sentido contrario, empezando por el índice fromIndex.'''
+            code:'''const animals = ['Dodo', 'Tiger', 'Penguin', 'Dodo'];
+
+console.log(animals.lastIndexOf('Dodo'));
+// Expected output: 3
+
+console.log(animals.lastIndexOf('Tiger'));
+// Expected output: 1
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/lastIndexOf'''
+        }
+        map:{
+            explain:'''El método map() crea un nuevo array con los resultados de la llamada a la función indicada aplicados a cada uno de sus elementos.'''
+            code:'''var numbers = [1, 5, 10, 15];
+var doubles = numbers.map(function(x) {
+   return x * 2;
+});
+// doubles is now [2, 10, 20, 30]
+// numbers is still [1, 5, 10, 15]
+
+var numbers = [1, 4, 9];
+var roots = numbers.map(function(num) {
+    return Math.sqrt(num);
+});
+// roots is now [1, 2, 3]
+// numbers is still [1, 4, 9]
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/map'''
+        }
+        pop:{
+            explain:'''El método pop() elimina el último elemento de un array y lo devuelve. Este método cambia la longitud del array.'''
+            code:'''const plants = ['broccoli', 'cauliflower', 'cabbage', 'kale', 'tomato'];
+
+console.log(plants.pop());
+// Expected output: "tomato"
+
+console.log(plants);
+// Expected output: Array ["broccoli", "cauliflower", "cabbage", "kale"]
+
+plants.pop();
+
+console.log(plants);
+// Expected output: Array ["broccoli", "cauliflower", "cabbage"]
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/pop'''
+        }
         push:{}
         reduce:{}
         reduceright:{}
