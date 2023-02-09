@@ -247,18 +247,200 @@ console.log(plants);
 '''
 link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/pop'''
         }
-        push:{}
-        reduce:{}
-        reduceright:{}
-        reverse:{}
-        shift:{}
-        slice:{}
-        some:{}
-        sort:{}
-        splice:{}
-        tolocalestring:{}
-        tostring:{}
-        unshift:{}
-        values:{}
+        push:{
+            explain:'''El método push() añade uno o más elementos al final de un array y devuelve la nueva longitud del array.'''
+            code:'''const animals = ['pigs', 'goats', 'sheep'];
+
+const count = animals.push('cows');
+console.log(count);
+// Expected output: 4
+console.log(animals);
+// Expected output: Array ["pigs", "goats", "sheep", "cows"]
+
+animals.push('chickens', 'cats', 'dogs');
+console.log(animals);
+// Expected output: Array ["pigs", "goats", "sheep", "cows", "chickens", "cats", "dogs"]
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/push'''
+        }
+        reduce:{
+            explain:'''El método reduce() ejecuta una función reductora sobre cada elemento de un array, devolviendo como resultado un único valor.
+
+'''
+code:'''const array1 = [1, 2, 3, 4];
+
+// 0 + 1 + 2 + 3 + 4
+const initialValue = 0;
+const sumWithInitial = array1.reduce(
+  (accumulator, currentValue) => accumulator + currentValue,
+  initialValue
+);
+
+console.log(sumWithInitial);
+// Expected output: 10
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce'''
+        }
+        reduceright:{
+            explain:'''Aplica una función simultáneamente contra un acumulador y cada elemento de un array (de derecha a izquierda) para reducirlo a un único valor.'''
+            code:'''[0,1,2,3,4].reduceRight(function(valorPrevio, valorActual, indice, array){
+  return valorPrevio + valorActual;
+});
+
+// First call
+valorPrevio = 4, valorActual = 3, indice = 3
+
+// Second call
+valorPrevio = 7, valorActual = 2, indice = 2
+
+// Third call
+valorPrevio = 9, valorActual = 1, indice = 1
+
+// Fourth call
+valorPrevio = 10, valorActual = 0, indice = 0
+
+// el array sobre el que se llama a reduceRight siempre es el objeto [0,1,2,3,4]
+
+// Valor Devuelto: 10
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/ReduceRight'''
+        }
+        reverse:{
+            explain:'''El método reverse() invierte el orden de los elementos de un array in place. El primer elemento pasa a ser el último y el último pasa a ser el primero.
+
+'''
+code:'''const array1 = ['one', 'two', 'three'];
+console.log('array1:', array1);
+// Expected output: "array1:" Array ["one", "two", "three"]
+
+const reversed = array1.reverse();
+console.log('reversed:', reversed);
+// Expected output: "reversed:" Array ["three", "two", "one"]
+
+// Careful: reverse is destructive -- it changes the original array.
+console.log('array1:', array1);
+// Expected output: "array1:" Array ["three", "two", "one"]
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/reverse'''
+        }
+        shift:{
+            explain:'''El método shift() elimina el primer elemento del array y lo retorna. Este método modifica la longitud del array.'''
+            code:'''var miPescado = ['ángel', 'payaso', 'mandarín', 'cirujano'];
+
+console.log('miPescado antes: ' + miPescado);
+// "miPescado antes: ángel,payaso,mandarín,cirujano"
+
+var eliminado = miPescado.shift();
+
+console.log('miPescado después: ' + miPescado);
+// "miPescado after: payaso,mandarín,cirujano"
+
+console.log('Elemento eliminado: ' + eliminado);
+// "Elemento eliminado: ángel"
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/shift'''
+        }
+        slice:{
+            explain:'''El método slice() devuelve una copia de una parte del array dentro de un nuevo array empezando por inicio hasta fin (fin no incluido). El array original no se modificará.
+
+'''
+code:'''var nombres = ['Rita', 'Pedro', 'Miguel', 'Ana', 'Vanesa'];
+var masculinos = nombres.slice(1, 3);
+
+// masculinos contiene ['Pedro','Miguel']
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/slice'''
+        }
+        some:{
+            explain:'''El método some() comprueba si al menos un elemento del array cumple con la condición implementada por la función proporcionada.'''
+            code:'''const array = [1, 2, 3, 4, 5];
+
+// Checks whether an element is even
+const even = (element) => element % 2 === 0;
+
+console.log(array.some(even));
+// Expected output: true
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/some'''
+        }
+        sort:{
+            explain:'''El método sort() ordena los elementos de un arreglo (array) localmente y devuelve el arreglo ordenado. La ordenación no es necesariamente estable. El modo de ordenación por defecto responde a la posición del valor del string de acuerdo a su valor Unicode.'''
+            code:'''var frutas = ['guindas', 'manzanas', 'bananas'];
+frutas.sort(); // ['bananas', 'guindas', 'manzanas']
+
+var puntos = [1, 10, 2, 21];
+puntos.sort(); // [1, 10, 2, 21]
+// Tenga en cuenta que 10 viene antes que 2
+// porque '10' viene antes que '2' según la posición del valor Unicode.
+
+var cosas = ['word', 'Word', '1 Word', '2 Words'];
+cosas.sort(); // ['1 Word', '2 Words', 'Word', 'word']
+// En Unicode, los números vienen antes que las letras mayúsculas
+// y estas vienen antes que las letras minúsculas.
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/sort'''
+        }
+        splice:{
+            explain:'''El método splice() cambia el contenido de un array eliminando elementos existentes y/o agregando nuevos elementos.'''
+            code:'''const months = ['Jan', 'March', 'April', 'June'];
+months.splice(1, 0, 'Feb');
+// Inserts at index 1
+console.log(months);
+// Expected output: Array ["Jan", "Feb", "March", "April", "June"]
+
+months.splice(4, 1, 'May');
+// Replaces 1 element at index 4
+console.log(months);
+// Expected output: Array ["Jan", "Feb", "March", "April", "May"]
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/splice'''
+        }
+        tolocalestring:{
+            explain:'''El método toLocaleString() devuelve una cadena de texto representando los elementos del array. Los elementos son convertidos a texto usando su método toLocaleString y dichos Strings son separados por un caracter específico para la localidad (como una coma para la separación de decimales “,”).
+
+'''
+code:'''const array1 = [1, 'a', new Date('21 Dec 1997 14:12:00 UTC')];
+const localeString = array1.toLocaleString('en', { timeZone: 'UTC' });
+
+console.log(localeString);
+// Expected output: "1,a,12/21/1997, 2:12:00 PM",
+// This assumes "en" locale and UTC timezone - your results may vary
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/toLocaleString'''
+        }
+        tostring:{
+            explain:'''El método toString() devuelve una cadena de caracteres representando el array especificado y sus elementos.'''
+            code:'''const array1 = [1, 2, 'a', '1a'];
+
+console.log(array1.toString());
+// Expected output: "1,2,a,1a"
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/toString'''
+        }
+        unshift:{
+            explain:'''El método unshift() agrega uno o más elementos al inicio del array, y devuelve la nueva longitud del array.'''
+            code:'''const array1 = [1, 2, 3];
+
+console.log(array1.unshift(4, 5));
+// Expected output: 5
+
+console.log(array1);
+// Expected output: Array [4, 5, 1, 2, 3]
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/unshift'''
+        }
+        values:{
+            explain:'''El método values() devuelve un nuevo objeto Array Iterator que contiene los valores para cada índice del array.'''
+            code:'''var a = ['w', 'y', 'k', 'o', 'p'];
+var iterator = a.values();
+
+console.log(iterator.next().value); // w
+console.log(iterator.next().value); // y
+console.log(iterator.next().value); // k
+console.log(iterator.next().value); // o
+console.log(iterator.next().value); // p
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/values'''
+        }
     }
 }
