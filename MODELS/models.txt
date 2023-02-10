@@ -445,15 +445,120 @@ link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Ob
         
     }
     string:{
-        charat:{}
-        charcodeat:{}
-        concat:{}
-        endswith:{}
-        inlcudes:{}
-        indexof:{}
-        lastindexof:{}
-        localecompare:{}
-        match:{}
+        charat:{
+            explain:'''El método charAt() de String devuelve en un nuevo String el carácter UTF-16 de una cadena.'''
+            code:'''var cualquierCadena="Brave new world";
+
+console.log("El carácter en el índice 0 es '" + cualquierCadena.charAt(0) + "'")
+console.log("El carácter en el índice 1 es '" + cualquierCadena.charAt(1) + "'")
+console.log("El carácter en el índice 2 es '" + cualquierCadena.charAt(2) + "'")
+console.log("El carácter en el índice 3 es '" + cualquierCadena.charAt(3) + "'")
+console.log("El carácter en el índice 4 es '" + cualquierCadena.charAt(4) + "'")
+console.log("El carácter en el índice 999 es '" + cualquierCadena.charAt(999) + "'")
+
+El carácter en el índice 0 es 'B'
+El carácter en el índice 1 es 'r'
+El carácter en el índice 2 es 'a'
+El carácter en el índice 3 es 'v'
+El carácter en el índice 4 es 'e'
+El carácter en el índice 999 es ''
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/String/charAt'''
+        }
+        charcodeat:{
+            explain:'''El charCodeAt() método devuelve un número indicando el valor Unicode del carácter en el índice proporcionado.'''
+            code:'''"ABC".charCodeAt(0) // returns 65'''
+            link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/String/charCodeAt'''
+        }
+        concat:{
+            explain:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/String/charCodeAt'''
+            code:'''const str1 = 'Hello';
+const str2 = 'World';
+
+console.log(str1.concat(' ', str2));
+// Expected output: "Hello World"
+
+console.log(str2.concat(', ', str1));
+// Expected output: "World, Hello"
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/String/concat'''
+        }
+        endswith:{
+            explain:'''El método endsWith() determina si una cadena de texto termina con los caracteres de una cadena indicada, devolviendo true o false según corresponda.'''
+            code:'''const str1 = 'Cats are the best!';
+
+console.log(str1.endsWith('best!'));
+// Expected output: true
+
+console.log(str1.endsWith('best', 17));
+// Expected output: true
+
+const str2 = 'Is this a question?';
+
+console.log(str2.endsWith('question'));
+// Expected output: false
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/String/endsWith'''
+        }
+        inlcudes:{
+            explain:'''El método includes() determina si una cadena de texto puede ser encontrada dentro de otra cadena de texto, devolviendo true o false según corresponda.'''
+            code:'''const sentence = 'The quick brown fox jumps over the lazy dog.';
+
+const word = 'fox';
+
+console.log(`The word "${word}" ${sentence.includes(word) ? 'is' : 'is not'} in the sentence`);
+// Expected output: "The word "fox" is in the sentence"
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/String/includes'''
+        }
+        indexof:{
+            explain:'''El método indexOf() devuelve el índice, dentro del objeto String que realiza la llamada, de la primera ocurrencia del valor especificado, comenzando la búsqueda desde indiceDesde; o -1 si no se encuentra dicho valor.'''
+            code:'''"Blue Whale".indexOf("Blue")    // returns 0
+"Blue Whale".indexOf("Blute")   // returns -1
+"Blue Whale".indexOf("Whale",0) // returns 5
+"Blue Whale".indexOf("Whale",5) // returns 5
+"Blue Whale".indexOf("",9)      // returns 9
+"Blue Whale".indexOf("",10)     // returns 10
+"Blue Whale".indexOf("",11)     // returns 10
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/String/indexOf'''
+        }
+        lastindexof:{
+            explain:'''El método lastIndexOf() devuelve la posicion (indice) en la que se encuentra el valorBusqueda, dentro del objeto String que realiza la llamada, de la última ocurrencia del valor especificado; o -1 si no se halla. La búsqueda se realiza empezando por el final de la cadena que realiza la llamada, empezando en indiceDesde.
+
+'''
+code:'''"canal".lastIndexOf("a")   // returns 3
+"canal".lastIndexOf("a",2) // returns 1
+"canal".lastIndexOf("a",0) // returns -1
+"canal".lastIndexOf("x")   // returns -1
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/String/lastIndexOf'''
+
+        }
+        localecompare:{
+            explain:'''El método localeCompare() retorna un número indicando si una cadena de carateres de referencia va antes, después o si es la misma que la cadena dada en orden alfabético.'''
+            code:'''const a = 'réservé'; // With accents, lowercase
+const b = 'RESERVE'; // No accents, uppercase
+
+console.log(a.localeCompare(b));
+// Expected output: 1
+console.log(a.localeCompare(b, 'en', { sensitivity: 'base' }));
+// Expected output: 0
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/String/localeCompare'''
+
+        }
+        match:{
+            explain:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/String/localeCompare'''
+            code:'''const paragraph = 'The quick brown fox jumps over the lazy dog. It barked.';
+const regex = /[A-Z]/g;
+const found = paragraph.match(regex);
+
+console.log(found);
+// Expected output: Array ["T", "I"]
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/String/match'''
+        }
         normalize:{}
         padend:{}
         padstart:{}
