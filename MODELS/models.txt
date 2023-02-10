@@ -491,4 +491,20 @@ link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Ob
         sqrt:{}
         tan:{}
     }
+    object:{}
+    date:{}
+    function:{}
+    number:{}
+    map:{}
+    promise:{}
+    json:{}
+    boolean:{}
+    error:{}
+    set:{}
+    reflect:{}
+    weakmap:{}
+    weakset:{}
+    intl:{}
+    symbol:{}
+    regexp:{}
 }
