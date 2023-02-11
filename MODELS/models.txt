@@ -726,7 +726,18 @@ El array tiene 12 elementos: Jan / Feb / Mar / Apr / May / Jun / Jul / Aug / Sep
 link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/String/split'''
 
         }
-        startswith:{}
+        startswith:{
+            explain:'''El método startsWith() indica si una cadena de texto comienza con los caracteres de una cadena de texto concreta, devolviendo true o false según corresponda.'''
+            code:'''const str1 = 'Saturday night plans';
+
+console.log(str1.startsWith('Sat'));
+// Expected output: true
+
+console.log(str1.startsWith('Sat', 3));
+// Expected output: false
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/String/startsWith'''
+        }
         substr:{}
         substring:{}
         tolocalelowercase:{}
