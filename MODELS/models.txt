@@ -853,22 +853,246 @@ Math.acos(2);   // NaN
 '''
 link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Math/acos'''
         }
-        asin:{}
-        atan:{}
-        atan2:{}
-        ceil:{}
-        cos:{}
-        exp:{}
-        floor:{}
-        log:{}
-        max:{}
-        min:{}
-        pow:{}
-        random:{}
-        round:{}
-        sin:{}
-        sqrt:{}
-        tan:{}
+        asin:{
+            explain:'''La Funcion Math.asin() retorna El arco seno (en radianes) de un número'''
+            code:'''Math.asin(-2);  // NaN
+Math.asin(-1);  // -1.5707963267948966 (-pi/2)
+Math.asin(0);   // 0
+Math.asin(0.5); // 0.5235987755982989
+Math.asin(1);   // 1.5707963267948966 (pi/2)
+Math.asin(2);   // NaN
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Math/asin'''
+
+        }
+        atan:{
+            explain:'''La función Math.atan() retorna el arcotangente (en radianes) de un numero'''
+            code:'''// Calculates angle of a right-angle triangle in radians
+function calcAngle(opposite, adjacent) {
+  return Math.atan(opposite / adjacent);
+}
+
+console.log(calcAngle(8, 10));
+// Expected output: 0.6747409422235527
+
+console.log(calcAngle(5, 3));
+// Expected output: 1.0303768265243125
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Math/atan'''
+        }
+        atan2:{
+            explain:'''La función Math.atan2() retorna la arcotangente del cociente de los argumentos.'''
+            code:'''Math.atan2(90, 15); // 1.4056476493802699
+Math.atan2(15, 90); // 0.16514867741462683
+
+Math.atan2(±0, -0);               // ±PI.
+Math.atan2(±0, +0);               // ±0.
+Math.atan2(±0, -x);               // ±PI for x > 0.
+Math.atan2(±0, x);                // ±0 for x > 0.
+Math.atan2(-y, ±0);               // -PI/2 for y > 0.
+Math.atan2(y, ±0);                // PI/2 for y > 0.
+Math.atan2(±y, -Infinity);        // ±PI for finite y > 0.
+Math.atan2(±y, +Infinity);        // ±0 for finite y > 0.
+Math.atan2(±Infinity, x);         // ±PI/2 for finite x.
+Math.atan2(±Infinity, -Infinity); // ±3*PI/4.
+Math.atan2(±Infinity, +Infinity); // ±PI/4.
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Math/atan2'''
+
+        }
+        ceil:{
+            explain:'''La función Math.ceil() devuelve el entero mayor o igual más próximo a un número dado.'''
+            code:'''console.log(Math.ceil(.95));
+// Expected output: 1
+
+console.log(Math.ceil(4));
+// Expected output: 4
+
+console.log(Math.ceil(7.004));
+// Expected output: 8
+
+console.log(Math.ceil(-7.004));
+// Expected output: -7
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Math/ceil'''
+        }
+        cos:{
+            explain:'''La función estática Math.cos() devuelve el coseno del ángulo especificado, que debe ser especificado en radianes'''
+            code:'''function getCircleX(radians, radius) {
+  return Math.cos(radians) * radius;
+}
+
+console.log(getCircleX(1, 10));
+// Expected output: 5.403023058681398
+
+console.log(getCircleX(2, 10));
+// Expected output: -4.161468365471424
+
+console.log(getCircleX(Math.PI, 10));
+// Expected output: -10
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Math/cos'''
+
+        }
+        exp:{
+            explain:'''La función Math.exp() devuelve ex, donde x es el argumento, y e es El número de Euler (también conocido como la constante de Napier), la base de los algoritmos naturales.'''
+            code:'''Math.exp(-1); // 0.36787944117144233
+Math.exp(0);  // 1
+Math.exp(1);  // 2.718281828459045
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Math/exp'''
+
+        }
+        floor:{
+            explain:'''Devuelve el máximo entero menor o igual a un número.'''
+            code:'''function getFloor(x) {
+   return Math.floor(x);
+}
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Math/floor'''
+        }
+        log:{
+            explain:'''La función Math.log() devuelve la base neutral de un número (base e)'''
+            code:'''function getBaseLog(x, y) {
+  return Math.log(y) / Math.log(x);
+}
+
+// 2 x 2 x 2 = 8
+console.log(getBaseLog(2, 8));
+// Expected output: 3
+
+// 5 x 5 x 5 x 5 = 625
+console.log(getBaseLog(5, 625));
+// Expected output: 4
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Math/log'''
+        }
+        max:{
+            explain:'''La función Math.max() retorna el mayor de cero o más números dados como parámetros de entrada, o NaN si cualquier parámetro no es un número y no puede ser convertido en uno.
+
+'''
+code:'''console.log(Math.max(1, 3, 2));
+// Expected output: 3
+
+console.log(Math.max(-1, -3, -2));
+// Expected output: -1
+
+const array1 = [1, 3, 2];
+
+console.log(Math.max(...array1));
+// Expected output: 3
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Math/max'''
+        }
+        min:{
+            explain:'''La función Math.min() devuelve el menor de cero o más números.'''
+            code:'''Lo siguiente encuentra el mínimo de x e y y lo asigna a z:
+
+var x = 10, y = -20;
+var z = Math.min(x, y);
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Math/min'''
+        }
+        pow:{
+            explain:'''La función Math.pow() devuelve la base elevada al exponente , esto es, baseexponente.
+
+'''
+code:'''// simple
+Math.pow(7, 2);    // 49
+Math.pow(7, 3);    // 343
+Math.pow(2, 10);   // 1024
+// exponentes fraccionales
+Math.pow(4, 0.5);  // 2 (raíz cuadrada de 4)
+Math.pow(8, 1/3);  // 2 (raíz cúbica de 8)
+Math.pow(2, 0.5);  // 1.412135623730951 (raíz cuadrada de 2)
+Math.pow(2, 1/3);  // 1.2599210498948732 (raíz cúbica de 2)
+// exponentes con signo
+Math.pow(7, -2);   // 0.02040816326530612 (1/49)
+Math.pow(8, -1/3); // 0.5
+// bases con signo
+Math.pow(-7, 2);   // 49 (los cuadrados son positivos)
+Math.pow(-7, 3);   // -343 (El cubo de una base negativa puede ser negativo)
+Math.pow(-7, 0.5); // NaN (Los números negativos no tienen raíz cuadrada real)
+Math.pow(-7, 1/3); // NaN
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Math/pow'''
+        }
+        random:{
+            explain:'''La función Math.random() devuelve un número de coma flotante pseudo-aleatorio, comprendido en el rango de 0 a menor que 1 (es decir, incluido el 0 pero no el 1), con una distribución aproximadamente uniforme en este rango. Dicho rango puede ser ampliado hasta los valores deseados. La implementación selecciona la semilla inicial del algoritmo de generación de números aleatorios, no pudiendo ser esta elegida o restablecida por el usuario.'''
+            code:'''function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+}
+
+console.log(getRandomInt(3));
+// Expected output: 0, 1 or 2
+
+console.log(getRandomInt(1));
+// Expected output: 0
+
+console.log(Math.random());
+// Expected output: a number from 0 to <1
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Math/random'''
+        }
+        round:{
+            explain:'''La función Math.round()retorna el valor de un número redondeado al entero más cercano.'''
+            code:'''// Retorna el valor 20
+x = Math.round(20.49);
+
+// Retorna el valor 21
+x = Math.round(20.5);
+
+// Retorna el valor -20
+x = Math.round(-20.5);
+
+// Retorna el valor -21
+x = Math.round(-20.51);
+
+// Retorna el valor 1 (!)
+// Note el error de redondeo debido a la inexactitud del punto aritmético.
+// Compare esto con Math.round10(1.005, -2) de el ejemplo de abajo.
+x = Math.round(1.005*100)/100;
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Math/round'''
+        }
+        sin:{
+            explain:'''La función Math.sin() devuelve el seno de un número.'''
+            code:'''Math.sin(0);           // 0
+Math.sin(1);           // 0.8414709848078965
+
+Math.sin(Math.PI / 2); // 1
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Math/sin'''
+
+        }
+        sqrt:{
+            explain:'''La función Math.sqrt() retorna la raíz cuadrada de un número'''
+            code:'''Math.sqrt(9); // 3
+Math.sqrt(2); // 1.414213562373095
+
+Math.sqrt(1);  // 1
+Math.sqrt(0);  // 0
+Math.sqrt(-1); // NaN
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Math/sqrt'''
+        }
+        tan:{
+            explain:'''La función Math.tan() retorna la tangente de un número.'''
+            code:'''function getTanFromDegrees(degrees) {
+  return Math.tan(degrees * Math.PI / 180);
+}
+
+console.log(getTanFromDegrees(0));
+// Expected output: 0
+
+console.log(getTanFromDegrees(45));
+// Expected output: 0.9999999999999999
+
+console.log(getTanFromDegrees(90));
+// Expected output: 16331239353195370
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Math/tan'''
+        }
     }
     object:{}
     date:{}
