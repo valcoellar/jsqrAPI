@@ -1094,8 +1094,65 @@ console.log(getTanFromDegrees(90));
 link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Math/tan'''
         }
     }
-    object:{}
-    date:{}
+    object:{
+        assign:{}
+        create:{}
+        defineproperties:{}
+        defineproperty:{}
+        entries:{}
+        freeze:{}
+        getownpropertydescriptor:{}
+        getownpropertydescriptors:{}
+        getownpropertynames:{}
+        getownpropertysymbols:{}
+        getprototypeof:{}
+        is:{}
+        isextensible:{}
+        isfrozen:{}
+        issealed:{}
+        keys:{}
+        preventextensions:{}
+        seal:{}
+        setprototypeof:{}
+        values:{}
+        }
+    date:{
+        getdate:{}
+        getday:{}
+        getfullyear:{}
+        gethours:{}
+        getmilliseconds:{}
+        getminutes:{}
+        getmonth:{}
+        getseconds:{}
+        gettime:{}
+        gettimezoneoffset:{}
+        getutcdate:{}
+        getutcday:{}
+        getutcfullyear:{}
+        getutchours:{}
+        getutcmilliseconds:{}
+        getutcminutes:{}
+        getutcmonth:{}
+        getutcseconds:{ç
+        setdate:{}
+        setfullyear:{}
+        sethours:{}
+        setmilliseconds:{}
+        setminutes:{}
+        setmonth:{}
+        setseconds:{}
+        settime:{}
+        todatestring:{}
+        toisostring:{}
+        tojson:{}
+        tolocaledatestring:{}
+        tolocalestring:{}
+        tolocaletimestring:{}
+        tostring:{}
+        totimestring:{}
+        toutcstring:{}
+        }
     function:{}
     number:{}
     map:{}
