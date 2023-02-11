@@ -632,9 +632,46 @@ console.log(maskedNumber);
 link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padStart'''
 
         }
-        repeat:{}
-        replace:{}
-        search:{}
+        repeat:{
+            explain:'''El método repeat() construye y devuelve una nueva cadena que contiene el número especificado de copias de la cadena en la cual fue llamada, concatenados.'''
+            code:''''abc'.repeat(-1);   // RangeError
+'abc'.repeat(0);    // ''
+'abc'.repeat(1);    // 'abc'
+'abc'.repeat(2);    // 'abcabc'
+'abc'.repeat(3.5);  // 'abcabcabc' (count will be converted to integer)
+'abc'.repeat(1/0);  // RangeError
+
+({ toString: () => 'abc', repeat: String.prototype.repeat }).repeat(2);
+// 'abcabc' (repeat() is a generic method)
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/String/repeat'''
+
+        }
+        replace:{
+            explain:'''El método replace() devuelve una nueva cadena con algunas o todas las coincidencias de un patrón, siendo cada una de estas coincidencias reemplazadas por remplazo. El patrón puede ser una cadena o una RegExp, y el reemplazo puede ser una cadena o una función que será llamada para cada coincidencia. Si el patrón es una cadena, sólo la primera coincidencia será reemplazada.'''
+            code:'''const p = 'The quick brown fox jumps over the lazy dog. If the dog reacted, was it really lazy?';
+
+console.log(p.replace('dog', 'monkey'));
+// Expected output: "The quick brown fox jumps over the lazy monkey. If the dog reacted, was it really lazy?"
+
+
+const regex = /Dog/i;
+console.log(p.replace(regex, 'ferret'));
+// Expected output: "The quick brown fox jumps over the lazy ferret. If the dog reacted, was it really lazy?"'''
+        }
+        search:{
+            explain:'''El método search() ejecuta una búsqueda que encaje entre una expresión regular y el objeto String desde el que se llama.'''
+            code:'''function testinput(re, str) {
+  var midstring;
+  if (str.search(re) != -1) {
+    midstring = ' contains ';
+  } else {
+    midstring = ' does not contain ';
+  }
+  console.log(str + midstring + re);
+}'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/String/search'''
+        }
         slice:{}
         split:{}
         startswith:{}
