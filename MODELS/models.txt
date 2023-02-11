@@ -559,9 +559,79 @@ console.log(found);
 '''
 link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/String/match'''
         }
-        normalize:{}
-        padend:{}
-        padstart:{}
+        normalize:{
+            explain:'''El método normalize() retorna la Forma de Normalización Unicode de la cadena dada (si el valor no es una cadena, primero será convertido a ese tipo).'''
+            code:'''// Cadena inicial
+
+// U+1E9B: LETRA S LATINA MINÚSCULA CON PUNTO ARRIBA
+// U+0323: COMBINACIÓN CON PUNTO ABAJO
+var str = '\u1E9B\u0323';
+
+
+// Forma compuesta canónicamente (NFC)
+
+// U+1E9B: LETRA S LATINA MINÚSCULA CON PUNTO ARRIBA
+// U+0323: COMBINACIÓN CON PUNTO ABAJO
+str.normalize('NFC'); // '\u1E9B\u0323'
+str.normalize();      // lo mismo que arriba
+
+
+// Forma canónicamente descompuesta (NFD)
+
+// U+017F: LETRA S LATINA MINÚSCULA
+// U+0323: COMBINACIÓN CON PUNTO ABAJO
+// U+0307: COMBINACIÓN CON PUNTO ARRIBA
+str.normalize('NFD'); // '\u017F\u0323\u0307'
+
+
+// Compuesta con compatibilidad (NFKC)
+
+// U+1E69: LETRA S LATINA MINÚSCULA CON PUNTO ARRIBA Y ABAJO
+str.normalize('NFKC'); // '\u1E69'
+
+
+// Descompuesta con compatibilidad (NFKD)
+
+// U+0073: LETRA S LATINA MINÚSCULA
+// U+0323: COMBINACIÓN CON PUNTO ABAJO
+// U+0307: COMBINACIÓN CON PUNTO ARRIBA
+str.normalize('NFKD'); // '\u0073\u0323\u0307'
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/String/normalize'''
+
+        }
+        padend:{
+            explain:'''The padEnd() method pads the current string with a given string (repeated, if needed) so that the resulting string reaches a given length. The padding is applied from the end of the current string.'''
+            code:'''const str1 = 'Breaded Mushrooms';
+
+console.log(str1.padEnd(25, '.'));
+// Expected output: "Breaded Mushrooms........"
+
+const str2 = '200';
+
+console.log(str2.padEnd(5));
+// Expected output: "200  "
+'''
+link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padEnd'''
+
+        }
+        padstart:{
+            explain:'''The padStart() method pads the current string with another string (multiple times, if needed) until the resulting string reaches the given length. The padding is applied from the start of the current string.'''
+            code:'''const str1 = '5';
+
+console.log(str1.padStart(2, '0'));
+// Expected output: "05"
+
+const fullNumber = '2034399002125581';
+const last4Digits = fullNumber.slice(-4);
+const maskedNumber = last4Digits.padStart(fullNumber.length, '*');
+
+console.log(maskedNumber);
+// Expected output: "************5581"
+'''
+link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padStart'''
+
+        }
         repeat:{}
         replace:{}
         search:{}
