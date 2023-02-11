@@ -672,8 +672,60 @@ console.log(p.replace(regex, 'ferret'));
 }'''
 link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/String/search'''
         }
-        slice:{}
-        split:{}
+        slice:{
+            explain:'''El método slice() extrae una sección de una cadena y devuelve una cadena nueva.'''
+            code:'''var cadena1 = "La mañana se nos echa encima.";
+var cadena2 = cadena1.slice(3, -2);
+console.log(cadena2);
+
+Esto escribe:
+
+mañana se nos echa encim
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/String/slice'''
+        }
+        split:{
+            explain:'''El método split() divide un objeto de tipo String en un array (vector) de cadenas mediante la separación de la cadena en subcadenas.
+
+'''
+code:'''function dividirCadena(cadenaADividir,separador) {
+   var arrayDeCadenas = cadenaADividir.split(separador);
+   document.write('<p>La cadena original es: "' + cadenaADividir + '"');
+   document.write('<br>El separador es: "' + separador + '"');
+   document.write("<br>El array tiene " + arrayDeCadenas.length + " elementos: ");
+
+   for (var i=0; i < arrayDeCadenas.length; i++) {
+      document.write(arrayDeCadenas[i] + " / ");
+   }
+}
+
+var cadenaVerso = "Oh brave new world that has such people in it.";
+var cadenaMeses = "Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec";
+
+var espacio = " ";
+var coma = ",";
+
+dividirCadena(cadenaVerso, espacio);
+dividirCadena(cadenaVerso);
+dividirCadena(cadenaMeses, coma);
+
+Este ejemplo produce el siguiente resultado:
+
+La cadena original es: "Oh brave new world that has such people in it."
+El separador es: " "
+El array tiene 10 elementos: Oh / brave / new / world / that / has / such / people / in / it. /
+
+La cadena original es: "Oh brave new world that has such people in it."
+El separador es: "undefined"
+El array tiene 1 elementos: Oh brave new world that has such people in it. /
+
+La cadena original es: "Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec"
+El separador es: ","
+El array tiene 12 elementos: Jan / Feb / Mar / Apr / May / Jun / Jul / Aug / Sep / Oct / Nov / Dec /
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/String/split'''
+
+        }
         startswith:{}
         substr:{}
         substring:{}
