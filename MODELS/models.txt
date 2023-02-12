@@ -1095,17 +1095,221 @@ link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Ob
         }
     }
     object:{
-        assign:{}
-        create:{}
-        defineproperties:{}
-        defineproperty:{}
-        entries:{}
-        freeze:{}
-        getownpropertydescriptor:{}
-        getownpropertydescriptors:{}
-        getownpropertynames:{}
-        getownpropertysymbols:{}
-        getprototypeof:{}
+        assign:{
+            explain:'''El método Object.assign() copia todas las propiedades enumerables de uno o más objetos fuente a un objeto destino. Devuelve el objeto destino.'''
+            code:'''const target = { a: 1, b: 2 };
+const source = { b: 4, c: 5 };
+
+const returnedTarget = Object.assign(target, source);
+
+console.log(target);
+// Expected output: Object { a: 1, b: 4, c: 5 }
+
+console.log(returnedTarget === target);
+// Expected output: true
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Object/assign'''
+        }
+        create:{
+            explain:'''El método Object.create() crea un objeto nuevo, utilizando un objeto existente como el prototipo del nuevo objeto creado.'''
+            code:'''const person = {
+  isHuman: false,
+  printIntroduction: function() {
+    console.log(`My name is ${this.name}. Am I human? ${this.isHuman}`);
+  }
+};
+
+const me = Object.create(person);
+
+me.name = 'Matthew'; // "name" is a property set on "me", but not on "person"
+me.isHuman = true; // Inherited properties can be overwritten
+
+me.printIntroduction();
+// Expected output: "My name is Matthew. Am I human? true"
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Object/create'''
+        }
+        defineproperties:{
+            explain:'''El metodo Object.defineProperties() define nuevas o modifica propiedades existentes directamente en el objeto, retornando el objeto.'''
+            code:'''Object.defineProperties(obj, {
+  "property1": {
+    value: true,
+    writable: true
+  },
+  "property2": {
+    value: "Hello",
+    writable: false
+  }
+  // etc. etc.
+});'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperties'''
+        }
+        defineproperty:{
+            explain:'''El método estático Object.defineProperty() define una nueva propiedad sobre un objeto, o modifica una ya existente, y devuelve el objeto modificado.'''
+            code:'''var o = {}; // Creates a new object
+
+// Example of an object property added with defineProperty with a data property descriptor
+Object.defineProperty(o, 'a', {
+  value: 37,
+  writable: true,
+  enumerable: true,
+  configurable: true
+});
+// 'a' property exists in the o object and its value is 37
+
+// Example of an object property added with defineProperty with an accessor property descriptor
+var bValue = 38;
+Object.defineProperty(o, 'b', {
+  get: function() { return bValue; },
+  set: function(newValue) { bValue = newValue; },
+  enumerable: true,
+  configurable: true
+});
+o.b; // 38
+// 'b' property exists in the o object and its value is 38
+// The value of o.b is now always identical to bValue, unless o.b is redefined
+
+// You cannot try to mix both:
+Object.defineProperty(o, 'conflict', {
+  value: 0x9f91102,
+  get: function() { return 0xdeadbeef; }
+});
+// throws a TypeError: value appears only in data descriptors, get appears only in accessor descriptors
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty'''
+
+        }
+        entries:{
+            explain:'''El método Object.entries() devuelve una matriz de pares propios de una propiedad enumerable [key, value] de un objeto dado, en el mismo orden que es proporcionado por for...in (La diferencia es que un bucle for-in enumera las propiedades en la cadena de prototipos).'''
+            code:'''ar obj = { foo: 'bar', baz: 42 };
+console.log(Object.entries(obj)); // [ ['foo', 'bar'], ['baz', 42] ]
+
+// array like object
+var obj = { 0: 'a', 1: 'b', 2: 'c' };
+console.log(Object.entries(obj)); // [ ['0', 'a'], ['1', 'b'], ['2', 'c'] ]
+
+// array like object with random key ordering
+var an_obj = { 100: 'a', 2: 'b', 7: 'c' };
+console.log(Object.entries(an_obj)); // [ ['2', 'b'], ['7', 'c'], ['100', 'a'] ]
+
+// getFoo is property which isn't enumerable
+var my_obj = Object.create({}, { getFoo: { value: function() { return this.foo; } } });
+my_obj.foo = 'bar';
+console.log(Object.entries(my_obj)); // [ ['foo', 'bar'] ]
+
+// non-object argument will be coerced to an object
+console.log(Object.entries('foo')); // [ ['0', 'f'], ['1', 'o'], ['2', 'o'] ]
+
+// iterate through key-value gracefully
+var obj = {a: 5, b: 7, c: 9};
+for (var [key, value] of Object.entries(obj)) {
+    console.log(key + ' ' + value); // "a 5", "b 7", "c 9"
+}
+
+// Or, using array extras
+Object.entries(obj).forEach(([key, value]) => {
+    console.log(key + ' ' + value); // "a 5", "b 7", "c 9"
+});'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Object/entries'''
+        }
+        freeze:{
+            explain:'''El método Object.freeze() congela un objeto, es decir: impide que se le agreguen nuevas propiedades; impide que se puedan eliminar las propiedades ya existentes; impide que dichas propiedades, o su capacidad de enumeración, configuración, o escritura, puedan ser modificadas; impide también que se pueda modificar su prototipo. El método devuelve el objeto recibido.'''
+            code:'''const obj = {
+  prop: 42
+};
+
+Object.freeze(obj);
+
+obj.prop = 33;
+// Throws an error in strict mode
+
+console.log(obj.prop);
+// Expected output: 42
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Object/freeze'''
+        }
+        getownpropertydescriptor:{
+            explain:'''El método Object.getOwnPropertyDescriptor() regresa como descripción de propiedad para una propiedad propia (eso es, una presente directamente en el objeto, no presente por la fuerza a través de la cadena de prototipo del objeto) de un objeto dado.'''
+            code:'''var o, d;
+
+o = { get foo() { return 17; } };
+d = Object.getOwnPropertyDescriptor(o, 'foo');
+// d is { configurable: true, enumerable: true, get: /* la función de acceso */, set: undefined }
+
+o = { bar: 42 };
+d = Object.getOwnPropertyDescriptor(o, 'bar');
+// d is { configurable: true, enumerable: true, value: 42, writable: true }
+
+o = {};
+Object.defineProperty(o, 'baz', { value: 8675309, writable: false, enumerable: false });
+d = Object.getOwnPropertyDescriptor(o, 'baz');
+// d es { value: 8675309, writable: false, enumerable: false, configurable: false }
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptor'''
+
+        }
+        getownpropertydescriptors:{
+            explain:'''El método Object.getOwnPropertyDescriptors() regresa todos los descriptores de propiedad propios de un objeto dado.'''
+            code:'''const object1 = {
+  property1: 42
+};
+
+const descriptors1 = Object.getOwnPropertyDescriptors(object1);
+
+console.log(descriptors1.property1.writable);
+// Expected output: true
+
+console.log(descriptors1.property1.value);
+// Expected output: 42
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptors'''
+        }
+        getownpropertynames:{
+            explain:'''El método Object.getOwnPropertyNames() devuelve un array con todas las propiedades (numerables o no) encontradas en un objeto dado.'''
+            code:'''var arr = ["a", "b", "c"];
+print(Object.getOwnPropertyNames(arr).sort()); // imprime "0,1,2,length"
+
+// Objeto similar a Array
+var obj = { 0: "a", 1: "b", 2: "c"};
+print(Object.getOwnPropertyNames(obj).sort()); // imprime "0,1,2"
+
+// Imprime nombres de variables y valores usando Array.forEach
+Object.getOwnPropertyNames(obj).forEach(function(val, idx, array) {
+  print(val + " -> " + obj[val]);
+});
+// imprime
+// 0 -> a
+// 1 -> b
+// 2 -> c
+
+// propiedad no-numerable
+var my_obj = Object.create({}, { getFoo: { value: function() { return this.foo; }, enumerable: false } });
+my_obj.foo = 1;
+
+print(Object.getOwnPropertyNames(my_obj).sort()); // imprime "foo, getFoo"
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyNames'''
+        }
+        getownpropertysymbols:{
+            explain:'''El método Object.getOwnPropertySymbols() regresa una colección de todos las propiedades de los simbolos encontrados directamente en un objeto dado.'''
+            code:'''var obj = {};
+var a = Symbol('a');
+var b = Symbol.for('b');
+
+obj[a] = 'localSymbol';
+obj[b] = 'globalSymbol';
+
+var objectSymbols = Object.getOwnPropertySymbols(obj);
+
+console.log(objectSymbols.length); // 2
+console.log(objectSymbols);        // [Symbol(a), Symbol(b)]
+console.log(objectSymbols[0]);     // Symbol(a)
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertySymbols'''
+        }
+        getprototypeof:{
+            
+        }
         is:{}
         isextensible:{}
         isfrozen:{}
