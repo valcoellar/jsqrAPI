@@ -1308,7 +1308,15 @@ console.log(objectSymbols[0]);     // Symbol(a)
 link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertySymbols'''
         }
         getprototypeof:{
-            
+            explain:'''El método Object.getPrototypeOf() devuelve el prototipo (es decir, el valor de la propiedad interna [[Prototype]]) del objeto especificado.
+
+'''
+code:'''var proto = {};
+var obj= Object.create(proto);
+Object.getPrototypeOf(obj) === proto; // true
+Copy to Clipboard
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Object/getPrototypeOf'''
         }
         is:{}
         isextensible:{}
