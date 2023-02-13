@@ -1854,9 +1854,55 @@ console.log(new Date(jsonDate).toUTCString());
 '''
 link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toJSON'''
         }
-        tolocaledatestring:{}
-        tolocalestring:{}
-        tolocaletimestring:{}
+        tolocaledatestring:{
+            explain:'''The toLocaleDateString() method returns a string with a language-sensitive representation of the date portion of the specified date in the user agent's timezone. In implementations with Intl.DateTimeFormat API support, this method simply calls Intl.DateTimeFormat.
+
+'''
+code:'''const event = new Date(Date.UTC(2012, 11, 20, 3, 0, 0));
+const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+
+console.log(event.toLocaleDateString('de-DE', options));
+// Expected output (varies according to local timezone): Donnerstag, 20. Dezember 2012
+
+console.log(event.toLocaleDateString('ar-EG', options));
+// Expected output (varies according to local timezone): الخميس، ٢٠ ديسمبر، ٢٠١٢
+
+console.log(event.toLocaleDateString(undefined, options));
+// Expected output (varies according to local timezone and default locale): Thursday, December 20, 2012
+'''
+link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleDateString'''
+        }
+        tolocalestring:{
+            explain:'''The toLocaleString() method returns a string with a language-sensitive representation of this date. In implementations with Intl.DateTimeFormat API support, this method simply calls Intl.DateTimeFormat.'''
+            code:'''const event = new Date(Date.UTC(2012, 11, 20, 3, 0, 0));
+
+// British English uses day-month-year order and 24-hour time without AM/PM
+console.log(event.toLocaleString('en-GB', { timeZone: 'UTC' }));
+// Expected output: "20/12/2012, 03:00:00"
+
+// Korean uses year-month-day order and 12-hour time with AM/PM
+console.log(event.toLocaleString('ko-KR', { timeZone: 'UTC' }));
+// Expected output: "2012. 12. 20. 오전 3:00:00" '''
+
+link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleString'''
+
+        }
+        tolocaletimestring:{
+            explain:'''The toLocaleTimeString() method returns a string with a language-sensitive representation of the time portion of the date. In implementations with Intl.DateTimeFormat API support, this method simply calls Intl.DateTimeFormat.'''
+            code:'''// Depending on timezone, your results will vary
+const event = new Date('August 19, 1975 23:15:30 GMT+00:00');
+
+console.log(event.toLocaleTimeString('en-US'));
+// Expected output: "1:15:30 AM"
+
+console.log(event.toLocaleTimeString('it-IT'));
+// Expected output: "01:15:30"
+
+console.log(event.toLocaleTimeString('ar-EG'));
+// Expected output: "١٢:١٥:٣٠ ص"
+'''
+link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleTimeString'''
+        }
         tostring:{}
         totimestring:{}
         toutcstring:{}
