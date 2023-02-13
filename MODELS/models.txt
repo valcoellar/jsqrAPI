@@ -1641,17 +1641,160 @@ console.log(date2.getUTCHours());
 '''
 link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getUTCHours'''
         }
-        getutcmilliseconds:{}
-        getutcminutes:{}
-        getutcmonth:{}
-        getutcseconds:{}
-        setdate:{}
-        setfullyear:{}
-        sethours:{}
-        setmilliseconds:{}
-        setminutes:{}
-        setmonth:{}
-        setseconds:{}
+        getutcmilliseconds:{
+            explain:'''The getUTCMilliseconds() method returns the milliseconds portion of the time object's value according to universal time.'''
+            code:'''const exampleDate = new Date('2018-01-02T03:04:05.678Z'); // 2 January 2018, 03:04:05.678 (UTC)
+
+console.log(exampleDate.getUTCMilliseconds());
+// Expected output: 678
+'''
+link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getUTCMilliseconds'''
+        }
+        getutcminutes:{
+            explain:'''The getUTCMinutes() method returns the minutes in the specified date according to universal time.'''
+            code:'''const date1 = new Date('1 January 2000 03:15:30 GMT+07:00');
+const date2 = new Date('1 January 2000 03:15:30 GMT+03:30');
+
+console.log(date1.getUTCMinutes()); // 31 Dec 1999 20:15:30 GMT
+// Expected output: 15
+
+console.log(date2.getUTCMinutes()); // 31 Dec 1999 23:45:30 GMT
+// Expected output: 45
+'''
+link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getUTCMinutes'''
+        }
+        getutcmonth:{
+            explain:'''The getUTCMonth() returns the month of the specified date according to universal time, as a zero-based value (where zero indicates the first month of the year).'''
+            code:'''const date1 = new Date('December 31, 1975, 23:15:30 GMT+11:00');
+const date2 = new Date('December 31, 1975, 23:15:30 GMT-11:00');
+
+// December
+console.log(date1.getUTCMonth());
+// Expected output: 11
+
+// January
+console.log(date2.getUTCMonth());
+// Expected output: 0
+'''
+link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getUTCMonth'''
+        }
+        getutcseconds:{
+            explain:'''The getUTCSeconds() method returns the seconds in the specified date according to universal time.'''
+            code:'''const moonLanding = new Date('July 20, 1969, 20:18:04 UTC');
+
+console.log(moonLanding.getUTCSeconds());
+// Expected output: 4
+'''
+link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getUTCSeconds'''
+        }
+        setdate:{
+            explain:'''The setDate() method changes the day of the month of a given Date instance, based on local time.'''
+            code:'''const event = new Date('August 19, 1975 23:15:30');
+
+event.setDate(24);
+
+console.log(event.getDate());
+// Expected output: 24
+
+event.setDate(32);
+// Only 31 days in August!
+
+console.log(event.getDate());
+// Expected output: 1
+'''
+link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/setDate'''
+        }
+        setfullyear:{
+            explain:'''The setFullYear() method sets the full year for a specified date according to local time. Returns new timestamp.'''
+            code:'''const event = new Date('August 19, 1975 23:15:30');
+
+event.setFullYear(1969);
+
+console.log(event.getFullYear());
+// Expected output: 1969
+
+event.setFullYear(0);
+
+console.log(event.getFullYear());
+// Expected output: 0
+'''
+link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/setFullYear'''
+        }
+        sethours:{
+            explain:'''The setHours() method sets the hours for a specified date according to local time, and returns the number of milliseconds since January 1, 1970 00:00:00 UTC until the time represented by the updated Date instance.'''
+            code:'''const event = new Date('August 19, 1975 23:15:30');
+event.setHours(20);
+
+console.log(event);
+// Expected output: "Tue Aug 19 1975 20:15:30 GMT+0200 (CEST)"
+// Note: your timezone may vary
+
+event.setHours(20, 21, 22);
+
+console.log(event);
+// Expected output: "Tue Aug 19 1975 20:21:22 GMT+0200 (CEST)"
+'''
+link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/setHours'''
+        }
+        setmilliseconds:{
+            explain:'''The setMilliseconds() method sets the milliseconds for a specified date according to local time.'''
+            code:'''const event = new Date('August 19, 1975 23:15:30');
+
+console.log(event.getMilliseconds());
+// Expected output: 0
+
+event.setMilliseconds(456);
+
+console.log(event.getMilliseconds());
+// Expected output: 456
+'''
+link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/setMilliseconds'''
+        }
+        setminutes:{
+            explain:'''The setMinutes() method sets the minutes for a specified date according to local time.'''
+            code:'''const event = new Date('August 19, 1975 23:15:30');
+
+event.setMinutes(45);
+
+console.log(event.getMinutes());
+// Expected output: 45
+
+console.log(event);
+// Expected output: "Tue Aug 19 1975 23:45:30 GMT+0200 (CEST)"
+// Note: your timezone may vary
+'''
+link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/setMinutes'''
+        }
+        setmonth:{
+            explain:'''The setMonth() method sets the month for a specified date according to the currently set year.'''
+            code:'''const event = new Date('August 19, 1975 23:15:30');
+
+event.setMonth(3);
+
+console.log(event.getMonth());
+// Expected output: 3
+
+console.log(event);
+// Expected output: "Sat Apr 19 1975 23:15:30 GMT+0100 (CET)"
+// Note: your timezone may vary
+'''
+link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/setMonth'''
+        }
+        setseconds:{
+            explain:'''The setSeconds() method sets the seconds for a specified date according to local time.'''
+            code:'''const event = new Date('August 19, 1975 23:15:30');
+
+event.setSeconds(42);
+
+console.log(event.getSeconds());
+// Expected output: 42
+
+console.log(event);
+// Expected output: "Sat Apr 19 1975 23:15:42 GMT+0100 (CET)"
+// Note: your timezone may vary
+'''
+link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/setSeconds'''
+        }
         settime:{}
         todatestring:{}
         toisostring:{}
