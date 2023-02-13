@@ -2317,18 +2317,120 @@ fetch(myRequest).then(function(response) {
   '''
   link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Promise/finally'''
         }
-        resolve:{}
-        reject:{}
-        race:{}
-        all:{}
+        resolve:{
+            explain:'''El método Promise.resolve(value) retorna un objeto Promise que es resuelto con el valor dado. Si el valor es una promise, esa promise es devuelta; si el valor es un thenable (si tiene un método "then"), el valor devuelto le seguirá a ese thenable, adoptando su estado; de otro modo la promise devuelta estará completada con el valor.'''
+            code:'''const promise1 = Promise.resolve(123);
+
+promise1.then((value) => {
+  console.log(value);
+  // Expected output: 123
+});
+
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Promise/resolve'''
+        }
+        reject:{
+            explain:'''El método Promise.reject(reason) retorna un objeto Promise que es rechazado por la razón específicada.'''
+            code:'''function resolved(result) {
+  console.log('Resolved');
+}
+
+function rejected(result) {
+  console.error(result);
+}
+
+Promise.reject(new Error('fail')).then(resolved, rejected);
+// Expected output: Error: fail
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Promise/reject'''
+        }
+        race:{
+            explain:'''El método Promise.race(iterable) retorna una promesa que se cumplirá o no tan pronto como una de las promesas del argumento iterable se cumpla o se rechace, con el valor o razón de rechazo de ésta.'''
+            code:'''var p1 = new Promise( (resolve, reject) => {
+    setTimeout(resolve, 500, "uno");
+});
+var p2 = new Promise( (resolve, reject) => {
+    setTimeout(resolve, 100, "dos");
+});
+
+Promise.race([p1, p2]).then( value => {
+  console.log(value); // "dos"
+  // Ambas se resuelven, pero la p2 antes.
+});'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Promise/race'''
+        }
+        all:{
+            explain:'''El método Promise.all(iterable) devuelve una promesa que termina correctamente cuando todas las promesas en el argumento iterable han sido concluídas con éxito, o bien rechaza la petición con el motivo pasado por la primera promesa que es rechazada.'''
+            code:'''var p1 = Promise.resolve(3);
+var p2 = 1337;
+var p3 = new Promise((resolve, reject) => {
+  setTimeout(resolve, 100, "foo");
+});
+
+Promise.all([p1, p2, p3]).then(values => {
+  console.log(values); // [3, 1337, "foo"]
+});'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Promise/all'''
+        }
     }
     json:{
-        parse:{}
-        stringify:{}
+        parse:{
+            explain:'''El método JSON.parse() analiza una cadena de texto como JSON, transformando opcionalmente el valor producido por el análisis.'''
+            code:'''JSON.parse('{}');              // {}
+JSON.parse('true');            // true
+JSON.parse('"foo"');           // "foo"
+JSON.parse('[1, 5, "false"]'); // [1, 5, "false"]
+JSON.parse('null');            // null
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse'''
+        }
+        stringify:{
+            explain:'''El método JSON.stringify() convierte un objeto o valor de JavaScript en una cadena de texto JSON, opcionalmente reemplaza valores si se indica una función de reemplazo, o si se especifican las propiedades mediante un array de reemplazo.
+
+'''
+code:'''console.log(JSON.stringify({ x: 5, y: 6 }));
+// Expected output: "{"x":5,"y":6}"
+
+console.log(JSON.stringify([new Number(3), new String('false'), new Boolean(false)]));
+// Expected output: "[3,"false",false]"
+
+console.log(JSON.stringify({ x: [10, undefined, function(){}, Symbol('')] }));
+// Expected output: "{"x":[10,null,null,null]}"
+
+console.log(JSON.stringify(new Date(2006, 0, 2, 15, 4, 5)));
+// Expected output: ""2006-01-02T15:04:05.000Z""
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify'''
+        }
     }
     boolean:{
-        tostring:{}
-        valueof:{}
+        tostring:{
+            explain:'''El método toString() retorna una cadena representando el código fuente de la función.'''
+            code:'''Function.prototype.toString.call("foo"); // TypeError
+
+var proxy = new Proxy(function() {}, {});
+Function.prototype.toString.call(proxy); // TypeError
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Function/toString'''
+
+        }
+        valueof:{
+            explain:'''El método valueOf() retorna el valor primitivo del objeto especificado.'''
+            code:'''function MyNumberType(n) {
+  this.number = n;
+}
+
+MyNumberType.prototype.valueOf = function() {
+  return this.number;
+};
+
+const object1 = new MyNumberType(4);
+
+console.log(object1 + 3);
+// Expected output: 7
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Object/valueOf'''
+        }
     }
     error:{
        tostring:{} 
