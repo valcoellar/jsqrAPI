@@ -1318,15 +1318,179 @@ Copy to Clipboard
 '''
 link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Object/getPrototypeOf'''
         }
-        is:{}
-        isextensible:{}
-        isfrozen:{}
-        issealed:{}
-        keys:{}
-        preventextensions:{}
-        seal:{}
-        setprototypeof:{}
-        values:{}
+        is:{
+            explain:'''El método Object.is() determina si dos valores son iguales.'''
+            code:'''Object.is('foo', 'foo');     // true
+Object.is(window, window);   // true
+
+Object.is('foo', 'bar');     // false
+Object.is([], []);           // false
+
+var test = { a: 1 };
+Object.is(test, test);       // true
+
+Object.is(null, null);       // true
+
+// Special Cases
+Object.is(0, -0);            // false
+Object.is(-0, -0);           // true
+Object.is(NaN, 0/0);         // true
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Object/is'''
+        }
+        isextensible:{
+            explain:'''El método Object.isExtensible() determina si un objeto es extendible (si puede tener propiedades nuevas agregadas a éste).'''
+            code:'''// Los Objetos nuevos son extendibles (por defecto).
+var empty = {};
+Object.isExtensible(empty); // === true
+
+// ...pero eso puede cambiar.
+Object.preventExtensions(empty);
+Object.isExtensible(empty); // === false
+
+// Objetos sellados por definición son no-extendibles.
+var sealed = Object.seal({});
+Object.isExtensible(sealed); // === false
+
+// Objetos congelados también por definición son no-extendibles.
+var frozen = Object.freeze({});
+Object.isExtensible(frozen); // === false
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Object/isExtensible'''
+        }
+        isfrozen:{
+            explain:'''El método Object.isFrozen() determina si un objeto está congelado.'''
+            code:'''// Un objeto nuevo es extendible, así que no está congelado.
+Object.isFrozen({}); // === false
+
+// Un objeto vacio el cuál no es extendible está congelado vacuamente.
+var vacuouslyFrozen = Object.preventExtensions({});
+Object.isFrozen(vacuouslyFrozen); // === true
+
+// Un objeto nuevo con una propiedad es tabién extendible, ergo no congelado.
+var oneProp = { p: 42 };
+Object.isFrozen(oneProp); // === false
+
+// Prevenir la extensión de un objeto no lo congela.
+// porque la propiedad sigue teniendo capacidad de configuración (y capacidad de escritura).
+Object.preventExtensions(oneProp);
+Object.isFrozen(oneProp); // === false
+
+// ...pero eliminar la propiedad congela el objeto vacuamente.
+delete oneProp.p;
+Object.isFrozen(oneProp); // === true
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Object/isFrozen'''
+        }
+        issealed:{
+            explain:'''El método Object.isSealed() si el objeto está sellado.'''
+            code:'''const object1 = {
+  property1: 42
+};
+
+console.log(Object.isSealed(object1));
+// Expected output: false
+
+Object.seal(object1);
+
+console.log(Object.isSealed(object1));
+// Expected output: true
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Object/isSealed'''
+        }
+        keys:{
+            explain:'''El método Object.keys() devuelve un array de las propiedades names de un objeto, en el mismo orden como se obtienen en un loop normal'''
+        }   code:'''var arr = ['a', 'b', 'c'];
+console.log(Object.keys(arr)); // console: ['0', '1', '2']
+
+// arreglo como objeto
+var obj = { 0: 'a', 1: 'b', 2: 'c' };
+console.log(Object.keys(obj)); // console: ['0', '1', '2']
+
+// arreglo como objeto con nombres ordenados aleatoriamente
+var an_obj = { 100: 'a', 2: 'b', 7: 'c' };
+console.log(Object.keys(an_obj)); // console: ['2', '7', '100']
+
+// getFoo es una propiedad no enumerable
+var my_obj = Object.create({}, { getFoo: { value: function() { return this.foo; } } });
+my_obj.foo = 1;
+
+console.log(Object.keys(my_obj)); // console: ['foo']
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Object/keys'''
+        preventextensions:{
+            explain:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Object/keys'''
+            code:'''// Object.preventExtensions regresa el objeto hecho no-extendible.
+var obj = {};
+var obj2 = Object.preventExtensions(obj);
+obj === obj2; // true
+
+// Los Objetos son extendibles por defecto.
+var empty = {};
+Object.isExtensible(empty); // === true
+
+// ...pero pueden ser cambiados.
+Object.preventExtensions(empty);
+Object.isExtensible(empty); // === false
+
+// Object.defineProperty arroja una excepción cuando se agrega
+// una propiedad nueva a un objeto no-extendible.
+var nonExtensible = { removable: true };
+Object.preventExtensions(nonExtensible);
+Object.defineProperty(nonExtensible, 'new', { value: 8675309 }); // arroja TypeError
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Object/preventExtensions'''
+
+        }
+        seal:{
+            explain:'''El método Object.seal() sella un objeto, previniendo que puedan añadirse nuevas propiedades al mismo, y marcando todas las propiedades existentes como no-configurables. Los valores de las propiedades presentes permanecen pudiendo cambiarse en tanto en cuanto dichas propiedades sean de escritura.'''
+            code:'''var obj = {
+  prop: function() {},
+  foo: 'bar'
+};
+
+// Pueden añadirse nuevas propiedades, propiedades existentes pueden cambiarse o eliminarse.
+obj.foo = 'baz';
+obj.lumpy = 'woof';
+delete obj.prop;
+
+var o = Object.seal(obj);
+
+o === obj; // true
+Object.isSealed(obj); // === true
+
+// Sigue permitido modificar valores de propiedades en un objeto sellado.
+obj.foo = 'quux';
+
+// Pero no puedes convertir propiedades de datos en propiedades de acceso, ni viveversa
+Object.defineProperty(obj, 'foo', { get: function() { return 'g'; } }); // produce un TypeError
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Object/seal'''
+        }
+        setprototypeof:{
+            explain:'''El método Object.setPrototypeOf() establece el prototipo (p.e., la propiedad interna [[Prototype]]) de un objeto especificado a otro objeto o sino establece null.'''
+            code:'''Object.appendChain = function(oChain, oProto) {
+  if (arguments.length < 2) {
+    throw new TypeError('Object.appendChain - Not enough arguments');
+  }
+  if (typeof oProto === 'number' || typeof oProto === 'boolean') {
+    throw new TypeError('second argument to Object.appendChain must be an object or a string');
+  }'''
+  link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Object/setPrototypeOf'''
+        }
+        values:{
+            explain:'''El método Object.values() devuelve un array con los valores correspondientes a las propiedades enumerables de un objeto. Las propiedades son devueltas en el mismo orden a como lo haría un bucle for...in (la única diferencia es que un bucle for-in también enumera las propiedades en la cadena de prototipo de un objeto).'''
+            code:'''const object1 = {
+  a: 'somestring',
+  b: 42,
+  c: false
+};
+
+console.log(Object.values(object1));
+// Expected output: Array ["somestring", 42, false]
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Object/values'''
+        }
         }
     date:{
         getdate:{}

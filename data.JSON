@@ -155,5 +155,482 @@
       "code": "var a = ['w', 'y', 'k', 'o', 'p'];\nvar iterator = a.values();\n\nconsole.log(iterator.next().value); // w\nconsole.log(iterator.next().value); // y\nconsole.log(iterator.next().value); // k\nconsole.log(iterator.next().value); // o\nconsole.log(iterator.next().value); // p",
       "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/values"
     }
+  },
+  "string": {
+    "charat": {
+      "explain": "El método charAt() de String devuelve en un nuevo String el carácter UTF-16 de una cadena.",
+      "code": "var cualquierCadena=\"Brave new world\";\n\nconsole.log(\"El carácter en el índice 0 es '\" + cualquierCadena.charAt(0) + \"'\")\nconsole.log(\"El carácter en el índice 1 es '\" + cualquierCadena.charAt(1) + \"'\")\nconsole.log(\"El carácter en el índice 2 es '\" + cualquierCadena.charAt(2) + \"'\")\nconsole.log(\"El carácter en el índice 3 es '\" + cualquierCadena.charAt(3) + \"'\")\nconsole.log(\"El carácter en el índice 4 es '\" + cualquierCadena.charAt(4) + \"'\")\nconsole.log(\"El carácter en el índice 999 es '\" + cualquierCadena.charAt(999) + \"'\")\n\nEl carácter en el índice 0 es 'B'\nEl carácter en el índice 1 es 'r'\nEl carácter en el índice 2 es 'a'\nEl carácter en el índice 3 es 'v'\nEl carácter en el índice 4 es 'e'\nEl carácter en el índice 999 es ''",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/String/charAt"
+    },
+    "charcodeat": {
+      "explain": "El charCodeAt() método devuelve un número indicando el valor Unicode del carácter en el índice proporcionado.",
+      "code": "\"ABC\".charCodeAt(0) // returns 65",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/String/charCodeAt"
+    },
+    "concat": {
+      "explain": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/String/charCodeAt",
+      "code": "const str1 = 'Hello';\nconst str2 = 'World';\n\nconsole.log(str1.concat(' ', str2));\n// Expected output: \"Hello World\"\n\nconsole.log(str2.concat(', ', str1));\n// Expected output: \"World, Hello\"",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/String/concat"
+    },
+    "endswith": {
+      "explain": "El método endsWith() determina si una cadena de texto termina con los caracteres de una cadena indicada, devolviendo true o false según corresponda.",
+      "code": "const str1 = 'Cats are the best!';\n\nconsole.log(str1.endsWith('best!'));\n// Expected output: true\n\nconsole.log(str1.endsWith('best', 17));\n// Expected output: true\n\nconst str2 = 'Is this a question?';\n\nconsole.log(str2.endsWith('question'));\n// Expected output: false",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/String/endsWith"
+    },
+    "inlcudes": {
+      "explain": "El método includes() determina si una cadena de texto puede ser encontrada dentro de otra cadena de texto, devolviendo true o false según corresponda.",
+      "code": "const sentence = 'The quick brown fox jumps over the lazy dog.';\n\nconst word = 'fox';\n\nconsole.log(`The word \"${word}\" ${sentence.includes(word) ? 'is' : 'is not'} in the sentence`);\n// Expected output: \"The word \"fox\" is in the sentence\"",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/String/includes"
+    },
+    "indexof": {
+      "explain": "El método indexOf() devuelve el índice, dentro del objeto String que realiza la llamada, de la primera ocurrencia del valor especificado, comenzando la búsqueda desde indiceDesde; o -1 si no se encuentra dicho valor.",
+      "code": "\"Blue Whale\".indexOf(\"Blue\")    // returns 0\n\"Blue Whale\".indexOf(\"Blute\")   // returns -1\n\"Blue Whale\".indexOf(\"Whale\",0) // returns 5\n\"Blue Whale\".indexOf(\"Whale\",5) // returns 5\n\"Blue Whale\".indexOf(\"\",9)      // returns 9\n\"Blue Whale\".indexOf(\"\",10)     // returns 10\n\"Blue Whale\".indexOf(\"\",11)     // returns 10",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/String/indexOf"
+    },
+    "lastindexof": {
+      "explain": "El método lastIndexOf() devuelve la posicion (indice) en la que se encuentra el valorBusqueda, dentro del objeto String que realiza la llamada, de la última ocurrencia del valor especificado; o -1 si no se halla. La búsqueda se realiza empezando por el final de la cadena que realiza la llamada, empezando en indiceDesde.\n",
+      "code": "\"canal\".lastIndexOf(\"a\")   // returns 3\n\"canal\".lastIndexOf(\"a\",2) // returns 1\n\"canal\".lastIndexOf(\"a\",0) // returns -1\n\"canal\".lastIndexOf(\"x\")   // returns -1",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/String/lastIndexOf"
+    },
+    "localecompare": {
+      "explain": "El método localeCompare() retorna un número indicando si una cadena de carateres de referencia va antes, después o si es la misma que la cadena dada en orden alfabético.",
+      "code": "const a = 'réservé'; // With accents, lowercase\nconst b = 'RESERVE'; // No accents, uppercase\n\nconsole.log(a.localeCompare(b));\n// Expected output: 1\nconsole.log(a.localeCompare(b, 'en', { sensitivity: 'base' }));\n// Expected output: 0",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/String/localeCompare"
+    },
+    "match": {
+      "explain": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/String/localeCompare",
+      "code": "const paragraph = 'The quick brown fox jumps over the lazy dog. It barked.';\nconst regex = /[A-Z]/g;\nconst found = paragraph.match(regex);\n\nconsole.log(found);\n// Expected output: Array [\"T\", \"I\"]",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/String/match"
+    },
+    "normalize": {
+      "explain": "El método normalize() retorna la Forma de Normalización Unicode de la cadena dada (si el valor no es una cadena, primero será convertido a ese tipo).",
+      "code": "// Cadena inicial\n\n// U+1E9B: LETRA S LATINA MINÚSCULA CON PUNTO ARRIBA\n// U+0323: COMBINACIÓN CON PUNTO ABAJO\nvar str = '\\u1E9B\\u0323';\n\n\n// Forma compuesta canónicamente (NFC)\n\n// U+1E9B: LETRA S LATINA MINÚSCULA CON PUNTO ARRIBA\n// U+0323: COMBINACIÓN CON PUNTO ABAJO\nstr.normalize('NFC'); // '\\u1E9B\\u0323'\nstr.normalize();      // lo mismo que arriba\n\n\n// Forma canónicamente descompuesta (NFD)\n\n// U+017F: LETRA S LATINA MINÚSCULA\n// U+0323: COMBINACIÓN CON PUNTO ABAJO\n// U+0307: COMBINACIÓN CON PUNTO ARRIBA\nstr.normalize('NFD'); // '\\u017F\\u0323\\u0307'\n\n\n// Compuesta con compatibilidad (NFKC)\n\n// U+1E69: LETRA S LATINA MINÚSCULA CON PUNTO ARRIBA Y ABAJO\nstr.normalize('NFKC'); // '\\u1E69'\n\n\n// Descompuesta con compatibilidad (NFKD)\n\n// U+0073: LETRA S LATINA MINÚSCULA\n// U+0323: COMBINACIÓN CON PUNTO ABAJO\n// U+0307: COMBINACIÓN CON PUNTO ARRIBA\nstr.normalize('NFKD'); // '\\u0073\\u0323\\u0307'",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/String/normalize"
+    },
+    "padend": {
+      "explain": "The padEnd() method pads the current string with a given string (repeated, if needed) so that the resulting string reaches a given length. The padding is applied from the end of the current string.",
+      "code": "const str1 = 'Breaded Mushrooms';\n\nconsole.log(str1.padEnd(25, '.'));\n// Expected output: \"Breaded Mushrooms........\"\n\nconst str2 = '200';\n\nconsole.log(str2.padEnd(5));\n// Expected output: \"200  \"",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padEnd"
+    },
+    "padstart": {
+      "explain": "The padStart() method pads the current string with another string (multiple times, if needed) until the resulting string reaches the given length. The padding is applied from the start of the current string.",
+      "code": "const str1 = '5';\n\nconsole.log(str1.padStart(2, '0'));\n// Expected output: \"05\"\n\nconst fullNumber = '2034399002125581';\nconst last4Digits = fullNumber.slice(-4);\nconst maskedNumber = last4Digits.padStart(fullNumber.length, '*');\n\nconsole.log(maskedNumber);\n// Expected output: \"************5581\"",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padStart"
+    },
+    "repeat": {
+      "explain": "El método repeat() construye y devuelve una nueva cadena que contiene el número especificado de copias de la cadena en la cual fue llamada, concatenados.",
+      "code": "'abc'.repeat(-1);   // RangeError\n'abc'.repeat(0);    // ''\n'abc'.repeat(1);    // 'abc'\n'abc'.repeat(2);    // 'abcabc'\n'abc'.repeat(3.5);  // 'abcabcabc' (count will be converted to integer)\n'abc'.repeat(1/0);  // RangeError\n\n({ toString: () => 'abc', repeat: String.prototype.repeat }).repeat(2);\n// 'abcabc' (repeat() is a generic method)",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/String/repeat"
+    },
+    "replace": {
+      "explain": "El método replace() devuelve una nueva cadena con algunas o todas las coincidencias de un patrón, siendo cada una de estas coincidencias reemplazadas por remplazo. El patrón puede ser una cadena o una RegExp, y el reemplazo puede ser una cadena o una función que será llamada para cada coincidencia. Si el patrón es una cadena, sólo la primera coincidencia será reemplazada.",
+      "code": "const p = 'The quick brown fox jumps over the lazy dog. If the dog reacted, was it really lazy?';\n\nconsole.log(p.replace('dog', 'monkey'));\n// Expected output: \"The quick brown fox jumps over the lazy monkey. If the dog reacted, was it really lazy?\"\n\n\nconst regex = /Dog/i;\nconsole.log(p.replace(regex, 'ferret'));\n// Expected output: \"The quick brown fox jumps over the lazy ferret. If the dog reacted, was it really lazy?\""
+    },
+    "search": {
+      "explain": "El método search() ejecuta una búsqueda que encaje entre una expresión regular y el objeto String desde el que se llama.",
+      "code": "function testinput(re, str) {\nvar midstring;\nif (str.search(re) != -1) {\nmidstring = ' contains ';\n} else {\nmidstring = ' does not contain ';\n}\nconsole.log(str + midstring + re);\n}",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/String/search"
+    },
+    "slice": {
+      "explain": "El método slice() extrae una sección de una cadena y devuelve una cadena nueva.",
+      "code": "var cadena1 = \"La mañana se nos echa encima.\";\nvar cadena2 = cadena1.slice(3, -2);\nconsole.log(cadena2);\n\nEsto escribe:\n\nmañana se nos echa encim",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/String/slice"
+    },
+    "split": {
+      "explain": "El método split() divide un objeto de tipo String en un array (vector) de cadenas mediante la separación de la cadena en subcadenas.\n",
+      "code": "function dividirCadena(cadenaADividir,separador) {\nvar arrayDeCadenas = cadenaADividir.split(separador);\ndocument.write('<p>La cadena original es: \"' + cadenaADividir + '\"');\ndocument.write('<br>El separador es: \"' + separador + '\"');\ndocument.write(\"<br>El array tiene \" + arrayDeCadenas.length + \" elementos: \");\n\nfor (var i=0; i < arrayDeCadenas.length; i++) {\n document.write(arrayDeCadenas[i] + \" / \");\n}\n}\n\nvar cadenaVerso = \"Oh brave new world that has such people in it.\";\nvar cadenaMeses = \"Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec\";\n\nvar espacio = \" \";\nvar coma = \",\";\n\ndividirCadena(cadenaVerso, espacio);\ndividirCadena(cadenaVerso);\ndividirCadena(cadenaMeses, coma);\n\nEste ejemplo produce el siguiente resultado:\n\nLa cadena original es: \"Oh brave new world that has such people in it.\"\nEl separador es: \" \"\nEl array tiene 10 elementos: Oh / brave / new / world / that / has / such / people / in / it. /\n\nLa cadena original es: \"Oh brave new world that has such people in it.\"\nEl separador es: \"undefined\"\nEl array tiene 1 elementos: Oh brave new world that has such people in it. /\n\nLa cadena original es: \"Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec\"\nEl separador es: \",\"\nEl array tiene 12 elementos: Jan / Feb / Mar / Apr / May / Jun / Jul / Aug / Sep / Oct / Nov / Dec /",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/String/split"
+    },
+    "startswith": {
+      "explain": "El método startsWith() indica si una cadena de texto comienza con los caracteres de una cadena de texto concreta, devolviendo true o false según corresponda.",
+      "code": "const str1 = 'Saturday night plans';\n\nconsole.log(str1.startsWith('Sat'));\n// Expected output: true\n\nconsole.log(str1.startsWith('Sat', 3));\n// Expected output: false",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/String/startsWith"
+    },
+    "substr": {
+      "explain": "El método substr() devuelve los caracteres de una cadena que comienzan en una localización especificada y de acuerdo al número de caracteres que se especifiquen.",
+      "code": "Advertencia: Advertencia: Aunque String.prototype.substr(…) no está estrictamente obsoleto (como en \"eliminado de los estándares web\"), se define en el anexo B de la norma ECMA-262, cuya introducción establece:\n\n... Todas las características y comportamientos del lenguaje especificados en este anexo tienen una o más características indeseables y, en ausencia de uso heredado, se eliminarían de esta especificación. ... ... Los programadores no deben usar ni asumir la existencia de estas características y comportamientos al escribir un nuevo código ECMAScript.",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/String/substr"
+    },
+    "substring": {
+      "explain": "El substring() método devuelve un subconjunto de un objeto String.",
+      "code": "// asume una función print ya definida\nvar cualquierCadena = \"Mozilla\";\n\n// Muestra \"Moz\"\nprint(cualquierCadena.substring(0,3));\nprint(cualquierCadena.substring(3,0));\n\n// Muestra \"lla\"\nprint(cualquierCadena.substring(4,7));\nprint(cualquierCadena.substring(7,4));\n\n// Muestra \"Mozill\"\nprint(cualquierCadena.substring(0,6));\nprint(cualquierCadena.substring(6,0));\n\n// Muestra \"Mozilla\"\nprint(cualquierCadena.substring(0,7));\nprint(cualquierCadena.substring(0,10));",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/String/substring"
+    },
+    "tolocalelowercase": {
+      "explain": "El método toLocaleLowerCase() retorna la cadena de texto desde la que se llama convertida en minúsculas, de acuerdo con cualquier localización específica de correspondencia de mayúsculas y minúsculas.",
+      "code": "const dotted = 'İstanbul';\n\nconsole.log(`EN-US: ${dotted.toLocaleLowerCase('en-US')}`);\n// Expected output: \"i̇stanbul\"\n\nconsole.log(`TR: ${dotted.toLocaleLowerCase('tr')}`);\n// Expected output: \"istanbul\"",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/String/toLocaleLowerCase"
+    },
+    "tolocaleuppercase": {
+      "explain": "El método toLocaleUpperCase() devuelve el valor de la cadena que lo llama convertido en mayúsculas, de acuerdo con las asignaciones de casos específicos de la configuración regional.",
+      "code": "'alphabet'.toLocaleUpperCase(); // 'ALPHABET'\n\n'i\\u0307'.toLocaleUpperCase('lt-LT'); // 'I'\n\nlet locales = ['lt', 'LT', 'lt-LT', 'lt-u-co-phonebk', 'lt-x-lietuva'];\n'i\\u0307'.toLocaleUpperCase(locales); // 'I'",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/String/toLocaleUpperCase"
+    },
+    "tolowercase": {
+      "explain": "El método toLowerCase() devuelve el valor en minúsculas de la cadena que realiza la llamada.",
+      "code": "var textoMayusculas=\"ALFABETO\"\ndocument.write(textoMayusculas.toLowerCase())",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/String/toLowerCase"
+    },
+    "touppercase": {
+      "explain": "El toUpperCase() método devuelve el valor convertido en mayúsculas de la cadena que realiza la llamada.",
+      "code": "console.log( \"alphabet\".toUpperCase() ); // \"ALPHABET\"",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/String/toUpperCase"
+    },
+    "tostring": {
+      "explain": "El toString() método devuelve una cadena que representa al objeto especificado.",
+      "code": "cadena = new String(\"Hello world\");\nalert(cadena.toString())      // Displays \"Hello world\"",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/String/toString"
+    },
+    "trim": {
+      "explain": "El método trim( ) elimina los espacios en blanco en ambos extremos del string. Los espacios en blanco en este contexto, son todos los caracteres sin contenido (espacio, tabulación, etc.) y todos los caracteres de nuevas lineas (LF,CR,etc.).",
+      "code": "var orig = '   foo  ';\nconsole.log(orig.trim()); // 'foo'\n\n// Otro ejemplo de .trim() eliminando el espacio en blanco sólo de un lado.\n\nvar orig = 'foo    ';\nconsole.log(orig.trim()); // 'foo'",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/String/Trim"
+    }
+  },
+  "math": {
+    "abs": {
+      "explain": "La función Math.abs() retorna el valor absoluto de un número",
+      "code": "Math.abs('-1');     // 1\nMath.abs(-2);       // 2\nMath.abs(null);     // 0\nMath.abs('');       // 0\nMath.abs([]);       // 0\nMath.abs([2]);      // 2\nMath.abs([1,2]);    // NaN\nMath.abs({});       // NaN\nMath.abs('string'); // NaN\nMath.abs();         // NaN",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Math/abs"
+    },
+    "acos": {
+      "explain": "La función Math.acos() devuelve el arco coseno (en radianes) de un número",
+      "code": "Math.acos(-2);  // NaN\nMath.acos(-1);  // 3.141592653589793\nMath.acos(0);   // 1.5707963267948966\nMath.acos(0.5); // 1.0471975511965979\nMath.acos(1);   // 0\nMath.acos(2);   // NaN",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Math/acos"
+    },
+    "asin": {
+      "explain": "La Funcion Math.asin() retorna El arco seno (en radianes) de un número",
+      "code": "Math.asin(-2);  // NaN\nMath.asin(-1);  // -1.5707963267948966 (-pi/2)\nMath.asin(0);   // 0\nMath.asin(0.5); // 0.5235987755982989\nMath.asin(1);   // 1.5707963267948966 (pi/2)\nMath.asin(2);   // NaN",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Math/asin"
+    },
+    "atan": {
+      "explain": "La función Math.atan() retorna el arcotangente (en radianes) de un numero",
+      "code": "// Calculates angle of a right-angle triangle in radians\nfunction calcAngle(opposite, adjacent) {\nreturn Math.atan(opposite / adjacent);\n}\n\nconsole.log(calcAngle(8, 10));\n// Expected output: 0.6747409422235527\n\nconsole.log(calcAngle(5, 3));\n// Expected output: 1.0303768265243125",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Math/atan"
+    },
+    "atan2": {
+      "explain": "La función Math.atan2() retorna la arcotangente del cociente de los argumentos.",
+      "code": "Math.atan2(90, 15); // 1.4056476493802699\nMath.atan2(15, 90); // 0.16514867741462683\n\nMath.atan2(±0, -0);               // ±PI.\nMath.atan2(±0, +0);               // ±0.\nMath.atan2(±0, -x);               // ±PI for x > 0.\nMath.atan2(±0, x);                // ±0 for x > 0.\nMath.atan2(-y, ±0);               // -PI/2 for y > 0.\nMath.atan2(y, ±0);                // PI/2 for y > 0.\nMath.atan2(±y, -Infinity);        // ±PI for finite y > 0.\nMath.atan2(±y, +Infinity);        // ±0 for finite y > 0.\nMath.atan2(±Infinity, x);         // ±PI/2 for finite x.\nMath.atan2(±Infinity, -Infinity); // ±3*PI/4.\nMath.atan2(±Infinity, +Infinity); // ±PI/4.",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Math/atan2"
+    },
+    "ceil": {
+      "explain": "La función Math.ceil() devuelve el entero mayor o igual más próximo a un número dado.",
+      "code": "console.log(Math.ceil(.95));\n// Expected output: 1\n\nconsole.log(Math.ceil(4));\n// Expected output: 4\n\nconsole.log(Math.ceil(7.004));\n// Expected output: 8\n\nconsole.log(Math.ceil(-7.004));\n// Expected output: -7",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Math/ceil"
+    },
+    "cos": {
+      "explain": "La función estática Math.cos() devuelve el coseno del ángulo especificado, que debe ser especificado en radianes",
+      "code": "function getCircleX(radians, radius) {\nreturn Math.cos(radians) * radius;\n}\n\nconsole.log(getCircleX(1, 10));\n// Expected output: 5.403023058681398\n\nconsole.log(getCircleX(2, 10));\n// Expected output: -4.161468365471424\n\nconsole.log(getCircleX(Math.PI, 10));\n// Expected output: -10",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Math/cos"
+    },
+    "exp": {
+      "explain": "La función Math.exp() devuelve ex, donde x es el argumento, y e es El número de Euler (también conocido como la constante de Napier), la base de los algoritmos naturales.",
+      "code": "Math.exp(-1); // 0.36787944117144233\nMath.exp(0);  // 1\nMath.exp(1);  // 2.718281828459045",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Math/exp"
+    },
+    "floor": {
+      "explain": "Devuelve el máximo entero menor o igual a un número.",
+      "code": "function getFloor(x) {\nreturn Math.floor(x);\n}",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Math/floor"
+    },
+    "log": {
+      "explain": "La función Math.log() devuelve la base neutral de un número (base e)",
+      "code": "function getBaseLog(x, y) {\nreturn Math.log(y) / Math.log(x);\n}\n\n// 2 x 2 x 2 = 8\nconsole.log(getBaseLog(2, 8));\n// Expected output: 3\n\n// 5 x 5 x 5 x 5 = 625\nconsole.log(getBaseLog(5, 625));\n// Expected output: 4",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Math/log"
+    },
+    "max": {
+      "explain": "La función Math.max() retorna el mayor de cero o más números dados como parámetros de entrada, o NaN si cualquier parámetro no es un número y no puede ser convertido en uno.\n",
+      "code": "console.log(Math.max(1, 3, 2));\n// Expected output: 3\n\nconsole.log(Math.max(-1, -3, -2));\n// Expected output: -1\n\nconst array1 = [1, 3, 2];\n\nconsole.log(Math.max(...array1));\n// Expected output: 3",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Math/max"
+    },
+    "min": {
+      "explain": "La función Math.min() devuelve el menor de cero o más números.",
+      "code": "Lo siguiente encuentra el mínimo de x e y y lo asigna a z:\n\nvar x = 10, y = -20;\nvar z = Math.min(x, y);",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Math/min"
+    },
+    "pow": {
+      "explain": "La función Math.pow() devuelve la base elevada al exponente , esto es, baseexponente.\n",
+      "code": "// simple\nMath.pow(7, 2);    // 49\nMath.pow(7, 3);    // 343\nMath.pow(2, 10);   // 1024\n// exponentes fraccionales\nMath.pow(4, 0.5);  // 2 (raíz cuadrada de 4)\nMath.pow(8, 1/3);  // 2 (raíz cúbica de 8)\nMath.pow(2, 0.5);  // 1.412135623730951 (raíz cuadrada de 2)\nMath.pow(2, 1/3);  // 1.2599210498948732 (raíz cúbica de 2)\n// exponentes con signo\nMath.pow(7, -2);   // 0.02040816326530612 (1/49)\nMath.pow(8, -1/3); // 0.5\n// bases con signo\nMath.pow(-7, 2);   // 49 (los cuadrados son positivos)\nMath.pow(-7, 3);   // -343 (El cubo de una base negativa puede ser negativo)\nMath.pow(-7, 0.5); // NaN (Los números negativos no tienen raíz cuadrada real)\nMath.pow(-7, 1/3); // NaN",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Math/pow"
+    },
+    "random": {
+      "explain": "La función Math.random() devuelve un número de coma flotante pseudo-aleatorio, comprendido en el rango de 0 a menor que 1 (es decir, incluido el 0 pero no el 1), con una distribución aproximadamente uniforme en este rango. Dicho rango puede ser ampliado hasta los valores deseados. La implementación selecciona la semilla inicial del algoritmo de generación de números aleatorios, no pudiendo ser esta elegida o restablecida por el usuario.",
+      "code": "function getRandomInt(max) {\nreturn Math.floor(Math.random() * max);\n}\n\nconsole.log(getRandomInt(3));\n// Expected output: 0, 1 or 2\n\nconsole.log(getRandomInt(1));\n// Expected output: 0\n\nconsole.log(Math.random());\n// Expected output: a number from 0 to <1",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Math/random"
+    },
+    "round": {
+      "explain": "La función Math.round()retorna el valor de un número redondeado al entero más cercano.",
+      "code": "// Retorna el valor 20\nx = Math.round(20.49);\n\n// Retorna el valor 21\nx = Math.round(20.5);\n\n// Retorna el valor -20\nx = Math.round(-20.5);\n\n// Retorna el valor -21\nx = Math.round(-20.51);\n\n// Retorna el valor 1 (!)\n// Note el error de redondeo debido a la inexactitud del punto aritmético.\n// Compare esto con Math.round10(1.005, -2) de el ejemplo de abajo.\nx = Math.round(1.005*100)/100;",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Math/round"
+    },
+    "sin": {
+      "explain": "La función Math.sin() devuelve el seno de un número.",
+      "code": "Math.sin(0);           // 0\nMath.sin(1);           // 0.8414709848078965\n\nMath.sin(Math.PI / 2); // 1",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Math/sin"
+    },
+    "sqrt": {
+      "explain": "La función Math.sqrt() retorna la raíz cuadrada de un número",
+      "code": "Math.sqrt(9); // 3\nMath.sqrt(2); // 1.414213562373095\n\nMath.sqrt(1);  // 1\nMath.sqrt(0);  // 0\nMath.sqrt(-1); // NaN",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Math/sqrt"
+    },
+    "tan": {
+      "explain": "La función Math.tan() retorna la tangente de un número.",
+      "code": "function getTanFromDegrees(degrees) {\nreturn Math.tan(degrees * Math.PI / 180);\n}\n\nconsole.log(getTanFromDegrees(0));\n// Expected output: 0\n\nconsole.log(getTanFromDegrees(45));\n// Expected output: 0.9999999999999999\n\nconsole.log(getTanFromDegrees(90));\n// Expected output: 16331239353195370",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Math/tan"
+    }
+  },
+  "object": {
+    "assign": {
+      "explain": "El método Object.assign() copia todas las propiedades enumerables de uno o más objetos fuente a un objeto destino. Devuelve el objeto destino.",
+      "code": "const target = { a: 1, b: 2 };\nconst source = { b: 4, c: 5 };\n\nconst returnedTarget = Object.assign(target, source);\n\nconsole.log(target);\n// Expected output: Object { a: 1, b: 4, c: 5 }\n\nconsole.log(returnedTarget === target);\n// Expected output: true",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Object/assign"
+    },
+    "create": {
+      "explain": "El método Object.create() crea un objeto nuevo, utilizando un objeto existente como el prototipo del nuevo objeto creado.",
+      "code": "const person = {\nisHuman: false,\nprintIntroduction: function() {\nconsole.log(`My name is ${this.name}. Am I human? ${this.isHuman}`);\n}\n};\n\nconst me = Object.create(person);\n\nme.name = 'Matthew'; // \"name\" is a property set on \"me\", but not on \"person\"\nme.isHuman = true; // Inherited properties can be overwritten\n\nme.printIntroduction();\n// Expected output: \"My name is Matthew. Am I human? true\"",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Object/create"
+    },
+    "defineproperties": {
+      "explain": "El metodo Object.defineProperties() define nuevas o modifica propiedades existentes directamente en el objeto, retornando el objeto.",
+      "code": "Object.defineProperties(obj, {\n\"property1\": {\nvalue: true,\nwritable: true\n},\n\"property2\": {\nvalue: \"Hello\",\nwritable: false\n}\n// etc. etc.\n});",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperties"
+    },
+    "defineproperty": {
+      "explain": "El método estático Object.defineProperty() define una nueva propiedad sobre un objeto, o modifica una ya existente, y devuelve el objeto modificado.",
+      "code": "var o = {}; // Creates a new object\n\n// Example of an object property added with defineProperty with a data property descriptor\nObject.defineProperty(o, 'a', {\nvalue: 37,\nwritable: true,\nenumerable: true,\nconfigurable: true\n});\n// 'a' property exists in the o object and its value is 37\n\n// Example of an object property added with defineProperty with an accessor property descriptor\nvar bValue = 38;\nObject.defineProperty(o, 'b', {\nget: function() { return bValue; },\nset: function(newValue) { bValue = newValue; },\nenumerable: true,\nconfigurable: true\n});\no.b; // 38\n// 'b' property exists in the o object and its value is 38\n// The value of o.b is now always identical to bValue, unless o.b is redefined\n\n// You cannot try to mix both:\nObject.defineProperty(o, 'conflict', {\nvalue: 0x9f91102,\nget: function() { return 0xdeadbeef; }\n});\n// throws a TypeError: value appears only in data descriptors, get appears only in accessor descriptors",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty"
+    },
+    "entries": {
+      "explain": "El método Object.entries() devuelve una matriz de pares propios de una propiedad enumerable [key, value] de un objeto dado, en el mismo orden que es proporcionado por for...in (La diferencia es que un bucle for-in enumera las propiedades en la cadena de prototipos).",
+      "code": "ar obj = { foo: 'bar', baz: 42 };\nconsole.log(Object.entries(obj)); // [ ['foo', 'bar'], ['baz', 42] ]\n\n// array like object\nvar obj = { 0: 'a', 1: 'b', 2: 'c' };\nconsole.log(Object.entries(obj)); // [ ['0', 'a'], ['1', 'b'], ['2', 'c'] ]\n\n// array like object with random key ordering\nvar an_obj = { 100: 'a', 2: 'b', 7: 'c' };\nconsole.log(Object.entries(an_obj)); // [ ['2', 'b'], ['7', 'c'], ['100', 'a'] ]\n\n// getFoo is property which isn't enumerable\nvar my_obj = Object.create({}, { getFoo: { value: function() { return this.foo; } } });\nmy_obj.foo = 'bar';\nconsole.log(Object.entries(my_obj)); // [ ['foo', 'bar'] ]\n\n// non-object argument will be coerced to an object\nconsole.log(Object.entries('foo')); // [ ['0', 'f'], ['1', 'o'], ['2', 'o'] ]\n\n// iterate through key-value gracefully\nvar obj = {a: 5, b: 7, c: 9};\nfor (var [key, value] of Object.entries(obj)) {\nconsole.log(key + ' ' + value); // \"a 5\", \"b 7\", \"c 9\"\n}\n\n// Or, using array extras\nObject.entries(obj).forEach(([key, value]) => {\nconsole.log(key + ' ' + value); // \"a 5\", \"b 7\", \"c 9\"\n});",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Object/entries"
+    },
+    "freeze": {
+      "explain": "El método Object.freeze() congela un objeto, es decir: impide que se le agreguen nuevas propiedades; impide que se puedan eliminar las propiedades ya existentes; impide que dichas propiedades, o su capacidad de enumeración, configuración, o escritura, puedan ser modificadas; impide también que se pueda modificar su prototipo. El método devuelve el objeto recibido.",
+      "code": "const obj = {\nprop: 42\n};\n\nObject.freeze(obj);\n\nobj.prop = 33;\n// Throws an error in strict mode\n\nconsole.log(obj.prop);\n// Expected output: 42",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Object/freeze"
+    },
+    "getownpropertydescriptor": {
+      "explain": "El método Object.getOwnPropertyDescriptor() regresa como descripción de propiedad para una propiedad propia (eso es, una presente directamente en el objeto, no presente por la fuerza a través de la cadena de prototipo del objeto) de un objeto dado.",
+      "code": "var o, d;\n\no = { get foo() { return 17; } };\nd = Object.getOwnPropertyDescriptor(o, 'foo');\n// d is { configurable: true, enumerable: true, get: /* la función de acceso */, set: undefined }\n\no = { bar: 42 };\nd = Object.getOwnPropertyDescriptor(o, 'bar');\n// d is { configurable: true, enumerable: true, value: 42, writable: true }\n\no = {};\nObject.defineProperty(o, 'baz', { value: 8675309, writable: false, enumerable: false });\nd = Object.getOwnPropertyDescriptor(o, 'baz');\n// d es { value: 8675309, writable: false, enumerable: false, configurable: false }",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptor"
+    },
+    "getownpropertydescriptors": {
+      "explain": "El método Object.getOwnPropertyDescriptors() regresa todos los descriptores de propiedad propios de un objeto dado.",
+      "code": "const object1 = {\nproperty1: 42\n};\n\nconst descriptors1 = Object.getOwnPropertyDescriptors(object1);\n\nconsole.log(descriptors1.property1.writable);\n// Expected output: true\n\nconsole.log(descriptors1.property1.value);\n// Expected output: 42",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptors"
+    },
+    "getownpropertynames": {
+      "explain": "El método Object.getOwnPropertyNames() devuelve un array con todas las propiedades (numerables o no) encontradas en un objeto dado.",
+      "code": "var arr = [\"a\", \"b\", \"c\"];\nprint(Object.getOwnPropertyNames(arr).sort()); // imprime \"0,1,2,length\"\n\n// Objeto similar a Array\nvar obj = { 0: \"a\", 1: \"b\", 2: \"c\"};\nprint(Object.getOwnPropertyNames(obj).sort()); // imprime \"0,1,2\"\n\n// Imprime nombres de variables y valores usando Array.forEach\nObject.getOwnPropertyNames(obj).forEach(function(val, idx, array) {\nprint(val + \" -> \" + obj[val]);\n});\n// imprime\n// 0 -> a\n// 1 -> b\n// 2 -> c\n\n// propiedad no-numerable\nvar my_obj = Object.create({}, { getFoo: { value: function() { return this.foo; }, enumerable: false } });\nmy_obj.foo = 1;\n\nprint(Object.getOwnPropertyNames(my_obj).sort()); // imprime \"foo, getFoo\"",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyNames"
+    },
+    "getownpropertysymbols": {
+      "explain": "El método Object.getOwnPropertySymbols() regresa una colección de todos las propiedades de los simbolos encontrados directamente en un objeto dado.",
+      "code": "var obj = {};\nvar a = Symbol('a');\nvar b = Symbol.for('b');\n\nobj[a] = 'localSymbol';\nobj[b] = 'globalSymbol';\n\nvar objectSymbols = Object.getOwnPropertySymbols(obj);\n\nconsole.log(objectSymbols.length); // 2\nconsole.log(objectSymbols);        // [Symbol(a), Symbol(b)]\nconsole.log(objectSymbols[0]);     // Symbol(a)",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertySymbols"
+    },
+    "getprototypeof": {
+      "explain": "El método Object.getPrototypeOf() devuelve el prototipo (es decir, el valor de la propiedad interna [[Prototype]]) del objeto especificado.\n",
+      "code": "var proto = {};\nvar obj= Object.create(proto);\nObject.getPrototypeOf(obj) === proto; // true\nCopy to Clipboard",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Object/getPrototypeOf"
+    },
+    "is": {
+      "explain": "El método Object.is() determina si dos valores son iguales.",
+      "code": "Object.is('foo', 'foo');     // true\nObject.is(window, window);   // true\n\nObject.is('foo', 'bar');     // false\nObject.is([], []);           // false\n\nvar test = { a: 1 };\nObject.is(test, test);       // true\n\nObject.is(null, null);       // true\n\n// Special Cases\nObject.is(0, -0);            // false\nObject.is(-0, -0);           // true\nObject.is(NaN, 0/0);         // true",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Object/is"
+    },
+    "isextensible": {
+      "explain": "El método Object.isExtensible() determina si un objeto es extendible (si puede tener propiedades nuevas agregadas a éste).",
+      "code": "// Los Objetos nuevos son extendibles (por defecto).\nvar empty = {};\nObject.isExtensible(empty); // === true\n\n// ...pero eso puede cambiar.\nObject.preventExtensions(empty);\nObject.isExtensible(empty); // === false\n\n// Objetos sellados por definición son no-extendibles.\nvar sealed = Object.seal({});\nObject.isExtensible(sealed); // === false\n\n// Objetos congelados también por definición son no-extendibles.\nvar frozen = Object.freeze({});\nObject.isExtensible(frozen); // === false",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Object/isExtensible"
+    },
+    "isfrozen": {
+      "explain": "El método Object.isFrozen() determina si un objeto está congelado.",
+      "code": "// Un objeto nuevo es extendible, así que no está congelado.\nObject.isFrozen({}); // === false\n\n// Un objeto vacio el cuál no es extendible está congelado vacuamente.\nvar vacuouslyFrozen = Object.preventExtensions({});\nObject.isFrozen(vacuouslyFrozen); // === true\n\n// Un objeto nuevo con una propiedad es tabién extendible, ergo no congelado.\nvar oneProp = { p: 42 };\nObject.isFrozen(oneProp); // === false\n\n// Prevenir la extensión de un objeto no lo congela.\n// porque la propiedad sigue teniendo capacidad de configuración (y capacidad de escritura).\nObject.preventExtensions(oneProp);\nObject.isFrozen(oneProp); // === false\n\n// ...pero eliminar la propiedad congela el objeto vacuamente.\ndelete oneProp.p;\nObject.isFrozen(oneProp); // === true",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Object/isFrozen"
+    },
+    "issealed": {
+      "explain": "El método Object.isSealed() si el objeto está sellado.",
+      "code": "const object1 = {\nproperty1: 42\n};\n\nconsole.log(Object.isSealed(object1));\n// Expected output: false\n\nObject.seal(object1);\n\nconsole.log(Object.isSealed(object1));\n// Expected output: true",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Object/isSealed"
+    },
+    "keys": {
+      "explain": "El método Object.keys() devuelve un array de las propiedades names de un objeto, en el mismo orden como se obtienen en un loop normal"
+    },
+    "code": "var arr = ['a', 'b', 'c'];\nconsole.log(Object.keys(arr)); // console: ['0', '1', '2']\n\n// arreglo como objeto\nvar obj = { 0: 'a', 1: 'b', 2: 'c' };\nconsole.log(Object.keys(obj)); // console: ['0', '1', '2']\n\n// arreglo como objeto con nombres ordenados aleatoriamente\nvar an_obj = { 100: 'a', 2: 'b', 7: 'c' };\nconsole.log(Object.keys(an_obj)); // console: ['2', '7', '100']\n\n// getFoo es una propiedad no enumerable\nvar my_obj = Object.create({}, { getFoo: { value: function() { return this.foo; } } });\nmy_obj.foo = 1;\n\nconsole.log(Object.keys(my_obj)); // console: ['foo']",
+    "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Object/keys",
+    "preventextensions": {
+      "explain": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Object/keys",
+      "code": "// Object.preventExtensions regresa el objeto hecho no-extendible.\nvar obj = {};\nvar obj2 = Object.preventExtensions(obj);\nobj === obj2; // true\n\n// Los Objetos son extendibles por defecto.\nvar empty = {};\nObject.isExtensible(empty); // === true\n\n// ...pero pueden ser cambiados.\nObject.preventExtensions(empty);\nObject.isExtensible(empty); // === false\n\n// Object.defineProperty arroja una excepción cuando se agrega\n// una propiedad nueva a un objeto no-extendible.\nvar nonExtensible = { removable: true };\nObject.preventExtensions(nonExtensible);\nObject.defineProperty(nonExtensible, 'new', { value: 8675309 }); // arroja TypeError",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Object/preventExtensions"
+    },
+    "seal": {
+      "explain": "El método Object.seal() sella un objeto, previniendo que puedan añadirse nuevas propiedades al mismo, y marcando todas las propiedades existentes como no-configurables. Los valores de las propiedades presentes permanecen pudiendo cambiarse en tanto en cuanto dichas propiedades sean de escritura.",
+      "code": "var obj = {\nprop: function() {},\nfoo: 'bar'\n};\n\n// Pueden añadirse nuevas propiedades, propiedades existentes pueden cambiarse o eliminarse.\nobj.foo = 'baz';\nobj.lumpy = 'woof';\ndelete obj.prop;\n\nvar o = Object.seal(obj);\n\no === obj; // true\nObject.isSealed(obj); // === true\n\n// Sigue permitido modificar valores de propiedades en un objeto sellado.\nobj.foo = 'quux';\n\n// Pero no puedes convertir propiedades de datos en propiedades de acceso, ni viveversa\nObject.defineProperty(obj, 'foo', { get: function() { return 'g'; } }); // produce un TypeError",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Object/seal"
+    },
+    "setprototypeof": {
+      "explain": "El método Object.setPrototypeOf() establece el prototipo (p.e., la propiedad interna [[Prototype]]) de un objeto especificado a otro objeto o sino establece null.",
+      "code": "Object.appendChain = function(oChain, oProto) {\nif (arguments.length < 2) {\nthrow new TypeError('Object.appendChain - Not enough arguments');\n}\nif (typeof oProto === 'number' || typeof oProto === 'boolean') {\nthrow new TypeError('second argument to Object.appendChain must be an object or a string');\n}",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Object/setPrototypeOf"
+    },
+    "values": {
+      "explain": "El método Object.values() devuelve un array con los valores correspondientes a las propiedades enumerables de un objeto. Las propiedades son devueltas en el mismo orden a como lo haría un bucle for...in (la única diferencia es que un bucle for-in también enumera las propiedades en la cadena de prototipo de un objeto).",
+      "code": "const object1 = {\na: 'somestring',\nb: 42,\nc: false\n};\n\nconsole.log(Object.values(object1));\n// Expected output: Array [\"somestring\", 42, false]",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Object/values"
+    }
+  },
+  "date": {
+    "getdate": {},
+    "getday": {},
+    "getfullyear": {},
+    "gethours": {},
+    "getmilliseconds": {},
+    "getminutes": {},
+    "getmonth": {},
+    "getseconds": {},
+    "gettime": {},
+    "gettimezoneoffset": {},
+    "getutcdate": {},
+    "getutcday": {},
+    "getutcfullyear": {},
+    "getutchours": {},
+    "getutcmilliseconds": {},
+    "getutcminutes": {},
+    "getutcmonth": {},
+    "getutcseconds": {},
+    "setdate": {},
+    "setfullyear": {},
+    "sethours": {},
+    "setmilliseconds": {},
+    "setminutes": {},
+    "setmonth": {},
+    "setseconds": {},
+    "settime": {},
+    "todatestring": {},
+    "toisostring": {},
+    "tojson": {},
+    "tolocaledatestring": {},
+    "tolocalestring": {},
+    "tolocaletimestring": {},
+    "tostring": {},
+    "totimestring": {},
+    "toutcstring": {}
+  },
+  "function": {
+    "apply": {},
+    "bind": {},
+    "call": {},
+    "tostring": {}
+  },
+  "number": {
+    "toexponential": {},
+    "tofixed": {},
+    "tolocalestring": {},
+    "toprecision": {},
+    "tostring": {},
+    "valueof": {}
+  },
+  "map": {
+    "clear": {},
+    "delete": {},
+    "entries": {},
+    "foreach": {},
+    "get": {},
+    "has": {},
+    "keys": {},
+    "set": {},
+    "values": {},
+    "size": {},
+    "symboliterator": {},
+    "symboltostringtag": {}
+  },
+  "promise": {
+    "catch": {},
+    "then": {},
+    "finally": {},
+    "resolve": {},
+    "reject": {},
+    "race": {},
+    "all": {}
+  },
+  "json": {
+    "parse": {},
+    "stringify": {}
+  },
+  "boolean": {
+    "tostring": {},
+    "valueof": {}
+  },
+  "error": {
+    "tostring": {}
+  },
+  "set": {
+    "add": {},
+    "clear": {},
+    "delete": {},
+    "entries": {},
+    "forEach": {},
+    "has": {},
+    "values": {},
+    "size": {},
+    "keys": {},
+    "symboliterator": {},
+    "symboltostringtag": {}
+  },
+  "reflect": {
+    "apply": {},
+    "construct": {},
+    "defineproperty": {},
+    "deleteproperty": {},
+    "get": {},
+    "getownpropertydescriptor": {},
+    "getprototypeof": {},
+    "has": {},
+    "isextensible": {},
+    "ownkeys": {},
+    "preventextensions": {},
+    "set": {},
+    "setprototypeof": {}
+  },
+  "weakmap": {
+    "delete": {},
+    "get": {},
+    "has": {},
+    "set": {}
+  },
+  "weakset": {
+    "add": {},
+    "delete": {},
+    "has": {}
+  },
+  "intl": {
+    "collator": {},
+    "datetimeformat": {},
+    "numberformat": {},
+    "getcanonicallocales": {},
+    "pluralrules": {},
+    "relativetimeformat": {}
+  },
+  "symbol": {
+    "for": {},
+    "keyfor": {},
+    "description": {},
+    "symboltoprimitive": {},
+    "symboltostringtag": {},
+    "symbolunscopables": {}
+  },
+  "regexp": {
+    "exec": {},
+    "test": {},
+    "compile": {},
+    "flags": {},
+    "global": {},
+    "ignoreCase": {},
+    "multiline": {},
+    "source": {},
+    "sticky": {},
+    "unicode": {}
   }
 }
