@@ -1903,9 +1903,39 @@ console.log(event.toLocaleTimeString('ar-EG'));
 '''
 link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleTimeString'''
         }
-        tostring:{}
-        totimestring:{}
-        toutcstring:{}
+        tostring:{
+            explain:'''The toString() method returns a string representing the specified Date object interpreted in the local timezone.'''
+            code:'''const event = new Date('August 19, 1975 23:15:30');
+
+console.log(event.toString());
+// Expected output: "Tue Aug 19 1975 23:15:30 GMT+0200 (CEST)"
+// Note: your timezone may vary
+'''
+link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toString'''
+        }
+        totimestring:{
+            explain:'''The toTimeString() method returns the time portion of a Date object interpreted in the local timezone in English.
+
+'''
+code:'''const event = new Date('August 19, 1975 23:15:30');
+
+console.log(event.toTimeString());
+// Expected output: "23:15:30 GMT+0200 (CEST)"
+// Note: your timezone may vary
+'''
+link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toTimeString'''
+        }
+        toutcstring:{
+            explain:'''The toUTCString() method converts a date to a string, interpreting it in the UTC time zone. toGMTString() is an alias of this method.
+
+'''
+code:'''const event = new Date('14 Jun 2017 00:00:00 PDT');
+
+console.log(event.toUTCString());
+// Expected output: "Wed, 14 Jun 2017 07:00:00 GMT"
+'''
+link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toUTCString'''
+        }
         }
     function:{
         apply:{}
