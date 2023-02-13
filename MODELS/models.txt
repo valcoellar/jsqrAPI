@@ -2433,7 +2433,30 @@ link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Ob
         }
     }
     error:{
-       tostring:{} 
+       tostring:{
+           explain:'''The toString() method returns a string representing the specified Error object.'''
+           code:'''Error.prototype.toString = function () {
+  if (
+    this === null ||
+    (typeof this !== "object" && typeof this !== "function")
+  ) {
+    throw new TypeError();
+  }
+  let name = this.name;
+  name = name === undefined ? "Error" : `${name}`;
+  let msg = this.message;
+  msg = msg === undefined ? "" : `${msg}`;
+  if (name === "") {
+    return msg;
+  }
+  if (msg === "") {
+    return name;
+  }
+  return `${name}: ${msg}`;
+};'''
+link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error/toString'''
+
+       } 
     }
     set:{
         add:{}
