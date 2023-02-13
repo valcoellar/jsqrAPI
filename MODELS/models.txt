@@ -1795,10 +1795,65 @@ console.log(event);
 '''
 link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/setSeconds'''
         }
-        settime:{}
-        todatestring:{}
-        toisostring:{}
-        tojson:{}
+        settime:{
+            explain:'''The setTime() method sets the Date object to the time represented by a number of milliseconds since January 1, 1970, 00:00:00 UTC.
+
+'''
+code:'''const launchDate = new Date('July 1, 1999, 12:00:00');
+const futureDate = new Date();
+futureDate.setTime(launchDate.getTime());
+
+console.log(futureDate);
+// Expected output: "Thu Jul 01 1999 12:00:00 GMT+0200 (CEST)"
+
+const fiveMinutesInMillis = 5 * 60 * 1000;
+futureDate.setTime(futureDate.getTime() + fiveMinutesInMillis);
+
+console.log(futureDate);
+// Expected output: "Thu Jul 01 1999 12:05:00 GMT+0200 (CEST)"
+// Note: your timezone may vary
+'''
+link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/setTime'''
+        }
+        todatestring:{
+            explain:'''The toDateString() method returns the date portion of a Date object interpreted in the local timezone in English.'''
+            code:'''const event = new Date(1993, 6, 28, 14, 39, 7);
+
+console.log(event.toString());
+// Expected output: "Wed Jul 28 1993 14:39:07 GMT+0200 (CEST)"
+// Note: your timezone may vary
+
+console.log(event.toDateString());
+// Expected output: "Wed Jul 28 1993"
+'''
+link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toDateString'''
+        }
+        toisostring:{
+            explain:'''The toISOString() method returns a string in simplified extended ISO format (ISO 8601), which is always 24 or 27 characters long (YYYY-MM-DDTHH:mm:ss.sssZ or ±YYYYYY-MM-DDTHH:mm:ss.sssZ, respectively). The timezone is always zero UTC offset, as denoted by the suffix Z.'''
+            code:'''const event = new Date('05 October 2011 14:48 UTC');
+console.log(event.toString());
+// Expected output: "Wed Oct 05 2011 16:48:00 GMT+0200 (CEST)"
+// Note: your timezone may vary
+
+console.log(event.toISOString());
+// Expected output: "2011-10-05T14:48:00.000Z"
+'''
+link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString'''
+        }
+        tojson:{
+            explain:'''The toJSON() method returns a string representation of the Date object.'''
+            code:'''const event = new Date('August 19, 1975 23:15:30 UTC');
+
+const jsonDate = event.toJSON();
+
+console.log(jsonDate);
+// Expected output: "1975-08-19T23:15:30.000Z"
+
+console.log(new Date(jsonDate).toUTCString());
+// Expected output: "Tue, 19 Aug 1975 23:15:30 GMT"
+'''
+link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toJSON'''
+        }
         tolocaledatestring:{}
         tolocalestring:{}
         tolocaletimestring:{}
