@@ -2198,16 +2198,125 @@ console.log(iterator1.next().value);
 '''
 link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/keys'''
         }
-        set:{}
-        values:{}
-        size:{}
-        symboliterator:{}
-        symboltostringtag:{}
+        set:{
+            explain:'''The set() method adds or updates an entry in a Map object with a specified key and a value.'''
+            code:'''const map1 = new Map();
+map1.set('bar', 'foo');
+
+console.log(map1.get('bar'));
+// Expected output: "foo"
+
+console.log(map1.get('baz'));
+// Expected output: undefined
+'''
+link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/set'''
+        }
+        values:{
+            explain:'''The values() method returns a new iterator object that contains the values for each element in the Map object in insertion order.'''
+            code:'''const map1 = new Map();
+
+map1.set('0', 'foo');
+map1.set(1, 'bar');
+
+const iterator1 = map1.values();
+
+console.log(iterator1.next().value);
+// Expected output: "foo"
+
+console.log(iterator1.next().value);
+// Expected output: "bar"
+'''
+link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/values'''
+        }
+        size:{
+            explain:'''The size accessor property returns the number of elements in a Map object.'''
+            code:'''const map1 = new Map();
+
+map1.set('a', 'alpha');
+map1.set('b', 'beta');
+map1.set('g', 'gamma');
+
+console.log(map1.size);
+// Expected output: 3
+'''
+link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/size'''
+        }
     }
     promise:{
-        catch:{}
-        then:{}
-        finally:{}
+        catch:{
+            explain:'''El método catch() retorna una Promise y solo se ejecuta en los casos en los que la promesa se marca como Reject. Se comporta igual que al llamar Promise.prototype.then(undefined, onRejected) (de hecho, al llamar obj.catch(onRejected) internamente llama a obj.then(undefined, onRejected)).'''
+            code:'''// overriding original Promise.prototype.then/catch just to add some logs
+(function(Promise){
+  var originalThen = Promise.prototype.then;
+  var originalCatch = Promise.prototype.catch;
+
+  Promise.prototype.then = function(){
+    console.log('> > > > > > called .then on %o with arguments: %o', this, arguments);
+    return originalThen.apply(this, arguments);
+  };
+  Promise.prototype.catch = function(){
+    console.log('> > > > > > called .catch on %o with arguments: %o', this, arguments);
+    return originalCatch.apply(this, arguments);
+  };
+})(this.Promise);
+
+// calling catch on an already resolved promise
+Promise.resolve().catch(function XXX(){});
+
+// logs:
+// > > > > > > called .catch on Promise{} with arguments: Arguments{1} [0: function XXX()]
+// > > > > > > called .then on Promise{} with arguments: Arguments{2} [0: undefined, 1: function XXX()]
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Promise/catch'''
+        }
+        then:{
+            explain:'''El método then() retorna una Promesa. Recibe dos argumentos: funciones callback para los casos de éxito y fallo de Promise.
+
+Nota: Si ambos argumentos son omitidos, o se proveen métodos que no sean funciones, se creará una nueva Promesa sin handlers adicionales, que simplemente adoptan el estado final de la Promesa que entonces es llamado. Si el primer argumento es omitido o se provee una no-función, el nuevo Promise que es creado simplemente adopta el estado cumplido del Promise que entonces es llamado (si se convierte en fulfilled). Si el segundo argument es omitido o se provee una no-función, el nuevo Promise que es creado simplemente adopta el estado de rechazo del Promesa que entonces es llamado (si se convierte en rechazado).'''
+code:'''// al usar una promesa revuelta, el bloque 'then' se lanzará automáticamente,
+// pero sus funciones controladoras se lanzarán asíncronamente,
+// como demuestran los console.logs
+var promResuelta = Promise.resolve(33);
+
+var thenProm = promResuelta.then(función(valor){
+  console.log("ésto será invocado cuando acabe el stack principal. El valor recibido y devuelto es: " + valor);
+  return valor;
+});
+// imprimimos al momento el valor de thenProm()
+console.log(thenProm);
+
+// usando setTimeout podemos posponer la ejecución de una función al momento en el que el stack quede vacío.
+setTimeout(función(){
+  console.log(thenProm);
+});
+
+
+// logs, en orden:
+// Promise {[[EstadoPromise¡]]: "pendiente", [[ValorPromise]]: undefined}
+// "ésto será invocado cuando acabe el stack principal. El valor recibido y devuelto es: "33"
+// Promise {[[EstadoPromise]]: "resuelta", [[ValorPromise]]: 33}
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Promise/then'''
+        }
+        finally:{
+            explain:'''El método finally() devuelve una Promise. Cuando la promesa se resuelve, sea exitosa o rechazada, la función de callback específicada será ejecutada. Esto ofrece una forma de ejecutar código sin importar como se haya resuelto la promesa.
+
+'''
+code:'''let isLoading = true;
+
+fetch(myRequest).then(function(response) {
+    var contentType = response.headers.get("content-type");
+    if(contentType && contentType.includes("application/json")) {
+      return response.json();
+    }
+    throw new TypeError("Oops, no hemos obtenido un JSON!");
+  })
+  .then(function(json) { /* procesar el JSON */ })
+  .catch(function(error) { console.log(error); /* esta línea podría arrojar error, e.g. cuando console = {} */ })
+  .finally(function() { isLoading = false; });
+  '''
+  link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Promise/finally'''
+        }
         resolve:{}
         reject:{}
         race:{}
