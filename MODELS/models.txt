@@ -2089,13 +2089,115 @@ link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global
         }
     }
     map:{
-        clear:{}
-        delete:{}
-        entries:{}
-        foreach:{}
-        get:{}
-        has:{}
-        keys:{}
+        clear:{
+            explain:'''The clear() method removes all elements from a Map object.'''
+            code:'''const map1 = new Map();
+
+map1.set('bar', 'baz');
+map1.set(1, 'foo');
+
+console.log(map1.size);
+// Expected output: 2
+
+map1.clear();
+
+console.log(map1.size);
+// Expected output: 0
+'''
+link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/clear'''
+        }
+        delete:{
+            explain:'''The delete() method removes the specified element from a Map object by key.'''
+            code:'''const map1 = new Map();
+map1.set('bar', 'foo');
+
+console.log(map1.delete('bar'));
+// Expected result: true
+// True indicates successful removal
+
+console.log(map1.has('bar'));
+// Expected result: false
+'''
+link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/delete'''
+        }
+        entries:{
+            explain:'''The entries() method returns a new iterator object that contains the [key, value] pairs for each element in the Map object in insertion order. In this particular case, this iterator object is also an iterable, so the for-of loop can be used. When the protocol [Symbol.iterator] is used, it returns a function that, when invoked, returns this iterator itself.'''
+            code:'''const map1 = new Map();
+
+map1.set('0', 'foo');
+map1.set(1, 'bar');
+
+const iterator1 = map1.entries();
+
+console.log(iterator1.next().value);
+// Expected output: Array ["0", "foo"]
+
+console.log(iterator1.next().value);
+// Expected output: Array [1, "bar"]
+'''
+link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/entries'''
+        }
+        foreach:{
+            explain:'''The forEach() method executes a provided function once per each key/value pair in the Map object, in insertion order.'''
+            code:'''function logMapElements(value, key, map) {
+  console.log(`m[${key}] = ${value}`);
+}
+
+new Map([['foo', 3], ['bar', {}], ['baz', undefined]])
+  .forEach(logMapElements);
+
+// Expected output: "m[foo] = 3"
+// Expected output: "m[bar] = [object Object]"
+// Expected output: "m[baz] = undefined"
+'''
+link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/forEach'''
+        }
+        get:{
+            explain:'''The get() method returns a specified element from a Map object. If the value that is associated to the provided key is an object, then you will get a reference to that object and any change made to that object will effectively modify it inside the Map object.
+
+'''
+code:'''const map1 = new Map();
+map1.set('bar', 'foo');
+
+console.log(map1.get('bar'));
+// Expected output: "foo"
+
+console.log(map1.get('baz'));
+// Expected output: undefined
+'''
+link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/get'''
+
+        }
+        has:{
+            explain:'''The has() method returns a boolean indicating whether an element with the specified key exists or not.'''
+            code:'''const map1 = new Map();
+map1.set('bar', 'foo');
+
+console.log(map1.has('bar'));
+// Expected output: true
+
+console.log(map1.has('baz'));
+// Expected output: false
+'''
+link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/has'''
+        }
+        keys:{
+            explain:'''The keys() method returns a new iterator object that contains the keys for each element in the Map object in insertion order. In this particular case, this iterator object is also an iterable, so a for...of loop can be used.'''
+            code:'''const map1 = new Map();
+
+map1.set('0', 'foo');
+map1.set(1, 'bar');
+
+const iterator1 = map1.keys();
+
+console.log(iterator1.next().value);
+// Expected output: "0"
+
+console.log(iterator1.next().value);
+// Expected output: 1
+'''
+link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/keys'''
+        }
         set:{}
         values:{}
         size:{}
