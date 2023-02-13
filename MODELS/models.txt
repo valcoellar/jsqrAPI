@@ -1938,18 +1938,155 @@ link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global
         }
         }
     function:{
-        apply:{}
-        bind:{}
-        call:{}
-        tostring:{}
+        apply:{
+            explain:'''El método apply() invoca una determinada función asignando explícitamente el objeto this y un array o similar (array like object (en-US)) como parámetros (argumentos) para dicha función.'''
+            code:'''function MyConstructor () {
+    for (var nProp = 0; nProp < arguments.length; nProp++) {
+        this["property" + nProp] = arguments[nProp];
+    }
+}
+
+var myArray = [4, "Hello world!", false];
+var myInstance = MyConstructor.construct(myArray);
+
+alert(myInstance.property1); // alerts "Hello world!"
+alert(myInstance instanceof MyConstructor); // alerts "true"
+alert(myInstance.constructor); // alerts "MyConstructor"
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Function/apply'''
+        }
+        bind:{
+            explain:'''El método bind() crea una nueva función, que cuando es llamada, asigna a su operador this el valor entregado, con una secuencia de argumentos dados precediendo a cualquiera entregados cuando la función es llamada.'''
+            code:'''this.x = 9;
+var module = {
+  x: 81,
+  getX: function() { return this.x; }
+};
+
+module.getX(); // 81
+
+var getX = module.getX;
+getX(); // 9, porque en este caso, "this" apunta al objeto global
+
+// Crear una nueva función con 'this' asociado al objeto original 'module'
+var boundGetX = getX.bind(module);
+boundGetX(); // 81
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Function/bind'''
+        }
+        call:{
+            explain:'''El método call() llama a una función con un valor dado this y con argumentos provistos individualmente.'''
+            code:'''El método call() llama a una función con un valor dado this y con argumentos provistos individualmente.'''
+            link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Function/call'''
+        }
+        tostring:{
+            explain:'''El método toString() retorna una cadena representando el código fuente de la función.'''
+            code:'''function.toString(indentation)'''
+            link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Function/toString'''
+        }
     }
     number:{
-        toexponential:{}
-        tofixed:{}
-        tolocalestring:{}
-        toprecision:{}
-        tostring:{}
-        valueof:{}
+        toexponential:{
+            explain:'''The toExponential() method returns a string representing the Number object in exponential notation.'''
+            code:'''function expo(x, f) {
+  return Number.parseFloat(x).toExponential(f);
+}
+
+console.log(expo(123456, 2));
+// Expected output: "1.23e+5"
+
+console.log(expo('123456'));
+// Expected output: "1.23456e+5"
+
+console.log(expo('oink'));
+// Expected output: "NaN"
+'''
+link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toExponential'''
+        }
+        tofixed:{
+            explain:'''The toFixed() method formats a number using fixed-point notation.'''
+            code:'''function financial(x) {
+  return Number.parseFloat(x).toFixed(2);
+}
+
+console.log(financial(123.456));
+// Expected output: "123.46"
+
+console.log(financial(0.004));
+// Expected output: "0.00"
+
+console.log(financial('1.23e+5'));
+// Expected output: "123000.00"
+'''
+link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toFixed'''
+        }
+        tolocalestring:{
+            explain:'''The toLocaleString() method returns a string with a language-sensitive representation of this number. In implementations with Intl.NumberFormat API support, this method simply calls Intl.NumberFormat.'''
+            code:'''function eArabic(x){
+  return x.toLocaleString('ar-EG');
+}
+
+console.log(eArabic(123456.789));
+// Expected output: "١٢٣٬٤٥٦٫٧٨٩"
+
+console.log(eArabic('123456.789'));
+// Expected output: "123456.789"
+
+console.log(eArabic(NaN));
+// Expected output: "ليس رقم"
+'''
+link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString'''
+        }
+        toprecision:{
+            explain:'''The toPrecision() method returns a string representing the Number object to the specified precision.'''
+            code:'''function precise(x) {
+  return x.toPrecision(4);
+}
+
+console.log(precise(123.456));
+// Expected output: "123.5"
+
+console.log(precise(0.004));
+// Expected output: "0.004000"
+
+console.log(precise(1.23e5));
+// Expected output: "1.230e+5"
+'''
+link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toPrecision'''
+
+        }
+        tostring:{
+            explain:'''The toString() method returns a string representing the specified number value.'''
+            code:'''function hexColour(c) {
+  if (c < 256) {
+    return Math.abs(c).toString(16);
+  }
+  return 0;
+}
+
+console.log(hexColour(233));
+// Expected output: "e9"
+
+console.log(hexColour('11'));
+// Expected output: "b"
+'''
+link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toString'''
+        }
+        valueof:{
+            explain:'''The valueOf() method returns the wrapped primitive value of a Number object.'''
+            code:'''const numObj = new Number(42);
+console.log(typeof numObj);
+// Expected output: "object"
+
+const num = numObj.valueOf();
+console.log(num);
+// Expected output: 42
+
+console.log(typeof num);
+// Expected output: "number"
+'''
+link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/valueOf'''
+        }
     }
     map:{
         clear:{}
