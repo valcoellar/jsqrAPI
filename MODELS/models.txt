@@ -1493,20 +1493,154 @@ link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Ob
         }
         }
     date:{
-        getdate:{}
-        getday:{}
-        getfullyear:{}
-        gethours:{}
-        getmilliseconds:{}
-        getminutes:{}
-        getmonth:{}
-        getseconds:{}
-        gettime:{}
-        gettimezoneoffset:{}
-        getutcdate:{}
-        getutcday:{}
-        getutcfullyear:{}
-        getutchours:{}
+        getdate:{
+            explain:'''El método getDate() devuelve el día del mes para la fecha especificada de acuerdo con la hora local.'''
+            code:'''var Xmas95 = new Date('December 25, 1995 23:15:30');
+var day = Xmas95.getDate();
+
+console.log(day); // 25
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Date/getDate'''
+        }
+        getday:{
+            explain:'''El método getDay() devuelve el día de la semana de la fecha especificada en función de la fecha local; siendo 0 (Domingo) el primer día.
+
+'''
+code:'''var Xmas95 = new Date('December 25, 1995 23:15:30');
+var weekday = Xmas95.getDay();
+
+console.log(weekday); // 1
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Date/getDay'''
+
+        }
+        getfullyear:{
+            explain:'''El método getFullYear() devuelve el año de la fecha indicada acorde a la hora local.'''
+            code:'''const moonLanding = new Date('July 20, 69 00:20:18');
+
+console.log(moonLanding.getFullYear());
+// Expected output: 1969
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Date/getFullYear'''
+        }
+        gethours:{
+            explain:'''El método getHours() retorna la hora de la fecha especificada, de acuerdo a la hora local.'''
+            code:'''var Xmas95 = new Date('December 25, 1995 23:15:30');
+var hours = Xmas95.getHours();
+
+console.log(hours); // 23
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Date/getHours'''
+        }
+        getmilliseconds:{
+            explain:'''El método getMilliseconds() devuelve la cantidad de milisegundos en el objeto fecha especificado de acuerdo a la hora local.
+
+'''
+code:'''var ahora = new Date();
+var milisegundos = ahora.getMilliseconds();
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Date/getMilliseconds'''
+        }
+        getminutes:{
+            explain:'''El método getMinutes() devuelve los minutos de la fecha especificada en función de la hora local.'''
+            code:'''var Xmas95 = new Date('December 25, 1995 23:15:30');
+var minutos = Xmas95.getMinutes();
+
+console.log(minutos); // 15
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Date/getMinutes'''
+        }
+        getmonth:{
+            explain:'''El método getMonth() devuelve el mes del objeto Date según la hora local, donde el número cero indica el primer mes del año.'''
+            code:'''var Navidad = new Date('December 25, 2014 23:15:30');
+var mes = Navidad.getMonth();
+
+console.log(mes); // 11
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Date/getMonth'''
+        }
+        getseconds:{
+            explain:'''El método getSeconds() devuelve los segundos en la fecha especificada de acuerdo a la hora local.'''
+            code:'''const moonLanding = new Date('July 20, 69 00:20:18');
+
+console.log(moonLanding.getSeconds());
+// Expected output: 18
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Date/getSeconds'''
+        }
+        gettime:{
+            
+        }
+        gettimezoneoffset:{
+            explain:'''The getTimezoneOffset() method returns the difference, in minutes, between a date as evaluated in the UTC time zone, and the same date as evaluated in the local time zone.
+
+'''
+code:'''const date1 = new Date('August 19, 1975 23:15:30 GMT+07:00');
+const date2 = new Date('August 19, 1975 23:15:30 GMT-02:00');
+
+console.log(date1.getTimezoneOffset());
+// Expected output: your local timezone offset in minutes
+// (e.g., -120). NOT the timezone offset of the date object.
+
+console.log(date1.getTimezoneOffset() === date2.getTimezoneOffset());
+// Expected output: true
+'''
+link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getTimezoneOffset'''
+        }
+        getutcdate:{
+            explain:'''The getUTCDate() method returns the day of the month (from 1 to 31) in the specified date according to universal time.'''
+            code:'''const date1 = new Date('August 19, 1975 23:15:30 GMT+11:00');
+const date2 = new Date('August 19, 1975 23:15:30 GMT-11:00');
+
+console.log(date1.getUTCDate());
+// Expected output: 19
+
+console.log(date2.getUTCDate());
+// Expected output: 20
+'''
+link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getUTCDate'''
+        }
+        getutcday:{
+            explain:'''The getUTCDay() method returns the day of the week in the specified date according to universal time, where 0 represents Sunday.'''
+            code:'''const date1 = new Date('August 19, 1975 23:15:30 GMT+11:00');
+const date2 = new Date('August 19, 1975 23:15:30 GMT-11:00');
+
+// Tuesday
+console.log(date1.getUTCDay());
+// Expected output: 2
+
+// Wednesday
+console.log(date2.getUTCDay());
+// Expected output: 3
+'''
+link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getUTCDay'''
+        }
+        getutcfullyear:{
+            explain:'''The getUTCFullYear() method returns the year in the specified date according to universal time.'''
+            code:'''const date1 = new Date('December 31, 1975, 23:15:30 GMT+11:00');
+const date2 = new Date('December 31, 1975, 23:15:30 GMT-11:00');
+
+console.log(date1.getUTCFullYear());
+// Expected output: 1975
+
+console.log(date2.getUTCFullYear());
+// Expected output: 1976
+'''
+link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getUTCFullYear'''
+        }
+        getutchours:{
+            explain:'''The getUTCHours() method returns the hours in the specified date according to universal time.'''
+            code:'''const date1 = new Date('December 31, 1975, 23:15:30 GMT+11:00');
+const date2 = new Date('December 31, 1975, 23:15:30 GMT-11:00');
+
+console.log(date1.getUTCHours());
+// Expected output: 12
+
+console.log(date2.getUTCHours());
+// Expected output: 10
+'''
+link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getUTCHours'''
+        }
         getutcmilliseconds:{}
         getutcminutes:{}
         getutcmonth:{}
