@@ -482,155 +482,619 @@
     }
   },
   "date": {
-    "getdate": {},
-    "getday": {},
-    "getfullyear": {},
-    "gethours": {},
-    "getmilliseconds": {},
-    "getminutes": {},
-    "getmonth": {},
-    "getseconds": {},
+    "getdate": {
+      "explain": "El método getDate() devuelve el día del mes para la fecha especificada de acuerdo con la hora local.",
+      "code": "var Xmas95 = new Date('December 25, 1995 23:15:30');\nvar day = Xmas95.getDate();\n\nconsole.log(day); // 25",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Date/getDate"
+    },
+    "getday": {
+      "explain": "El método getDay() devuelve el día de la semana de la fecha especificada en función de la fecha local; siendo 0 (Domingo) el primer día.\n",
+      "code": "var Xmas95 = new Date('December 25, 1995 23:15:30');\nvar weekday = Xmas95.getDay();\n\nconsole.log(weekday); // 1",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Date/getDay"
+    },
+    "getfullyear": {
+      "explain": "El método getFullYear() devuelve el año de la fecha indicada acorde a la hora local.",
+      "code": "const moonLanding = new Date('July 20, 69 00:20:18');\n\nconsole.log(moonLanding.getFullYear());\n// Expected output: 1969",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Date/getFullYear"
+    },
+    "gethours": {
+      "explain": "El método getHours() retorna la hora de la fecha especificada, de acuerdo a la hora local.",
+      "code": "var Xmas95 = new Date('December 25, 1995 23:15:30');\nvar hours = Xmas95.getHours();\n\nconsole.log(hours); // 23",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Date/getHours"
+    },
+    "getmilliseconds": {
+      "explain": "El método getMilliseconds() devuelve la cantidad de milisegundos en el objeto fecha especificado de acuerdo a la hora local.\n",
+      "code": "var ahora = new Date();\nvar milisegundos = ahora.getMilliseconds();",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Date/getMilliseconds"
+    },
+    "getminutes": {
+      "explain": "El método getMinutes() devuelve los minutos de la fecha especificada en función de la hora local.",
+      "code": "var Xmas95 = new Date('December 25, 1995 23:15:30');\nvar minutos = Xmas95.getMinutes();\n\nconsole.log(minutos); // 15",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Date/getMinutes"
+    },
+    "getmonth": {
+      "explain": "El método getMonth() devuelve el mes del objeto Date según la hora local, donde el número cero indica el primer mes del año.",
+      "code": "var Navidad = new Date('December 25, 2014 23:15:30');\nvar mes = Navidad.getMonth();\n\nconsole.log(mes); // 11",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Date/getMonth"
+    },
+    "getseconds": {
+      "explain": "El método getSeconds() devuelve los segundos en la fecha especificada de acuerdo a la hora local.",
+      "code": "const moonLanding = new Date('July 20, 69 00:20:18');\n\nconsole.log(moonLanding.getSeconds());\n// Expected output: 18",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Date/getSeconds"
+    },
     "gettime": {},
-    "gettimezoneoffset": {},
-    "getutcdate": {},
-    "getutcday": {},
-    "getutcfullyear": {},
-    "getutchours": {},
-    "getutcmilliseconds": {},
-    "getutcminutes": {},
-    "getutcmonth": {},
-    "getutcseconds": {},
-    "setdate": {},
-    "setfullyear": {},
-    "sethours": {},
-    "setmilliseconds": {},
-    "setminutes": {},
-    "setmonth": {},
-    "setseconds": {},
-    "settime": {},
-    "todatestring": {},
-    "toisostring": {},
-    "tojson": {},
-    "tolocaledatestring": {},
-    "tolocalestring": {},
-    "tolocaletimestring": {},
-    "tostring": {},
-    "totimestring": {},
-    "toutcstring": {}
+    "gettimezoneoffset": {
+      "explain": "The getTimezoneOffset() method returns the difference, in minutes, between a date as evaluated in the UTC time zone, and the same date as evaluated in the local time zone.\n",
+      "code": "const date1 = new Date('August 19, 1975 23:15:30 GMT+07:00');\nconst date2 = new Date('August 19, 1975 23:15:30 GMT-02:00');\n\nconsole.log(date1.getTimezoneOffset());\n// Expected output: your local timezone offset in minutes\n// (e.g., -120). NOT the timezone offset of the date object.\n\nconsole.log(date1.getTimezoneOffset() === date2.getTimezoneOffset());\n// Expected output: true",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getTimezoneOffset"
+    },
+    "getutcdate": {
+      "explain": "The getUTCDate() method returns the day of the month (from 1 to 31) in the specified date according to universal time.",
+      "code": "const date1 = new Date('August 19, 1975 23:15:30 GMT+11:00');\nconst date2 = new Date('August 19, 1975 23:15:30 GMT-11:00');\n\nconsole.log(date1.getUTCDate());\n// Expected output: 19\n\nconsole.log(date2.getUTCDate());\n// Expected output: 20",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getUTCDate"
+    },
+    "getutcday": {
+      "explain": "The getUTCDay() method returns the day of the week in the specified date according to universal time, where 0 represents Sunday.",
+      "code": "const date1 = new Date('August 19, 1975 23:15:30 GMT+11:00');\nconst date2 = new Date('August 19, 1975 23:15:30 GMT-11:00');\n\n// Tuesday\nconsole.log(date1.getUTCDay());\n// Expected output: 2\n\n// Wednesday\nconsole.log(date2.getUTCDay());\n// Expected output: 3",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getUTCDay"
+    },
+    "getutcfullyear": {
+      "explain": "The getUTCFullYear() method returns the year in the specified date according to universal time.",
+      "code": "const date1 = new Date('December 31, 1975, 23:15:30 GMT+11:00');\nconst date2 = new Date('December 31, 1975, 23:15:30 GMT-11:00');\n\nconsole.log(date1.getUTCFullYear());\n// Expected output: 1975\n\nconsole.log(date2.getUTCFullYear());\n// Expected output: 1976",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getUTCFullYear"
+    },
+    "getutchours": {
+      "explain": "The getUTCHours() method returns the hours in the specified date according to universal time.",
+      "code": "const date1 = new Date('December 31, 1975, 23:15:30 GMT+11:00');\nconst date2 = new Date('December 31, 1975, 23:15:30 GMT-11:00');\n\nconsole.log(date1.getUTCHours());\n// Expected output: 12\n\nconsole.log(date2.getUTCHours());\n// Expected output: 10",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getUTCHours"
+    },
+    "getutcmilliseconds": {
+      "explain": "The getUTCMilliseconds() method returns the milliseconds portion of the time object's value according to universal time.",
+      "code": "const exampleDate = new Date('2018-01-02T03:04:05.678Z'); // 2 January 2018, 03:04:05.678 (UTC)\n\nconsole.log(exampleDate.getUTCMilliseconds());\n// Expected output: 678",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getUTCMilliseconds"
+    },
+    "getutcminutes": {
+      "explain": "The getUTCMinutes() method returns the minutes in the specified date according to universal time.",
+      "code": "const date1 = new Date('1 January 2000 03:15:30 GMT+07:00');\nconst date2 = new Date('1 January 2000 03:15:30 GMT+03:30');\n\nconsole.log(date1.getUTCMinutes()); // 31 Dec 1999 20:15:30 GMT\n// Expected output: 15\n\nconsole.log(date2.getUTCMinutes()); // 31 Dec 1999 23:45:30 GMT\n// Expected output: 45",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getUTCMinutes"
+    },
+    "getutcmonth": {
+      "explain": "The getUTCMonth() returns the month of the specified date according to universal time, as a zero-based value (where zero indicates the first month of the year).",
+      "code": "const date1 = new Date('December 31, 1975, 23:15:30 GMT+11:00');\nconst date2 = new Date('December 31, 1975, 23:15:30 GMT-11:00');\n\n// December\nconsole.log(date1.getUTCMonth());\n// Expected output: 11\n\n// January\nconsole.log(date2.getUTCMonth());\n// Expected output: 0",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getUTCMonth"
+    },
+    "getutcseconds": {
+      "explain": "The getUTCSeconds() method returns the seconds in the specified date according to universal time.",
+      "code": "const moonLanding = new Date('July 20, 1969, 20:18:04 UTC');\n\nconsole.log(moonLanding.getUTCSeconds());\n// Expected output: 4",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getUTCSeconds"
+    },
+    "setdate": {
+      "explain": "The setDate() method changes the day of the month of a given Date instance, based on local time.",
+      "code": "const event = new Date('August 19, 1975 23:15:30');\n\nevent.setDate(24);\n\nconsole.log(event.getDate());\n// Expected output: 24\n\nevent.setDate(32);\n// Only 31 days in August!\n\nconsole.log(event.getDate());\n// Expected output: 1",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/setDate"
+    },
+    "setfullyear": {
+      "explain": "The setFullYear() method sets the full year for a specified date according to local time. Returns new timestamp.",
+      "code": "const event = new Date('August 19, 1975 23:15:30');\n\nevent.setFullYear(1969);\n\nconsole.log(event.getFullYear());\n// Expected output: 1969\n\nevent.setFullYear(0);\n\nconsole.log(event.getFullYear());\n// Expected output: 0",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/setFullYear"
+    },
+    "sethours": {
+      "explain": "The setHours() method sets the hours for a specified date according to local time, and returns the number of milliseconds since January 1, 1970 00:00:00 UTC until the time represented by the updated Date instance.",
+      "code": "const event = new Date('August 19, 1975 23:15:30');\nevent.setHours(20);\n\nconsole.log(event);\n// Expected output: \"Tue Aug 19 1975 20:15:30 GMT+0200 (CEST)\"\n// Note: your timezone may vary\n\nevent.setHours(20, 21, 22);\n\nconsole.log(event);\n// Expected output: \"Tue Aug 19 1975 20:21:22 GMT+0200 (CEST)\"",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/setHours"
+    },
+    "setmilliseconds": {
+      "explain": "The setMilliseconds() method sets the milliseconds for a specified date according to local time.",
+      "code": "const event = new Date('August 19, 1975 23:15:30');\n\nconsole.log(event.getMilliseconds());\n// Expected output: 0\n\nevent.setMilliseconds(456);\n\nconsole.log(event.getMilliseconds());\n// Expected output: 456",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/setMilliseconds"
+    },
+    "setminutes": {
+      "explain": "The setMinutes() method sets the minutes for a specified date according to local time.",
+      "code": "const event = new Date('August 19, 1975 23:15:30');\n\nevent.setMinutes(45);\n\nconsole.log(event.getMinutes());\n// Expected output: 45\n\nconsole.log(event);\n// Expected output: \"Tue Aug 19 1975 23:45:30 GMT+0200 (CEST)\"\n// Note: your timezone may vary",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/setMinutes"
+    },
+    "setmonth": {
+      "explain": "The setMonth() method sets the month for a specified date according to the currently set year.",
+      "code": "const event = new Date('August 19, 1975 23:15:30');\n\nevent.setMonth(3);\n\nconsole.log(event.getMonth());\n// Expected output: 3\n\nconsole.log(event);\n// Expected output: \"Sat Apr 19 1975 23:15:30 GMT+0100 (CET)\"\n// Note: your timezone may vary",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/setMonth"
+    },
+    "setseconds": {
+      "explain": "The setSeconds() method sets the seconds for a specified date according to local time.",
+      "code": "const event = new Date('August 19, 1975 23:15:30');\n\nevent.setSeconds(42);\n\nconsole.log(event.getSeconds());\n// Expected output: 42\n\nconsole.log(event);\n// Expected output: \"Sat Apr 19 1975 23:15:42 GMT+0100 (CET)\"\n// Note: your timezone may vary",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/setSeconds"
+    },
+    "settime": {
+      "explain": "The setTime() method sets the Date object to the time represented by a number of milliseconds since January 1, 1970, 00:00:00 UTC.\n",
+      "code": "const launchDate = new Date('July 1, 1999, 12:00:00');\nconst futureDate = new Date();\nfutureDate.setTime(launchDate.getTime());\n\nconsole.log(futureDate);\n// Expected output: \"Thu Jul 01 1999 12:00:00 GMT+0200 (CEST)\"\n\nconst fiveMinutesInMillis = 5 * 60 * 1000;\nfutureDate.setTime(futureDate.getTime() + fiveMinutesInMillis);\n\nconsole.log(futureDate);\n// Expected output: \"Thu Jul 01 1999 12:05:00 GMT+0200 (CEST)\"\n// Note: your timezone may vary",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/setTime"
+    },
+    "todatestring": {
+      "explain": "The toDateString() method returns the date portion of a Date object interpreted in the local timezone in English.",
+      "code": "const event = new Date(1993, 6, 28, 14, 39, 7);\n\nconsole.log(event.toString());\n// Expected output: \"Wed Jul 28 1993 14:39:07 GMT+0200 (CEST)\"\n// Note: your timezone may vary\n\nconsole.log(event.toDateString());\n// Expected output: \"Wed Jul 28 1993\"",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toDateString"
+    },
+    "toisostring": {
+      "explain": "The toISOString() method returns a string in simplified extended ISO format (ISO 8601), which is always 24 or 27 characters long (YYYY-MM-DDTHH:mm:ss.sssZ or ±YYYYYY-MM-DDTHH:mm:ss.sssZ, respectively). The timezone is always zero UTC offset, as denoted by the suffix Z.",
+      "code": "const event = new Date('05 October 2011 14:48 UTC');\nconsole.log(event.toString());\n// Expected output: \"Wed Oct 05 2011 16:48:00 GMT+0200 (CEST)\"\n// Note: your timezone may vary\n\nconsole.log(event.toISOString());\n// Expected output: \"2011-10-05T14:48:00.000Z\"",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString"
+    },
+    "tojson": {
+      "explain": "The toJSON() method returns a string representation of the Date object.",
+      "code": "const event = new Date('August 19, 1975 23:15:30 UTC');\n\nconst jsonDate = event.toJSON();\n\nconsole.log(jsonDate);\n// Expected output: \"1975-08-19T23:15:30.000Z\"\n\nconsole.log(new Date(jsonDate).toUTCString());\n// Expected output: \"Tue, 19 Aug 1975 23:15:30 GMT\"",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toJSON"
+    },
+    "tolocaledatestring": {
+      "explain": "The toLocaleDateString() method returns a string with a language-sensitive representation of the date portion of the specified date in the user agent's timezone. In implementations with Intl.DateTimeFormat API support, this method simply calls Intl.DateTimeFormat.\n",
+      "code": "const event = new Date(Date.UTC(2012, 11, 20, 3, 0, 0));\nconst options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };\n\nconsole.log(event.toLocaleDateString('de-DE', options));\n// Expected output (varies according to local timezone): Donnerstag, 20. Dezember 2012\n\nconsole.log(event.toLocaleDateString('ar-EG', options));\n// Expected output (varies according to local timezone): الخميس، ٢٠ ديسمبر، ٢٠١٢\n\nconsole.log(event.toLocaleDateString(undefined, options));\n// Expected output (varies according to local timezone and default locale): Thursday, December 20, 2012",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleDateString"
+    },
+    "tolocalestring": {
+      "explain": "The toLocaleString() method returns a string with a language-sensitive representation of this date. In implementations with Intl.DateTimeFormat API support, this method simply calls Intl.DateTimeFormat.",
+      "code": "const event = new Date(Date.UTC(2012, 11, 20, 3, 0, 0));\n\n// British English uses day-month-year order and 24-hour time without AM/PM\nconsole.log(event.toLocaleString('en-GB', { timeZone: 'UTC' }));\n// Expected output: \"20/12/2012, 03:00:00\"\n\n// Korean uses year-month-day order and 12-hour time with AM/PM\nconsole.log(event.toLocaleString('ko-KR', { timeZone: 'UTC' }));\n// Expected output: \"2012. 12. 20. 오전 3:00:00\" ",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleString"
+    },
+    "tolocaletimestring": {
+      "explain": "The toLocaleTimeString() method returns a string with a language-sensitive representation of the time portion of the date. In implementations with Intl.DateTimeFormat API support, this method simply calls Intl.DateTimeFormat.",
+      "code": "// Depending on timezone, your results will vary\nconst event = new Date('August 19, 1975 23:15:30 GMT+00:00');\n\nconsole.log(event.toLocaleTimeString('en-US'));\n// Expected output: \"1:15:30 AM\"\n\nconsole.log(event.toLocaleTimeString('it-IT'));\n// Expected output: \"01:15:30\"\n\nconsole.log(event.toLocaleTimeString('ar-EG'));\n// Expected output: \"١٢:١٥:٣٠ ص\"",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleTimeString"
+    },
+    "tostring": {
+      "explain": "The toString() method returns a string representing the specified Date object interpreted in the local timezone.",
+      "code": "const event = new Date('August 19, 1975 23:15:30');\n\nconsole.log(event.toString());\n// Expected output: \"Tue Aug 19 1975 23:15:30 GMT+0200 (CEST)\"\n// Note: your timezone may vary",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toString"
+    },
+    "totimestring": {
+      "explain": "The toTimeString() method returns the time portion of a Date object interpreted in the local timezone in English.\n",
+      "code": "const event = new Date('August 19, 1975 23:15:30');\n\nconsole.log(event.toTimeString());\n// Expected output: \"23:15:30 GMT+0200 (CEST)\"\n// Note: your timezone may vary",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toTimeString"
+    },
+    "toutcstring": {
+      "explain": "The toUTCString() method converts a date to a string, interpreting it in the UTC time zone. toGMTString() is an alias of this method.\n",
+      "code": "const event = new Date('14 Jun 2017 00:00:00 PDT');\n\nconsole.log(event.toUTCString());\n// Expected output: \"Wed, 14 Jun 2017 07:00:00 GMT\"",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toUTCString"
+    }
   },
   "function": {
-    "apply": {},
-    "bind": {},
-    "call": {},
-    "tostring": {}
+    "apply": {
+      "explain": "El método apply() invoca una determinada función asignando explícitamente el objeto this y un array o similar (array like object (en-US)) como parámetros (argumentos) para dicha función.",
+      "code": "function MyConstructor () {\nfor (var nProp = 0; nProp < arguments.length; nProp++) {\nthis[\"property\" + nProp] = arguments[nProp];\n}\n}\n\nvar myArray = [4, \"Hello world!\", false];\nvar myInstance = MyConstructor.construct(myArray);\n\nalert(myInstance.property1); // alerts \"Hello world!\"\nalert(myInstance instanceof MyConstructor); // alerts \"true\"\nalert(myInstance.constructor); // alerts \"MyConstructor\"",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Function/apply"
+    },
+    "bind": {
+      "explain": "El método bind() crea una nueva función, que cuando es llamada, asigna a su operador this el valor entregado, con una secuencia de argumentos dados precediendo a cualquiera entregados cuando la función es llamada.",
+      "code": "this.x = 9;\nvar module = {\nx: 81,\ngetX: function() { return this.x; }\n};\n\nmodule.getX(); // 81\n\nvar getX = module.getX;\ngetX(); // 9, porque en este caso, \"this\" apunta al objeto global\n\n// Crear una nueva función con 'this' asociado al objeto original 'module'\nvar boundGetX = getX.bind(module);\nboundGetX(); // 81",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Function/bind"
+    },
+    "call": {
+      "explain": "El método call() llama a una función con un valor dado this y con argumentos provistos individualmente.",
+      "code": "El método call() llama a una función con un valor dado this y con argumentos provistos individualmente.",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Function/call"
+    },
+    "tostring": {
+      "explain": "El método toString() retorna una cadena representando el código fuente de la función.",
+      "code": "function.toString(indentation)",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Function/toString"
+    }
   },
   "number": {
-    "toexponential": {},
-    "tofixed": {},
-    "tolocalestring": {},
-    "toprecision": {},
-    "tostring": {},
-    "valueof": {}
+    "toexponential": {
+      "explain": "The toExponential() method returns a string representing the Number object in exponential notation.",
+      "code": "function expo(x, f) {\nreturn Number.parseFloat(x).toExponential(f);\n}\n\nconsole.log(expo(123456, 2));\n// Expected output: \"1.23e+5\"\n\nconsole.log(expo('123456'));\n// Expected output: \"1.23456e+5\"\n\nconsole.log(expo('oink'));\n// Expected output: \"NaN\"",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toExponential"
+    },
+    "tofixed": {
+      "explain": "The toFixed() method formats a number using fixed-point notation.",
+      "code": "function financial(x) {\nreturn Number.parseFloat(x).toFixed(2);\n}\n\nconsole.log(financial(123.456));\n// Expected output: \"123.46\"\n\nconsole.log(financial(0.004));\n// Expected output: \"0.00\"\n\nconsole.log(financial('1.23e+5'));\n// Expected output: \"123000.00\"",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toFixed"
+    },
+    "tolocalestring": {
+      "explain": "The toLocaleString() method returns a string with a language-sensitive representation of this number. In implementations with Intl.NumberFormat API support, this method simply calls Intl.NumberFormat.",
+      "code": "function eArabic(x){\nreturn x.toLocaleString('ar-EG');\n}\n\nconsole.log(eArabic(123456.789));\n// Expected output: \"١٢٣٬٤٥٦٫٧٨٩\"\n\nconsole.log(eArabic('123456.789'));\n// Expected output: \"123456.789\"\n\nconsole.log(eArabic(NaN));\n// Expected output: \"ليس رقم\"",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString"
+    },
+    "toprecision": {
+      "explain": "The toPrecision() method returns a string representing the Number object to the specified precision.",
+      "code": "function precise(x) {\nreturn x.toPrecision(4);\n}\n\nconsole.log(precise(123.456));\n// Expected output: \"123.5\"\n\nconsole.log(precise(0.004));\n// Expected output: \"0.004000\"\n\nconsole.log(precise(1.23e5));\n// Expected output: \"1.230e+5\"",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toPrecision"
+    },
+    "tostring": {
+      "explain": "The toString() method returns a string representing the specified number value.",
+      "code": "function hexColour(c) {\nif (c < 256) {\nreturn Math.abs(c).toString(16);\n}\nreturn 0;\n}\n\nconsole.log(hexColour(233));\n// Expected output: \"e9\"\n\nconsole.log(hexColour('11'));\n// Expected output: \"b\"",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toString"
+    },
+    "valueof": {
+      "explain": "The valueOf() method returns the wrapped primitive value of a Number object.",
+      "code": "const numObj = new Number(42);\nconsole.log(typeof numObj);\n// Expected output: \"object\"\n\nconst num = numObj.valueOf();\nconsole.log(num);\n// Expected output: 42\n\nconsole.log(typeof num);\n// Expected output: \"number\"",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/valueOf"
+    }
   },
   "map": {
-    "clear": {},
-    "delete": {},
-    "entries": {},
-    "foreach": {},
-    "get": {},
-    "has": {},
-    "keys": {},
-    "set": {},
-    "values": {},
-    "size": {},
-    "symboliterator": {},
-    "symboltostringtag": {}
+    "clear": {
+      "explain": "The clear() method removes all elements from a Map object.",
+      "code": "const map1 = new Map();\n\nmap1.set('bar', 'baz');\nmap1.set(1, 'foo');\n\nconsole.log(map1.size);\n// Expected output: 2\n\nmap1.clear();\n\nconsole.log(map1.size);\n// Expected output: 0",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/clear"
+    },
+    "delete": {
+      "explain": "The delete() method removes the specified element from a Map object by key.",
+      "code": "const map1 = new Map();\nmap1.set('bar', 'foo');\n\nconsole.log(map1.delete('bar'));\n// Expected result: true\n// True indicates successful removal\n\nconsole.log(map1.has('bar'));\n// Expected result: false",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/delete"
+    },
+    "entries": {
+      "explain": "The entries() method returns a new iterator object that contains the [key, value] pairs for each element in the Map object in insertion order. In this particular case, this iterator object is also an iterable, so the for-of loop can be used. When the protocol [Symbol.iterator] is used, it returns a function that, when invoked, returns this iterator itself.",
+      "code": "const map1 = new Map();\n\nmap1.set('0', 'foo');\nmap1.set(1, 'bar');\n\nconst iterator1 = map1.entries();\n\nconsole.log(iterator1.next().value);\n// Expected output: Array [\"0\", \"foo\"]\n\nconsole.log(iterator1.next().value);\n// Expected output: Array [1, \"bar\"]",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/entries"
+    },
+    "foreach": {
+      "explain": "The forEach() method executes a provided function once per each key/value pair in the Map object, in insertion order.",
+      "code": "function logMapElements(value, key, map) {\nconsole.log(`m[${key}] = ${value}`);\n}\n\nnew Map([['foo', 3], ['bar', {}], ['baz', undefined]])\n.forEach(logMapElements);\n\n// Expected output: \"m[foo] = 3\"\n// Expected output: \"m[bar] = [object Object]\"\n// Expected output: \"m[baz] = undefined\"",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/forEach"
+    },
+    "get": {
+      "explain": "The get() method returns a specified element from a Map object. If the value that is associated to the provided key is an object, then you will get a reference to that object and any change made to that object will effectively modify it inside the Map object.\n",
+      "code": "const map1 = new Map();\nmap1.set('bar', 'foo');\n\nconsole.log(map1.get('bar'));\n// Expected output: \"foo\"\n\nconsole.log(map1.get('baz'));\n// Expected output: undefined",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/get"
+    },
+    "has": {
+      "explain": "The has() method returns a boolean indicating whether an element with the specified key exists or not.",
+      "code": "const map1 = new Map();\nmap1.set('bar', 'foo');\n\nconsole.log(map1.has('bar'));\n// Expected output: true\n\nconsole.log(map1.has('baz'));\n// Expected output: false",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/has"
+    },
+    "keys": {
+      "explain": "The keys() method returns a new iterator object that contains the keys for each element in the Map object in insertion order. In this particular case, this iterator object is also an iterable, so a for...of loop can be used.",
+      "code": "const map1 = new Map();\n\nmap1.set('0', 'foo');\nmap1.set(1, 'bar');\n\nconst iterator1 = map1.keys();\n\nconsole.log(iterator1.next().value);\n// Expected output: \"0\"\n\nconsole.log(iterator1.next().value);\n// Expected output: 1",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/keys"
+    },
+    "set": {
+      "explain": "The set() method adds or updates an entry in a Map object with a specified key and a value.",
+      "code": "const map1 = new Map();\nmap1.set('bar', 'foo');\n\nconsole.log(map1.get('bar'));\n// Expected output: \"foo\"\n\nconsole.log(map1.get('baz'));\n// Expected output: undefined",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/set"
+    },
+    "values": {
+      "explain": "The values() method returns a new iterator object that contains the values for each element in the Map object in insertion order.",
+      "code": "const map1 = new Map();\n\nmap1.set('0', 'foo');\nmap1.set(1, 'bar');\n\nconst iterator1 = map1.values();\n\nconsole.log(iterator1.next().value);\n// Expected output: \"foo\"\n\nconsole.log(iterator1.next().value);\n// Expected output: \"bar\"",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/values"
+    },
+    "size": {
+      "explain": "The size accessor property returns the number of elements in a Map object.",
+      "code": "const map1 = new Map();\n\nmap1.set('a', 'alpha');\nmap1.set('b', 'beta');\nmap1.set('g', 'gamma');\n\nconsole.log(map1.size);\n// Expected output: 3",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/size"
+    }
   },
   "promise": {
-    "catch": {},
-    "then": {},
-    "finally": {},
-    "resolve": {},
-    "reject": {},
-    "race": {},
-    "all": {}
+    "catch": {
+      "explain": "El método catch() retorna una Promise y solo se ejecuta en los casos en los que la promesa se marca como Reject. Se comporta igual que al llamar Promise.prototype.then(undefined, onRejected) (de hecho, al llamar obj.catch(onRejected) internamente llama a obj.then(undefined, onRejected)).",
+      "code": "// overriding original Promise.prototype.then/catch just to add some logs\n(function(Promise){\nvar originalThen = Promise.prototype.then;\nvar originalCatch = Promise.prototype.catch;\n\nPromise.prototype.then = function(){\nconsole.log('> > > > > > called .then on %o with arguments: %o', this, arguments);\nreturn originalThen.apply(this, arguments);\n};\nPromise.prototype.catch = function(){\nconsole.log('> > > > > > called .catch on %o with arguments: %o', this, arguments);\nreturn originalCatch.apply(this, arguments);\n};\n})(this.Promise);\n\n// calling catch on an already resolved promise\nPromise.resolve().catch(function XXX(){});\n\n// logs:\n// > > > > > > called .catch on Promise{} with arguments: Arguments{1} [0: function XXX()]\n// > > > > > > called .then on Promise{} with arguments: Arguments{2} [0: undefined, 1: function XXX()]",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Promise/catch"
+    },
+    "then": {
+      "explain": "El método then() retorna una Promesa. Recibe dos argumentos: funciones callback para los casos de éxito y fallo de Promise.\n\nNota: Si ambos argumentos son omitidos, o se proveen métodos que no sean funciones, se creará una nueva Promesa sin handlers adicionales, que simplemente adoptan el estado final de la Promesa que entonces es llamado. Si el primer argumento es omitido o se provee una no-función, el nuevo Promise que es creado simplemente adopta el estado cumplido del Promise que entonces es llamado (si se convierte en fulfilled). Si el segundo argument es omitido o se provee una no-función, el nuevo Promise que es creado simplemente adopta el estado de rechazo del Promesa que entonces es llamado (si se convierte en rechazado).",
+      "code": "// al usar una promesa revuelta, el bloque 'then' se lanzará automáticamente,\n// pero sus funciones controladoras se lanzarán asíncronamente,\n// como demuestran los console.logs\nvar promResuelta = Promise.resolve(33);\n\nvar thenProm = promResuelta.then(función(valor){\nconsole.log(\"ésto será invocado cuando acabe el stack principal. El valor recibido y devuelto es: \" + valor);\nreturn valor;\n});\n// imprimimos al momento el valor de thenProm()\nconsole.log(thenProm);\n\n// usando setTimeout podemos posponer la ejecución de una función al momento en el que el stack quede vacío.\nsetTimeout(función(){\nconsole.log(thenProm);\n});\n\n\n// logs, en orden:\n// Promise {[[EstadoPromise¡]]: \"pendiente\", [[ValorPromise]]: undefined}\n// \"ésto será invocado cuando acabe el stack principal. El valor recibido y devuelto es: \"33\"\n// Promise {[[EstadoPromise]]: \"resuelta\", [[ValorPromise]]: 33}",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Promise/then"
+    },
+    "finally": {
+      "explain": "El método finally() devuelve una Promise. Cuando la promesa se resuelve, sea exitosa o rechazada, la función de callback específicada será ejecutada. Esto ofrece una forma de ejecutar código sin importar como se haya resuelto la promesa.\n",
+      "code": "let isLoading = true;\n\nfetch(myRequest).then(function(response) {\nvar contentType = response.headers.get(\"content-type\");\nif(contentType && contentType.includes(\"application/json\")) {\n return response.json();\n}\nthrow new TypeError(\"Oops, no hemos obtenido un JSON!\");\n})\n.then(function(json) { /* procesar el JSON */ })\n.catch(function(error) { console.log(error); /* esta línea podría arrojar error, e.g. cuando console = {} */ })\n.finally(function() { isLoading = false; });",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Promise/finally"
+    },
+    "resolve": {
+      "explain": "El método Promise.resolve(value) retorna un objeto Promise que es resuelto con el valor dado. Si el valor es una promise, esa promise es devuelta; si el valor es un thenable (si tiene un método \"then\"), el valor devuelto le seguirá a ese thenable, adoptando su estado; de otro modo la promise devuelta estará completada con el valor.",
+      "code": "const promise1 = Promise.resolve(123);\n\npromise1.then((value) => {\nconsole.log(value);\n// Expected output: 123\n});\n",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Promise/resolve"
+    },
+    "reject": {
+      "explain": "El método Promise.reject(reason) retorna un objeto Promise que es rechazado por la razón específicada.",
+      "code": "function resolved(result) {\nconsole.log('Resolved');\n}\n\nfunction rejected(result) {\nconsole.error(result);\n}\n\nPromise.reject(new Error('fail')).then(resolved, rejected);\n// Expected output: Error: fail",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Promise/reject"
+    },
+    "race": {
+      "explain": "El método Promise.race(iterable) retorna una promesa que se cumplirá o no tan pronto como una de las promesas del argumento iterable se cumpla o se rechace, con el valor o razón de rechazo de ésta.",
+      "code": "var p1 = new Promise( (resolve, reject) => {\nsetTimeout(resolve, 500, \"uno\");\n});\nvar p2 = new Promise( (resolve, reject) => {\nsetTimeout(resolve, 100, \"dos\");\n});\n\nPromise.race([p1, p2]).then( value => {\nconsole.log(value); // \"dos\"\n// Ambas se resuelven, pero la p2 antes.\n});",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Promise/race"
+    },
+    "all": {
+      "explain": "El método Promise.all(iterable) devuelve una promesa que termina correctamente cuando todas las promesas en el argumento iterable han sido concluídas con éxito, o bien rechaza la petición con el motivo pasado por la primera promesa que es rechazada.",
+      "code": "var p1 = Promise.resolve(3);\nvar p2 = 1337;\nvar p3 = new Promise((resolve, reject) => {\nsetTimeout(resolve, 100, \"foo\");\n});\n\nPromise.all([p1, p2, p3]).then(values => {\nconsole.log(values); // [3, 1337, \"foo\"]\n});",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Promise/all"
+    }
   },
   "json": {
-    "parse": {},
-    "stringify": {}
+    "parse": {
+      "explain": "El método JSON.parse() analiza una cadena de texto como JSON, transformando opcionalmente el valor producido por el análisis.",
+      "code": "JSON.parse('{}');              // {}\nJSON.parse('true');            // true\nJSON.parse('\"foo\"');           // \"foo\"\nJSON.parse('[1, 5, \"false\"]'); // [1, 5, \"false\"]\nJSON.parse('null');            // null",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse"
+    },
+    "stringify": {
+      "explain": "El método JSON.stringify() convierte un objeto o valor de JavaScript en una cadena de texto JSON, opcionalmente reemplaza valores si se indica una función de reemplazo, o si se especifican las propiedades mediante un array de reemplazo.\n",
+      "code": "console.log(JSON.stringify({ x: 5, y: 6 }));\n// Expected output: \"{\"x\":5,\"y\":6}\"\n\nconsole.log(JSON.stringify([new Number(3), new String('false'), new Boolean(false)]));\n// Expected output: \"[3,\"false\",false]\"\n\nconsole.log(JSON.stringify({ x: [10, undefined, function(){}, Symbol('')] }));\n// Expected output: \"{\"x\":[10,null,null,null]}\"\n\nconsole.log(JSON.stringify(new Date(2006, 0, 2, 15, 4, 5)));\n// Expected output: \"\"2006-01-02T15:04:05.000Z\"\"",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify"
+    }
   },
   "boolean": {
-    "tostring": {},
-    "valueof": {}
+    "tostring": {
+      "explain": "El método toString() retorna una cadena representando el código fuente de la función.",
+      "code": "Function.prototype.toString.call(\"foo\"); // TypeError\n\nvar proxy = new Proxy(function() {}, {});\nFunction.prototype.toString.call(proxy); // TypeError",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Function/toString"
+    },
+    "valueof": {
+      "explain": "El método valueOf() retorna el valor primitivo del objeto especificado.",
+      "code": "function MyNumberType(n) {\nthis.number = n;\n}\n\nMyNumberType.prototype.valueOf = function() {\nreturn this.number;\n};\n\nconst object1 = new MyNumberType(4);\n\nconsole.log(object1 + 3);\n// Expected output: 7",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Object/valueOf"
+    }
   },
   "error": {
-    "tostring": {}
+    "tostring": {
+      "explain": "The toString() method returns a string representing the specified Error object.",
+      "code": "Error.prototype.toString = function () {\nif (\nthis === null ||\n(typeof this !== \"object\" && typeof this !== \"function\")\n) {\nthrow new TypeError();\n}\nlet name = this.name;\nname = name === undefined ? \"Error\" : `${name}`;\nlet msg = this.message;\nmsg = msg === undefined ? \"\" : `${msg}`;\nif (name === \"\") {\nreturn msg;\n}\nif (msg === \"\") {\nreturn name;\n}\nreturn `${name}: ${msg}`;\n};",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error/toString"
+    }
   },
   "set": {
-    "add": {},
-    "clear": {},
-    "delete": {},
-    "entries": {},
-    "forEach": {},
-    "has": {},
-    "values": {},
-    "size": {},
-    "keys": {},
-    "symboliterator": {},
-    "symboltostringtag": {}
+    "add": {
+      "explain": "El método add() añade un nuevo elemento con un valor específico al final del objeto Set.",
+      "code": "var mySet = new Set();\n\nmySet.add(1);\nmySet.add(5).add(\"some text\"); // chainable\n\nconsole.log(mySet);\n// Set [1, 5, \"some text\"]",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Set/add"
+    },
+    "clear": {
+      "explain": "El método clear() remueve todos los elementos de un objeto Set.",
+      "code": "var mySet = new Set();\nmySet.add(1);\nmySet.add(\"foo\");\n\nmySet.size;       // 2\nmySet.has(\"foo\"); // true\n\nmySet.clear();\n\nmySet.size;       // 0\nmySet.has(\"bar\")  // false",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Set/clear"
+    },
+    "delete": {
+      "explain": "El método delete() remueve el elemento especificado del objeto Set.",
+      "code": "var mySet = new Set();\nmySet.add(\"foo\");\n\nmySet.delete(\"bar\"); // Retorna false. No hay elemento \"bar\" para ser removido.\nmySet.delete(\"foo\"); // Retorna true.  Removido exitosamente.\n\nmySet.has(\"foo\");    // Retorna false. El elemento \"foo\" ya no está presente.",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Set/delete"
+    },
+    "entries": {
+      "explain": "El método entries() devuelve un nuevo objeto de tipo Iterator que contiene un array de tuplas [value, value] por cada elemento en el Set original, manteniendo el orden de inserción. En los objetos de tipo Set no existe una clave key como ocurre en los objetos de tipo Map. Sin embargo, para mantener una API similar a la de los objetos de tipo Map, cada entry contiene el mismo valor para su clave y valor, devolviendo por tanto un array de tuplas [value, value].",
+      "code": "const set1 = new Set();\nset1.add(42);\nset1.add('forty two');\n\nconst iterator1 = set1.entries();\n\nfor (const entry of iterator1) {\nconsole.log(entry);\n// Expected output: Array [42, 42]\n// Expected output: Array [\"forty two\", \"forty two\"]\n}",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Set/entries"
+    },
+    "forEach": {
+      "explain": "The forEach() method executes a provided function once for each value in the Set object, in insertion order.",
+      "code": "function logSetElements(value1, value2, set) {\nconsole.log(`s[${value1}] = ${value2}`);\n}\n\nnew Set(['foo', 'bar', undefined]).forEach(logSetElements);\n\n// Expected output: \"s[foo] = foo\"\n// Expected output: \"s[bar] = bar\"\n// Expected output: \"s[undefined] = undefined\"",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/forEach"
+    },
+    "has": {
+      "explain": "El método has() retorna un booleano indicando si el elemento especificado existe en el objeto Set o no.\n",
+      "code": "var mySet = new Set();\nmySet.add(\"foo\");\n\nmySet.has(\"foo\");  // retorna true\nmySet.has(\"bar\");  // retorna false",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Set/has"
+    },
+    "values": {
+      "explain": "El método values() retorna un objeto de tipo Iterator que contiene los valores para cada elemento en el objecto Set en orden de inserción.",
+      "code": "const set1 = new Set();\nset1.add(42);\nset1.add('forty two');\n\nconst iterator1 = set1.values();\n\nconsole.log(iterator1.next().value);\n// Expected output: 42\n\nconsole.log(iterator1.next().value);\n// Expected output: \"forty two\"",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Set/values"
+    },
+    "size": {
+      "explain": "La propiedad de acceso size devuelve el número de elementos que hay en el objeto Set.\n",
+      "code": "var mySet = new Set();\nmySet.add(1);\nmySet.add(5);\nmySet.add(\"un texto\")\n\nmySet.size; // 3",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Set/size"
+    },
+    "keys": {
+      "explain": "The keys() method is an alias for the values() method.",
+      "code": "Syntax\nkeys()",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/keys"
+    }
   },
   "reflect": {
-    "apply": {},
-    "construct": {},
-    "defineproperty": {},
-    "deleteproperty": {},
-    "get": {},
-    "getownpropertydescriptor": {},
-    "getprototypeof": {},
-    "has": {},
-    "isextensible": {},
-    "ownkeys": {},
-    "preventextensions": {},
-    "set": {},
-    "setprototypeof": {}
+    "apply": {
+      "explain": "The Reflect.apply() static method calls a target function with arguments as specified.",
+      "code": "console.log(Reflect.apply(Math.floor, undefined, [1.75]));\n// Expected output: 1\n\nconsole.log(Reflect.apply(String.fromCharCode, undefined, [104, 101, 108, 108, 111]));\n// Expected output: \"hello\"\n\nconsole.log(Reflect.apply(RegExp.prototype.exec, /ab/, ['confabulation']).index);\n// Expected output: 4\n\nconsole.log(Reflect.apply(''.charAt, 'ponies', [3]));\n// Expected output: \"i\"",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect/apply"
+    },
+    "construct": {
+      "explain": "The Reflect.construct() static method acts like the new operator, but as a function. It is equivalent to calling new target(...args). It gives also the added option to specify a different prototype.",
+      "code": "function func1(a, b, c) {\nthis.sum = a + b + c;\n}\n\nconst args = [1, 2, 3];\nconst object1 = new func1(...args);\nconst object2 = Reflect.construct(func1, args);\n\nconsole.log(object2.sum);\n// Expected output: 6\n\nconsole.log(object1.sum);\n// Expected output: 6",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect/construct"
+    },
+    "defineproperty": {
+      "explain": "The Reflect.defineProperty() static method is like Object.defineProperty() but returns a Boolean.\n",
+      "code": "const object1 = {};\n\nif (Reflect.defineProperty(object1, 'property1', { value: 42 })) {\nconsole.log('property1 created!');\n// Expected output: \"property1 created!\"\n} else {\nconsole.log('problem creating property1');\n}\n\nconsole.log(object1.property1);\n// Expected output: 42",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect/defineProperty"
+    },
+    "deleteproperty": {
+      "explain": "The Reflect.deleteProperty() static method allows to delete properties. It is like the delete operator as a function.\n",
+      "code": "const object1 = {\nproperty1: 42\n};\n\nReflect.deleteProperty(object1, 'property1');\n\nconsole.log(object1.property1);\n// Expected output: undefined\n\nconst array1 = [1, 2, 3, 4, 5];\nReflect.deleteProperty(array1, '3');\n\nconsole.log(array1);\n// Expected output: Array [1, 2, 3, undefined, 5]",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect/deleteProperty"
+    },
+    "get": {
+      "explain": "The Reflect.get() static method works like getting a property from an object (target[propertyKey]) as a function.",
+      "code": "const object1 = {\nx: 1,\ny: 2\n};\n\nconsole.log(Reflect.get(object1, 'x'));\n// Expected output: 1\n\nconst array1 = ['zero', 'one'];\n\nconsole.log(Reflect.get(array1, 1));\n// Expected output: \"one\"",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect/get"
+    },
+    "getownpropertydescriptor": {
+      "explain": "The Reflect.getOwnPropertyDescriptor() static method is similar to Object.getOwnPropertyDescriptor(). It returns a property descriptor of the given property if it exists on the object, undefined otherwise.\n",
+      "code": "const object1 = {\nproperty1: 42\n};\n\nconsole.log(Reflect.getOwnPropertyDescriptor(object1, 'property1').value);\n// Expected output: 42\n\nconsole.log(Reflect.getOwnPropertyDescriptor(object1, 'property2'));\n// Expected output: undefined\n\nconsole.log(Reflect.getOwnPropertyDescriptor(object1, 'property1').writable);\n// Expected output: true",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect/getOwnPropertyDescriptor"
+    },
+    "getprototypeof": {
+      "explain": "The Reflect.getPrototypeOf() static method is almost the same method as Object.getPrototypeOf(). It returns the prototype (i.e. the value of the internal [[Prototype]] property) of the specified object.",
+      "code": "const object1 = {\nproperty1: 42\n};\n\nconst proto1 = Reflect.getPrototypeOf(object1);\n\nconsole.log(proto1);\n// Expected output: Object {  }\n\nconsole.log(Reflect.getPrototypeOf(proto1));\n// Expected output: null",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect/getPrototypeOf"
+    },
+    "has": {
+      "explain": "The Reflect.has() static method works like the in operator as a function.",
+      "code": "const object1 = {\nproperty1: 42\n};\n\nconsole.log(Reflect.has(object1, 'property1'));\n// Expected output: true\n\nconsole.log(Reflect.has(object1, 'property2'));\n// Expected output: false\n\nconsole.log(Reflect.has(object1, 'toString'));\n// Expected output: true",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect/has"
+    },
+    "isextensible": {
+      "explain": "The Reflect.isExtensible() static method determines if an object is extensible (whether it can have new properties added to it). It is similar to Object.isExtensible(), but with some differences.",
+      "code": "const object1 = {};\n\nconsole.log(Reflect.isExtensible(object1));\n// Expected output: true\n\nReflect.preventExtensions(object1);\n\nconsole.log(Reflect.isExtensible(object1));\n// Expected output: false\n\nconst object2 = Object.seal({});\n\nconsole.log(Reflect.isExtensible(object2));\n// Expected output: false",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect/isExtensible"
+    },
+    "ownkeys": {
+      "explain": "The Reflect.ownKeys() static method returns an array of the target object's own property keys.",
+      "code": "const object1 = {\nproperty1: 42,\nproperty2: 13\n};\n\nconst array1 = [];\n\nconsole.log(Reflect.ownKeys(object1));\n// Expected output: Array [\"property1\", \"property2\"]\n\nconsole.log(Reflect.ownKeys(array1));\n// Expected output: Array [\"length\"]",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect/ownKeys"
+    },
+    "preventextensions": {
+      "explain": "The Reflect.preventExtensions() static method prevents new properties from ever being added to an object (i.e., prevents future extensions to the object). It is similar to Object.preventExtensions(), but with some differences.",
+      "code": "const object1 = {};\n\nconsole.log(Reflect.isExtensible(object1));\n// Expected output: true\n\nReflect.preventExtensions(object1);\n\nconsole.log(Reflect.isExtensible(object1));\n// Expected output: false",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect/preventExtensions"
+    },
+    "set": {
+      "explain": "The Reflect.set() static method works like setting a property on an object.",
+      "code": "const object1 = {};\nReflect.set(object1, 'property1', 42);\n\nconsole.log(object1.property1);\n// Expected output: 42\n\nconst array1 = ['duck', 'duck', 'duck'];\nReflect.set(array1, 2, 'goose');\n\nconsole.log(array1[2]);\n// Expected output: \"goose\"",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect/set"
+    },
+    "setprototypeof": {
+      "explain": "The Reflect.setPrototypeOf() static method is the same method as Object.setPrototypeOf(), except for its return type. It sets the prototype (i.e., the internal [[Prototype]] property) of a specified object to another object or to null, and returns true if the operation was successful, or false otherwise.",
+      "code": "const object1 = {};\n\nconsole.log(Reflect.setPrototypeOf(object1, Object.prototype));\n// Expected output: true\n\nconsole.log(Reflect.setPrototypeOf(object1, null));\n// Expected output: true\n\nconst object2 = {};\n\nconsole.log(Reflect.setPrototypeOf(Object.freeze(object2), null));\n// Expected output: false",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect/setPrototypeOf"
+    }
   },
   "weakmap": {
-    "delete": {},
-    "get": {},
-    "has": {},
-    "set": {}
+    "delete": {
+      "explain": "El método delete() elimina un elemento específico del objeto WeakMap .\n",
+      "code": "var wm = new WeakMap();\nwm.set(window, \"foo\");\n\nwm.delete(window); // Devuelve true. Eliminado correctamente.\n\nwm.has(window);    // Devuelve false. El elemento window ya no es parte de WeakMap.",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/WeakMap/delete"
+    },
+    "get": {
+      "explain": "El método get() devuelve un elemento específico del objeto WeakMap.",
+      "code": "const weakmap1 = new WeakMap();\nconst object1 = {};\nconst object2 = {};\n\nweakmap1.set(object1, 42);\n\nconsole.log(weakmap1.get(object1));\n// Expected output: 42\n\nconsole.log(weakmap1.get(object2));\n// Expected output: undefined",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/WeakMap/get"
+    },
+    "has": {
+      "explain": "El método has() devuelve un boleano indicando ya sea, si el elemento con la llave específica existe o no en el objeto WeakMap.",
+      "code": "const weakmap1 = new WeakMap();\nconst object1 = {};\nconst object2 = {};\n\nweakmap1.set(object1, 'foo');\n\nconsole.log(weakmap1.has(object1));\n// Expected output: true\n\nconsole.log(weakmap1.has(object2));\n// Expected output: false",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/WeakMap/has"
+    },
+    "set": {
+      "explain": "El método set() añade un nuevo elemento con su key y value específicos al objeto WeakMap.",
+      "code": "const weakmap1 = new WeakMap();\nconst object1 = {};\nconst object2 = {};\n\nweakmap1.set(object1, 'foo');\nweakmap1.set(object2, 'bar');\n\nconsole.log(weakmap1.get(object1));\n// Expected output: \"foo\"\n\nconsole.log(weakmap1.get(object2));\n// Expected output: \"bar\"",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/WeakMap/set"
+    }
   },
   "weakset": {
-    "add": {},
-    "delete": {},
-    "has": {}
+    "add": {
+      "explain": "The add() method appends a new object to the end of a WeakSet object.",
+      "code": "const weakset1 = new WeakSet();\nconst object1 = {};\n\nweakset1.add(object1);\nconsole.log(weakset1.has(object1));\n// Expected output: true\n\ntry {\nweakset1.add(1);\n} catch (error) {\nconsole.log(error);\n// Expected output (Chrome): TypeError: Invalid value used in weak set\n// Expected output (Firefox): TypeError: WeakSet value must be an object, got 1\n// Expected output (Safari): TypeError: Attempted to add a non-object key to a WeakSet\n}",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet/add"
+    },
+    "delete": {
+      "explain": "The delete() method removes the specified element from a WeakSet object.",
+      "code": "const weakset1 = new WeakSet();\nconst object1 = {};\n\nweakset1.add(object1);\n\nconsole.log(weakset1.has(object1));\n// Expected output: true\n\nweakset1.delete(object1);\n\nconsole.log(weakset1.has(object1));\n// Expected output: false",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet/delete"
+    },
+    "has": {
+      "explain": "The has() method returns a boolean indicating whether an object exists in a WeakSet or not.",
+      "code": "const weakset1 = new WeakSet();\nconst object1 = {};\nconst object2 = {};\n\nweakset1.add(object1);\n\nconsole.log(weakset1.has(object1));\n// Expected output: true\n\nconsole.log(weakset1.has(object2));\n// Expected output: false",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet/has"
+    }
   },
   "intl": {
-    "collator": {},
-    "datetimeformat": {},
-    "numberformat": {},
-    "getcanonicallocales": {},
-    "pluralrules": {},
-    "relativetimeformat": {}
+    "collator": {
+      "explain": "The Intl.Collator object enables language-sensitive string comparison.",
+      "code": "console.log(['Z', 'a', 'z', 'ä'].sort(new Intl.Collator('de').compare));\n// Expected output: Array [\"a\", \"ä\", \"z\", \"Z\"]\n\nconsole.log(['Z', 'a', 'z', 'ä'].sort(new Intl.Collator('sv').compare));\n// Expected output: Array [\"a\", \"z\", \"Z\", \"ä\"]\n\nconsole.log(['Z', 'a', 'z', 'ä'].sort(new Intl.Collator('de', { caseFirst: 'upper' } ).compare));\n// Expected output: Array [\"a\", \"ä\", \"Z\", \"z\"]",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Collator"
+    },
+    "datetimeformat": {
+      "explain": "The Intl.DateTimeFormat object enables language-sensitive date and time formatting.",
+      "code": "const date = new Date(Date.UTC(2020, 11, 20, 3, 23, 16, 738));\n// Results below assume UTC timezone - your results may vary\n\n// Specify default date formatting for language (locale)\nconsole.log(new Intl.DateTimeFormat('en-US').format(date));\n// Expected output: \"12/20/2020\"\n\n// Specify default date formatting for language with a fallback language (in this case Indonesian)\nconsole.log(new Intl.DateTimeFormat(['ban', 'id']).format(date));\n// Expected output: \"20/12/2020\"\n\n// Specify date and time format using \"style\" options (i.e. full, long, medium, short)\nconsole.log(new Intl.DateTimeFormat('en-GB', { dateStyle: 'full', timeStyle: 'long', timeZone: 'Australia/Sydney' }).format(date));\n// Expected output: \"Sunday, 20 December 2020 at 14:23:16 GMT+11\"",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat"
+    },
+    "numberformat": {
+      "explain": "The Intl.NumberFormat object enables language-sensitive number formatting.",
+      "code": "const number = 123456.789;\n\nconsole.log(new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(number));\n// Expected output: \"123.456,79 €\"\n\n// The Japanese yen doesn't use a minor unit\nconsole.log(new Intl.NumberFormat('ja-JP', { style: 'currency', currency: 'JPY' }).format(number));\n// Expected output: \"￥123,457\"\n\n// Limit to three significant digits\nconsole.log(new Intl.NumberFormat('en-IN', { maximumSignificantDigits: 3 }).format(number));\n// Expected output: \"1,23,000\"",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat"
+    },
+    "getcanonicallocales": {
+      "explain": "The Intl.getCanonicalLocales() static method returns an array containing the canonical locale names. Duplicates will be omitted and elements will be validated as structurally valid language tags.",
+      "code": "console.log(Intl.getCanonicalLocales('EN-US'));\n// Expected output: Array [\"en-US\"]\n\nconsole.log(Intl.getCanonicalLocales(['EN-US', 'Fr']));\n// Expected output: Array [\"en-US\", \"fr\"]\n\ntry {\nIntl.getCanonicalLocales('EN_US');\n} catch (err) {\nconsole.log(err.toString());\n// Expected output: RangeError: invalid language tag: EN_US\n}",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/getCanonicalLocales"
+    },
+    "pluralrules": {
+      "explain": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/getCanonicalLocales",
+      "code": "// Arabic has different plural rules\n\nnew Intl.PluralRules(\"ar-EG\").select(0);\n// → 'zero'\nnew Intl.PluralRules(\"ar-EG\").select(1);\n// → 'one'\nnew Intl.PluralRules(\"ar-EG\").select(2);\n// → 'two'\nnew Intl.PluralRules(\"ar-EG\").select(6);\n// → 'few'\nnew Intl.PluralRules(\"ar-EG\").select(18);\n// → 'many",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules"
+    },
+    "relativetimeformat": {
+      "explain": "The Intl.RelativeTimeFormat object enables language-sensitive relative time formatting.",
+      "code": "const rtf1 = new Intl.RelativeTimeFormat('en', { style: 'narrow' });\n\nconsole.log(rtf1.format(3, 'quarter'));\n// Expected output: \"in 3 qtrs.\"\n\nconsole.log(rtf1.format(-1, 'day'));\n// Expected output: \"1 day ago\"\n\nconst rtf2 = new Intl.RelativeTimeFormat('es', { numeric: 'auto' });\n\nconsole.log(rtf2.format(2, 'day'));\n// Expected output: \"pasado mañana\"",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat"
+    }
   },
   "symbol": {
-    "for": {},
-    "keyfor": {},
-    "description": {},
-    "symboltoprimitive": {},
-    "symboltostringtag": {},
-    "symbolunscopables": {}
+    "for": {
+      "explain": "El método Symbol.for(key) busca los símbolos existentes en un registro de símbolos en tiempo de ejecución con la clave dada y lo devuelve si lo encuentra. En caso contrario, se crea un nuevo símbolo en el registro global de símbolos con esta clave.",
+      "code": "console.log(Symbol.for('bar') === Symbol.for('bar'));\n// Expected output: true\n\nconsole.log(Symbol('bar') === Symbol('bar'));\n// Expected output: false\n\nconst symbol1 = Symbol.for('foo');\n\nconsole.log(symbol1.toString());\n// Expected output: \"Symbol(foo)\"",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Symbol/for"
+    },
+    "keyfor": {
+      "explain": "El método Symbol.keyFor(sym) recupera la clave de símbolo compartida del símbolo pasado como argumento desde el registro global de símbolos.",
+      "code": "const globalSym = Symbol.for('foo'); // Global symbol\n\nconsole.log(Symbol.keyFor(globalSym));\n// Expected output: \"foo\"\n\nconst localSym = Symbol(); // Local symbol\n\nconsole.log(Symbol.keyFor(localSym));\n// Expected output: undefined\n\nconsole.log(Symbol.keyFor(Symbol.iterator));\n// Expected output: undefined",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Symbol/keyFor"
+    },
+    "description": {
+      "explain": "La propiedad description de sólo lectura es una cadena que devuelve la descripción opcional de los objetos Symbol.",
+      "code": "console.log(Symbol('desc').description);\n// Expected output: \"desc\"\n\nconsole.log(Symbol.iterator.description);\n// Expected output: \"Symbol.iterator\"\n\nconsole.log(Symbol.for('foo').description);\n// Expected output: \"foo\"\n\nconsole.log(`${Symbol('foo').description}bar`);\n// Expected output: \"foobar\"",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Symbol/description"
+    },
+    "symboltoprimitive": {
+      "explain": "El Symbol.toPrimitive es un símbolo que especifica una propiedad con valor de función que se llama para convertir un objeto en un valor primitivo correspondiente.",
+      "code": "const object1 = {\n[Symbol.toPrimitive](hint) {\nif (hint === 'number') {\nreturn 42;\n}\nreturn null;\n}\n};\n\nconsole.log(+object1);\n// Expected output: 42",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toPrimitive"
+    },
+    "symboltostringtag": {
+      "explain": "El símbolo conocido como Symbol.toStringTag es una propiedad con valor de cadena que se utiliza en la creación de la descripción de cadena por defecto de un objeto. Se accede a ella internamente mediante el método Object.prototype.toString().",
+      "code": "class ValidatorClass {\nget [Symbol.toStringTag]() {\nreturn 'Validator';\n}\n}\n\nconsole.log(Object.prototype.toString.call(new ValidatorClass()));\n// Expected output: \"[object Validator]\"",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toStringTag"
+    },
+    "symbolunscopables": {
+      "explain": "El símbolo conocido como Symbol.unscopables se utiliza para especificar un valor de objeto cuyos nombres de propiedades propias y heredadas se excluyen de los enlaces de entorno with (en-US) del objeto asociado.",
+      "code": "const object1 = {\nproperty1: 42\n};\n\nobject1[Symbol.unscopables] = {\nproperty1: true\n};\n\nwith (object1) {\nconsole.log(property1);\n// Expected output: Error: property1 is not defined\n}",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Symbol/unscopables"
+    }
   },
   "regexp": {
-    "exec": {},
-    "test": {},
-    "compile": {},
-    "flags": {},
-    "global": {},
-    "ignoreCase": {},
-    "multiline": {},
-    "source": {},
-    "sticky": {},
-    "unicode": {}
+    "exec": {
+      "explain": "El método exec() ejecuta una busqueda sobre las coincidencias de una expresión regular en una cadena especifica. Devuelve el resultado como array, o null.",
+      "code": "// Busca \"quick brown\" seguido de \"jumps\", ignorando los caracteres que se\n// encuentren entre medias.\n// Recuerda \"brown\" y \"jumps\"\n// Ignora mayusculas y minusculas\nvar re = /quick\\s(brown).+?(jumps)/ig;\nvar result = re.exec('The Quick Brown Fox Jumps Over The Lazy Dog');",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/RegExp/exec"
+    },
+    "test": {
+      "explain": "El método test() ejecuta la búsqueda de una ocurrencia entre una expresión regular y una cadena especificada. Devuelve true o false.",
+      "code": "Ejemplo simple que prueba si \"hello\" está contenido al principio de una cadena y devuelve un valor booleano.\n\nvar cadena = \"hello world!\";\nvar result = /^hello/.test(cadena);\nconsole.log(result); // true",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/RegExp/test"
+    },
+    "compile": {
+      "explain": "Obsoleto: Esta característica ya no se recomienda. Aunque es posible que algunos navegadores aún lo admitan, probablemente ya se ha eliminado de los estándares web relevantes, está en proceso de eliminación o solo se conserva por motivos de compatibilidad. Evite usarlo y actualice el código existente si es posible; consulte la tabla de compatibilidad en la parte inferior de esta página para orientar su decisión. Tenga en cuenta que esta característica puede dejar de funcionar en cualquier momento.",
+      "code": "var regexObj = new RegExp('foo', 'gi');\nregexObj.compile('new foo', 'g');",
+      "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/RegExp/compile"
+    },
+    "flags": {
+      "explain": "The flags accessor property represents the flags of the current regular expression object.",
+      "code": "// Outputs RegExp flags in alphabetical order\n\nconsole.log(/foo/ig.flags);\n// Expected output: \"gi\"\n\nconsole.log(/bar/myu.flags);\n// Expected output: \"muy\"",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/flags"
+    },
+    "global": {
+      "explain": "The global accessor property indicates whether or not the g flag is used with the regular expression.",
+      "code": "const regex1 = new RegExp('foo', 'g');\n\nconsole.log(regex1.global);\n// Expected output: true\n\nconst regex2 = new RegExp('bar', 'i');\n\nconsole.log(regex2.global);\n// Expected output: false",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/global"
+    },
+    "ignoreCase": {
+      "explain": "The ignoreCase accessor property indicates whether or not the i flag is used with the regular expression.",
+      "code": "const regex1 = new RegExp('foo');\nconst regex2 = new RegExp('foo', 'i');\n\nconsole.log(regex1.test('Football'));\n// Expected output: false\n\nconsole.log(regex2.ignoreCase);\n// Expected output: true\n\nconsole.log(regex2.test('Football'));\n// Expected output: true",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/ignoreCase"
+    },
+    "multiline": {
+      "explain": "The multiline accessor property indicates whether or not the m flag is used with the regular expression.\n",
+      "code": "const regex1 = new RegExp('^football');\nconst regex2 = new RegExp('^football', 'm');\n\nconsole.log(regex1.multiline);\n// Expected output: false\n\nconsole.log(regex2.multiline);\n// Expected output: true\n\nconsole.log(regex1.test('rugby\\nfootball'));\n// Expected output: false\n\nconsole.log(regex2.test('rugby\\nfootball'));\n// Expected output: true",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/multiline"
+    },
+    "source": {
+      "explain": "The source accessor property is a string containing the source text of the regex object, without the two forward slashes on both sides or any flags.",
+      "code": "const regex1 = /fooBar/ig;\n\nconsole.log(regex1.source);\n// Expected output: \"fooBar\"\n\nconsole.log(new RegExp().source);\n// Expected output: \"(?:)\"\n\nconsole.log(new RegExp('\\n').source === '\\\\n');\n// Expected output: true (starting with ES5)\n// Due to escaping",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/source"
+    },
+    "sticky": {
+      "explain": "The sticky accessor property indicates whether or not the y flag is used with the regular expression.\n",
+      "code": "const str1 = 'table football';\nconst regex1 = new RegExp('foo', 'y');\n\nregex1.lastIndex = 6;\n\nconsole.log(regex1.sticky);\n// Expected output: true\n\nconsole.log(regex1.test(str1));\n// Expected output: true\n\nconsole.log(regex1.test(str1));\n// Expected output: false",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/sticky"
+    },
+    "unicode": {
+      "explain": "The unicode accessor property indicates whether or not the u flag is used with the regular expression.",
+      "code": "const regex1 = new RegExp('\\u{61}');\nconst regex2 = new RegExp('\\u{61}', 'u');\n\nconsole.log(regex1.unicode);\n// Expected output: false\n\nconsole.log(regex2.unicode);\n// Expected output: true\n\nconsole.log(regex1.source);\n// Expected output: \"a\"\n\nconsole.log(regex2.source);\n// Expected output: \"a\"",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode"
+    }
   }
 }

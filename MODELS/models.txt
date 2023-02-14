@@ -3124,15 +3124,152 @@ link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Ob
         }
     }
     regexp:{
-        exec:{}
-        test:{}
-        compile:{}
-        flags:{}
-        global:{}
-        ignoreCase:{}
-        multiline:{}
-        source:{}
-        sticky:{}
-        unicode:{}
+        exec:{
+            explain:'''El método exec() ejecuta una busqueda sobre las coincidencias de una expresión regular en una cadena especifica. Devuelve el resultado como array, o null.'''
+            code:'''// Busca "quick brown" seguido de "jumps", ignorando los caracteres que se
+// encuentren entre medias.
+// Recuerda "brown" y "jumps"
+// Ignora mayusculas y minusculas
+var re = /quick\s(brown).+?(jumps)/ig;
+var result = re.exec('The Quick Brown Fox Jumps Over The Lazy Dog');
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/RegExp/exec'''
+        }
+        test:{
+            explain:'''El método test() ejecuta la búsqueda de una ocurrencia entre una expresión regular y una cadena especificada. Devuelve true o false.'''
+            code:'''Ejemplo simple que prueba si "hello" está contenido al principio de una cadena y devuelve un valor booleano.
+
+var cadena = "hello world!";
+var result = /^hello/.test(cadena);
+console.log(result); // true
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/RegExp/test'''        }
+        compile:{
+            explain:'''Obsoleto: Esta característica ya no se recomienda. Aunque es posible que algunos navegadores aún lo admitan, probablemente ya se ha eliminado de los estándares web relevantes, está en proceso de eliminación o solo se conserva por motivos de compatibilidad. Evite usarlo y actualice el código existente si es posible; consulte la tabla de compatibilidad en la parte inferior de esta página para orientar su decisión. Tenga en cuenta que esta característica puede dejar de funcionar en cualquier momento.'''
+            code:'''var regexObj = new RegExp('foo', 'gi');
+regexObj.compile('new foo', 'g');
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/RegExp/compile'''
+        }
+        flags:{
+            explain:'''The flags accessor property represents the flags of the current regular expression object.'''
+            code:'''// Outputs RegExp flags in alphabetical order
+
+console.log(/foo/ig.flags);
+// Expected output: "gi"
+
+console.log(/bar/myu.flags);
+// Expected output: "muy"
+'''
+link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/flags'''
+        }
+        global:{
+            explain:'''The global accessor property indicates whether or not the g flag is used with the regular expression.'''
+            code:'''const regex1 = new RegExp('foo', 'g');
+
+console.log(regex1.global);
+// Expected output: true
+
+const regex2 = new RegExp('bar', 'i');
+
+console.log(regex2.global);
+// Expected output: false
+'''
+link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/global'''
+        }
+        ignoreCase:{
+            explain:'''The ignoreCase accessor property indicates whether or not the i flag is used with the regular expression.'''
+            code:'''const regex1 = new RegExp('foo');
+const regex2 = new RegExp('foo', 'i');
+
+console.log(regex1.test('Football'));
+// Expected output: false
+
+console.log(regex2.ignoreCase);
+// Expected output: true
+
+console.log(regex2.test('Football'));
+// Expected output: true
+'''
+link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/ignoreCase'''
+        }
+        multiline:{
+            explain:'''The multiline accessor property indicates whether or not the m flag is used with the regular expression.
+
+'''
+code:'''const regex1 = new RegExp('^football');
+const regex2 = new RegExp('^football', 'm');
+
+console.log(regex1.multiline);
+// Expected output: false
+
+console.log(regex2.multiline);
+// Expected output: true
+
+console.log(regex1.test('rugby\nfootball'));
+// Expected output: false
+
+console.log(regex2.test('rugby\nfootball'));
+// Expected output: true
+'''
+link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/multiline'''
+
+        }
+        source:{
+            explain:'''The source accessor property is a string containing the source text of the regex object, without the two forward slashes on both sides or any flags.'''
+            code:'''const regex1 = /fooBar/ig;
+
+console.log(regex1.source);
+// Expected output: "fooBar"
+
+console.log(new RegExp().source);
+// Expected output: "(?:)"
+
+console.log(new RegExp('\n').source === '\\n');
+// Expected output: true (starting with ES5)
+// Due to escaping
+'''
+link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/source'''
+
+        }
+        sticky:{
+            explain:'''The sticky accessor property indicates whether or not the y flag is used with the regular expression.
+
+'''
+code:'''const str1 = 'table football';
+const regex1 = new RegExp('foo', 'y');
+
+regex1.lastIndex = 6;
+
+console.log(regex1.sticky);
+// Expected output: true
+
+console.log(regex1.test(str1));
+// Expected output: true
+
+console.log(regex1.test(str1));
+// Expected output: false
+'''
+link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/sticky'''
+        }
+        unicode:{
+            explain:'''The unicode accessor property indicates whether or not the u flag is used with the regular expression.'''
+            code:'''const regex1 = new RegExp('\u{61}');
+const regex2 = new RegExp('\u{61}', 'u');
+
+console.log(regex1.unicode);
+// Expected output: false
+
+console.log(regex2.unicode);
+// Expected output: true
+
+console.log(regex1.source);
+// Expected output: "a"
+
+console.log(regex2.source);
+// Expected output: "a"
+'''
+link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode'''
+        }
     }
 }
