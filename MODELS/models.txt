@@ -2515,28 +2515,296 @@ for (const entry of iterator1) {
 '''
 link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Set/entries'''
         }
-        forEach:{}
-        has:{}
-        values:{}
-        size:{}
-        keys:{}
-        symboliterator:{}
-        symboltostringtag:{}
+        forEach:{
+            explain:'''The forEach() method executes a provided function once for each value in the Set object, in insertion order.'''
+            code:'''function logSetElements(value1, value2, set) {
+  console.log(`s[${value1}] = ${value2}`);
+}
+
+new Set(['foo', 'bar', undefined]).forEach(logSetElements);
+
+// Expected output: "s[foo] = foo"
+// Expected output: "s[bar] = bar"
+// Expected output: "s[undefined] = undefined"
+'''
+link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/forEach'''
+        }
+        has:{
+            explain:'''El método has() retorna un booleano indicando si el elemento especificado existe en el objeto Set o no.
+
+'''
+code:'''var mySet = new Set();
+mySet.add("foo");
+
+mySet.has("foo");  // retorna true
+mySet.has("bar");  // retorna false
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Set/has'''
+        }
+        values:{
+            explain:'''El método values() retorna un objeto de tipo Iterator que contiene los valores para cada elemento en el objecto Set en orden de inserción.'''
+            code:'''const set1 = new Set();
+set1.add(42);
+set1.add('forty two');
+
+const iterator1 = set1.values();
+
+console.log(iterator1.next().value);
+// Expected output: 42
+
+console.log(iterator1.next().value);
+// Expected output: "forty two"
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Set/values'''
+        }
+        size:{
+            explain:'''La propiedad de acceso size devuelve el número de elementos que hay en el objeto Set.
+
+'''
+code:'''var mySet = new Set();
+mySet.add(1);
+mySet.add(5);
+mySet.add("un texto")
+
+mySet.size; // 3
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Set/size'''
+        }
+        keys:{
+            explain:'''The keys() method is an alias for the values() method.'''
+            code:'''Syntax
+keys()
+'''
+link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/keys'''
+        }
     }
     reflect:{
-        apply:{}
-        construct:{}
-        defineproperty:{}
-        deleteproperty:{}
-        get:{}
-        getownpropertydescriptor:{}
-        getprototypeof:{}
-        has:{}
-        isextensible:{}
-        ownkeys:{}
-        preventextensions:{}
-        set:{}
-        setprototypeof:{}
+        apply:{
+            explain:'''The Reflect.apply() static method calls a target function with arguments as specified.'''
+            code:'''console.log(Reflect.apply(Math.floor, undefined, [1.75]));
+// Expected output: 1
+
+console.log(Reflect.apply(String.fromCharCode, undefined, [104, 101, 108, 108, 111]));
+// Expected output: "hello"
+
+console.log(Reflect.apply(RegExp.prototype.exec, /ab/, ['confabulation']).index);
+// Expected output: 4
+
+console.log(Reflect.apply(''.charAt, 'ponies', [3]));
+// Expected output: "i"
+'''
+link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect/apply'''
+        }
+        construct:{
+            explain:'''The Reflect.construct() static method acts like the new operator, but as a function. It is equivalent to calling new target(...args). It gives also the added option to specify a different prototype.'''
+            code:'''function func1(a, b, c) {
+  this.sum = a + b + c;
+}
+
+const args = [1, 2, 3];
+const object1 = new func1(...args);
+const object2 = Reflect.construct(func1, args);
+
+console.log(object2.sum);
+// Expected output: 6
+
+console.log(object1.sum);
+// Expected output: 6
+'''
+link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect/construct'''
+        }
+        defineproperty:{
+            explain:'''The Reflect.defineProperty() static method is like Object.defineProperty() but returns a Boolean.
+
+'''
+code:'''const object1 = {};
+
+if (Reflect.defineProperty(object1, 'property1', { value: 42 })) {
+  console.log('property1 created!');
+  // Expected output: "property1 created!"
+} else {
+  console.log('problem creating property1');
+}
+
+console.log(object1.property1);
+// Expected output: 42
+'''
+link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect/defineProperty'''
+
+        }
+        deleteproperty:{
+            explain:'''The Reflect.deleteProperty() static method allows to delete properties. It is like the delete operator as a function.
+
+'''
+code:'''const object1 = {
+  property1: 42
+};
+
+Reflect.deleteProperty(object1, 'property1');
+
+console.log(object1.property1);
+// Expected output: undefined
+
+const array1 = [1, 2, 3, 4, 5];
+Reflect.deleteProperty(array1, '3');
+
+console.log(array1);
+// Expected output: Array [1, 2, 3, undefined, 5]
+'''
+link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect/deleteProperty'''
+        }
+        get:{
+            explain:'''The Reflect.get() static method works like getting a property from an object (target[propertyKey]) as a function.'''
+            code:'''const object1 = {
+  x: 1,
+  y: 2
+};
+
+console.log(Reflect.get(object1, 'x'));
+// Expected output: 1
+
+const array1 = ['zero', 'one'];
+
+console.log(Reflect.get(array1, 1));
+// Expected output: "one"
+'''
+link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect/get'''
+        }
+        getownpropertydescriptor:{
+            explain:'''The Reflect.getOwnPropertyDescriptor() static method is similar to Object.getOwnPropertyDescriptor(). It returns a property descriptor of the given property if it exists on the object, undefined otherwise.
+
+'''
+code:'''const object1 = {
+  property1: 42
+};
+
+console.log(Reflect.getOwnPropertyDescriptor(object1, 'property1').value);
+// Expected output: 42
+
+console.log(Reflect.getOwnPropertyDescriptor(object1, 'property2'));
+// Expected output: undefined
+
+console.log(Reflect.getOwnPropertyDescriptor(object1, 'property1').writable);
+// Expected output: true
+'''
+link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect/getOwnPropertyDescriptor'''
+        }
+        getprototypeof:{
+            explain:'''The Reflect.getPrototypeOf() static method is almost the same method as Object.getPrototypeOf(). It returns the prototype (i.e. the value of the internal [[Prototype]] property) of the specified object.'''
+            code:'''const object1 = {
+  property1: 42
+};
+
+const proto1 = Reflect.getPrototypeOf(object1);
+
+console.log(proto1);
+// Expected output: Object {  }
+
+console.log(Reflect.getPrototypeOf(proto1));
+// Expected output: null
+'''
+link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect/getPrototypeOf'''
+        }
+        has:{
+            explain:'''The Reflect.has() static method works like the in operator as a function.'''
+            code:'''const object1 = {
+  property1: 42
+};
+
+console.log(Reflect.has(object1, 'property1'));
+// Expected output: true
+
+console.log(Reflect.has(object1, 'property2'));
+// Expected output: false
+
+console.log(Reflect.has(object1, 'toString'));
+// Expected output: true
+'''
+link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect/has'''
+        }
+        isextensible:{
+            explain:'''The Reflect.isExtensible() static method determines if an object is extensible (whether it can have new properties added to it). It is similar to Object.isExtensible(), but with some differences.'''
+            code:'''const object1 = {};
+
+console.log(Reflect.isExtensible(object1));
+// Expected output: true
+
+Reflect.preventExtensions(object1);
+
+console.log(Reflect.isExtensible(object1));
+// Expected output: false
+
+const object2 = Object.seal({});
+
+console.log(Reflect.isExtensible(object2));
+// Expected output: false
+'''
+link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect/isExtensible'''
+        }
+        ownkeys:{
+            explain:'''The Reflect.ownKeys() static method returns an array of the target object's own property keys.'''
+            code:'''const object1 = {
+  property1: 42,
+  property2: 13
+};
+
+const array1 = [];
+
+console.log(Reflect.ownKeys(object1));
+// Expected output: Array ["property1", "property2"]
+
+console.log(Reflect.ownKeys(array1));
+// Expected output: Array ["length"]
+'''
+link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect/ownKeys'''
+                    }
+        preventextensions:{
+            explain:'''The Reflect.preventExtensions() static method prevents new properties from ever being added to an object (i.e., prevents future extensions to the object). It is similar to Object.preventExtensions(), but with some differences.'''
+            code:'''const object1 = {};
+
+console.log(Reflect.isExtensible(object1));
+// Expected output: true
+
+Reflect.preventExtensions(object1);
+
+console.log(Reflect.isExtensible(object1));
+// Expected output: false
+'''
+link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect/preventExtensions'''
+        }
+        set:{
+            explain:'''The Reflect.set() static method works like setting a property on an object.'''
+            code:'''const object1 = {};
+Reflect.set(object1, 'property1', 42);
+
+console.log(object1.property1);
+// Expected output: 42
+
+const array1 = ['duck', 'duck', 'duck'];
+Reflect.set(array1, 2, 'goose');
+
+console.log(array1[2]);
+// Expected output: "goose"
+'''
+link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect/set'''
+        }
+        setprototypeof:{
+            explain:'''The Reflect.setPrototypeOf() static method is the same method as Object.setPrototypeOf(), except for its return type. It sets the prototype (i.e., the internal [[Prototype]] property) of a specified object to another object or to null, and returns true if the operation was successful, or false otherwise.'''
+            code:'''const object1 = {};
+
+console.log(Reflect.setPrototypeOf(object1, Object.prototype));
+// Expected output: true
+
+console.log(Reflect.setPrototypeOf(object1, null));
+// Expected output: true
+
+const object2 = {};
+
+console.log(Reflect.setPrototypeOf(Object.freeze(object2), null));
+// Expected output: false
+'''
+link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect/setPrototypeOf'''
+        }
     }
     weakmap:{
         delete:{}
