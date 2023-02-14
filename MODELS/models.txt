@@ -2926,12 +2926,106 @@ link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global
         }
     }
     intl:{
-        collator:{}
-        datetimeformat:{}
-        numberformat:{}
-        getcanonicallocales:{}
-        pluralrules:{}
-        relativetimeformat:{}
+        collator:{
+            explain:'''The Intl.Collator object enables language-sensitive string comparison.'''
+            code:'''console.log(['Z', 'a', 'z', 'ä'].sort(new Intl.Collator('de').compare));
+// Expected output: Array ["a", "ä", "z", "Z"]
+
+console.log(['Z', 'a', 'z', 'ä'].sort(new Intl.Collator('sv').compare));
+// Expected output: Array ["a", "z", "Z", "ä"]
+
+console.log(['Z', 'a', 'z', 'ä'].sort(new Intl.Collator('de', { caseFirst: 'upper' } ).compare));
+// Expected output: Array ["a", "ä", "Z", "z"]
+'''
+link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Collator'''
+
+        }
+        datetimeformat:{
+            explain:'''The Intl.DateTimeFormat object enables language-sensitive date and time formatting.'''
+            code:'''const date = new Date(Date.UTC(2020, 11, 20, 3, 23, 16, 738));
+// Results below assume UTC timezone - your results may vary
+
+// Specify default date formatting for language (locale)
+console.log(new Intl.DateTimeFormat('en-US').format(date));
+// Expected output: "12/20/2020"
+
+// Specify default date formatting for language with a fallback language (in this case Indonesian)
+console.log(new Intl.DateTimeFormat(['ban', 'id']).format(date));
+// Expected output: "20/12/2020"
+
+// Specify date and time format using "style" options (i.e. full, long, medium, short)
+console.log(new Intl.DateTimeFormat('en-GB', { dateStyle: 'full', timeStyle: 'long', timeZone: 'Australia/Sydney' }).format(date));
+// Expected output: "Sunday, 20 December 2020 at 14:23:16 GMT+11"
+'''
+link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat'''
+        }
+        numberformat:{
+            explain:'''The Intl.NumberFormat object enables language-sensitive number formatting.'''
+            code:'''const number = 123456.789;
+
+console.log(new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(number));
+// Expected output: "123.456,79 €"
+
+// The Japanese yen doesn't use a minor unit
+console.log(new Intl.NumberFormat('ja-JP', { style: 'currency', currency: 'JPY' }).format(number));
+// Expected output: "￥123,457"
+
+// Limit to three significant digits
+console.log(new Intl.NumberFormat('en-IN', { maximumSignificantDigits: 3 }).format(number));
+// Expected output: "1,23,000"
+'''
+link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat'''
+        }
+        getcanonicallocales:{
+            explain:'''The Intl.getCanonicalLocales() static method returns an array containing the canonical locale names. Duplicates will be omitted and elements will be validated as structurally valid language tags.'''
+            code:'''console.log(Intl.getCanonicalLocales('EN-US'));
+// Expected output: Array ["en-US"]
+
+console.log(Intl.getCanonicalLocales(['EN-US', 'Fr']));
+// Expected output: Array ["en-US", "fr"]
+
+try {
+  Intl.getCanonicalLocales('EN_US');
+} catch (err) {
+  console.log(err.toString());
+  // Expected output: RangeError: invalid language tag: EN_US
+}
+'''
+link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/getCanonicalLocales'''
+        }
+        pluralrules:{
+            explain:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/getCanonicalLocales'''
+            code:'''// Arabic has different plural rules
+
+new Intl.PluralRules("ar-EG").select(0);
+// → 'zero'
+new Intl.PluralRules("ar-EG").select(1);
+// → 'one'
+new Intl.PluralRules("ar-EG").select(2);
+// → 'two'
+new Intl.PluralRules("ar-EG").select(6);
+// → 'few'
+new Intl.PluralRules("ar-EG").select(18);
+// → 'many'''
+link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules'''
+        }
+        relativetimeformat:{
+            explain:'''The Intl.RelativeTimeFormat object enables language-sensitive relative time formatting.'''
+            code:'''const rtf1 = new Intl.RelativeTimeFormat('en', { style: 'narrow' });
+
+console.log(rtf1.format(3, 'quarter'));
+// Expected output: "in 3 qtrs."
+
+console.log(rtf1.format(-1, 'day'));
+// Expected output: "1 day ago"
+
+const rtf2 = new Intl.RelativeTimeFormat('es', { numeric: 'auto' });
+
+console.log(rtf2.format(2, 'day'));
+// Expected output: "pasado mañana"
+'''
+link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat'''
+        }
         
     }
     symbol:{
