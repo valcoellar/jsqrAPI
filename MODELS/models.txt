@@ -3029,12 +3029,99 @@ link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global
         
     }
     symbol:{
-        for:{}
-        keyfor:{}
-        description:{}
-        symboltoprimitive:{}
-        symboltostringtag:{}
-        symbolunscopables:{}
+        for:{
+            explain:'''El método Symbol.for(key) busca los símbolos existentes en un registro de símbolos en tiempo de ejecución con la clave dada y lo devuelve si lo encuentra. En caso contrario, se crea un nuevo símbolo en el registro global de símbolos con esta clave.'''
+            code:'''console.log(Symbol.for('bar') === Symbol.for('bar'));
+// Expected output: true
+
+console.log(Symbol('bar') === Symbol('bar'));
+// Expected output: false
+
+const symbol1 = Symbol.for('foo');
+
+console.log(symbol1.toString());
+// Expected output: "Symbol(foo)"
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Symbol/for'''
+        }
+        keyfor:{
+            explain:'''El método Symbol.keyFor(sym) recupera la clave de símbolo compartida del símbolo pasado como argumento desde el registro global de símbolos.'''
+            code:'''const globalSym = Symbol.for('foo'); // Global symbol
+
+console.log(Symbol.keyFor(globalSym));
+// Expected output: "foo"
+
+const localSym = Symbol(); // Local symbol
+
+console.log(Symbol.keyFor(localSym));
+// Expected output: undefined
+
+console.log(Symbol.keyFor(Symbol.iterator));
+// Expected output: undefined
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Symbol/keyFor'''
+        }
+        description:{
+            explain:'''La propiedad description de sólo lectura es una cadena que devuelve la descripción opcional de los objetos Symbol.'''
+            code:'''console.log(Symbol('desc').description);
+// Expected output: "desc"
+
+console.log(Symbol.iterator.description);
+// Expected output: "Symbol.iterator"
+
+console.log(Symbol.for('foo').description);
+// Expected output: "foo"
+
+console.log(`${Symbol('foo').description}bar`);
+// Expected output: "foobar"'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Symbol/description'''
+        }
+        symboltoprimitive:{
+            explain:'''El Symbol.toPrimitive es un símbolo que especifica una propiedad con valor de función que se llama para convertir un objeto en un valor primitivo correspondiente.'''
+            code:'''const object1 = {
+  [Symbol.toPrimitive](hint) {
+    if (hint === 'number') {
+      return 42;
+    }
+    return null;
+  }
+};
+
+console.log(+object1);
+// Expected output: 42
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toPrimitive'''
+        }
+        symboltostringtag:{
+            explain:'''El símbolo conocido como Symbol.toStringTag es una propiedad con valor de cadena que se utiliza en la creación de la descripción de cadena por defecto de un objeto. Se accede a ella internamente mediante el método Object.prototype.toString().'''
+            code:'''class ValidatorClass {
+  get [Symbol.toStringTag]() {
+    return 'Validator';
+  }
+}
+
+console.log(Object.prototype.toString.call(new ValidatorClass()));
+// Expected output: "[object Validator]"
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toStringTag'''
+        }
+        symbolunscopables:{
+            explain:'''El símbolo conocido como Symbol.unscopables se utiliza para especificar un valor de objeto cuyos nombres de propiedades propias y heredadas se excluyen de los enlaces de entorno with (en-US) del objeto asociado.'''
+            code:'''const object1 = {
+  property1: 42
+};
+
+object1[Symbol.unscopables] = {
+  property1: true
+};
+
+with (object1) {
+  console.log(property1);
+  // Expected output: Error: property1 is not defined
+}
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Symbol/unscopables'''
+        }
     }
     regexp:{
         exec:{}
