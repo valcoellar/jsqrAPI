@@ -2807,15 +2807,123 @@ link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global
         }
     }
     weakmap:{
-        delete:{}
-        get:{}
-        has:{}
-        set:{}
+        delete:{
+            explain:'''El método delete() elimina un elemento específico del objeto WeakMap .
+
+'''
+code:'''var wm = new WeakMap();
+wm.set(window, "foo");
+
+wm.delete(window); // Devuelve true. Eliminado correctamente.
+
+wm.has(window);    // Devuelve false. El elemento window ya no es parte de WeakMap.
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/WeakMap/delete'''
+        }
+        get:{
+            explain:'''El método get() devuelve un elemento específico del objeto WeakMap.'''
+            code:'''const weakmap1 = new WeakMap();
+const object1 = {};
+const object2 = {};
+
+weakmap1.set(object1, 42);
+
+console.log(weakmap1.get(object1));
+// Expected output: 42
+
+console.log(weakmap1.get(object2));
+// Expected output: undefined
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/WeakMap/get'''
+        }
+        has:{
+            explain:'''El método has() devuelve un boleano indicando ya sea, si el elemento con la llave específica existe o no en el objeto WeakMap.'''
+            code:'''const weakmap1 = new WeakMap();
+const object1 = {};
+const object2 = {};
+
+weakmap1.set(object1, 'foo');
+
+console.log(weakmap1.has(object1));
+// Expected output: true
+
+console.log(weakmap1.has(object2));
+// Expected output: false
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/WeakMap/has'''
+        }
+        set:{
+            explain:'''El método set() añade un nuevo elemento con su key y value específicos al objeto WeakMap.'''
+            code:'''const weakmap1 = new WeakMap();
+const object1 = {};
+const object2 = {};
+
+weakmap1.set(object1, 'foo');
+weakmap1.set(object2, 'bar');
+
+console.log(weakmap1.get(object1));
+// Expected output: "foo"
+
+console.log(weakmap1.get(object2));
+// Expected output: "bar"
+'''
+link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/WeakMap/set'''
+        }
     }
     weakset:{
-        add:{}
-        delete:{}
-        has:{}
+        add:{
+            explain:'''The add() method appends a new object to the end of a WeakSet object.'''
+            code:'''const weakset1 = new WeakSet();
+const object1 = {};
+
+weakset1.add(object1);
+console.log(weakset1.has(object1));
+// Expected output: true
+
+try {
+  weakset1.add(1);
+} catch (error) {
+  console.log(error);
+  // Expected output (Chrome): TypeError: Invalid value used in weak set
+  // Expected output (Firefox): TypeError: WeakSet value must be an object, got 1
+  // Expected output (Safari): TypeError: Attempted to add a non-object key to a WeakSet
+}
+'''
+link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet/add'''
+        }
+        delete:{
+            explain:'''The delete() method removes the specified element from a WeakSet object.'''
+            code:'''const weakset1 = new WeakSet();
+const object1 = {};
+
+weakset1.add(object1);
+
+console.log(weakset1.has(object1));
+// Expected output: true
+
+weakset1.delete(object1);
+
+console.log(weakset1.has(object1));
+// Expected output: false
+'''
+link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet/delete'''
+        }
+        has:{
+            explain:'''The has() method returns a boolean indicating whether an object exists in a WeakSet or not.'''
+            code:'''const weakset1 = new WeakSet();
+const object1 = {};
+const object2 = {};
+
+weakset1.add(object1);
+
+console.log(weakset1.has(object1));
+// Expected output: true
+
+console.log(weakset1.has(object2));
+// Expected output: false
+'''
+link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet/has'''
+        }
     }
     intl:{
         collator:{}
