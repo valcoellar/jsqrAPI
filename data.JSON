@@ -198,7 +198,7 @@
       "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/String/localeCompare"
     },
     "match": {
-      "explain": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/String/localeCompare",
+      "explain": "El método match() devuelve todas las ocurrencias de una expresión regular dentro de una cadena.",
       "code": "const paragraph = 'The quick brown fox jumps over the lazy dog. It barked.';\nconst regex = /[A-Z]/g;\nconst found = paragraph.match(regex);\n\nconsole.log(found);\n// Expected output: Array [\"T\", \"I\"]",
       "link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/String/match"
     },

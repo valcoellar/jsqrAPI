@@ -549,7 +549,7 @@ link:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Ob
 
         }
         match:{
-            explain:'''https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/String/localeCompare'''
+            explain:'''El método match() devuelve todas las ocurrencias de una expresión regular dentro de una cadena.'''
             code:'''const paragraph = 'The quick brown fox jumps over the lazy dog. It barked.';
 const regex = /[A-Z]/g;
 const found = paragraph.match(regex);
@@ -3273,3 +3273,4 @@ link:'''https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global
         }
     }
 }
+  
